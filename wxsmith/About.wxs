@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxDialog" name="About">
+		<title>About</title>
+		<size>300,300</size>
+		<focused>1</focused>
+		<pos_arg>1</pos_arg>
+		<size_arg>1</size_arg>
+		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+			<pos>0,0</pos>
+			<size>300,300</size>
+			<style>0</style>
+			<object class="wxButton" name="ID_BUTTON1" variable="Button1" member="yes">
+				<label>OK</label>
+				<pos>112,232</pos>
+				<focused>1</focused>
+				<handler function="OnOKClick" entry="EVT_BUTTON" />
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes">
+				<value>&#x0A;Zuendmodul Konfigurator &#x0A;&#x0A;Version: 0.0 &#x0A;&#x0A;Helge Scheunemann, Sept. 2020&#x0A;&#x0A;Kontakt: zm-mz@scheuni.de</value>
+				<pos>24,40</pos>
+				<size>248,160</size>
+				<style>wxTE_NO_VSCROLL|wxTE_MULTILINE|wxTE_READONLY|wxTE_CENTRE|wxBORDER_SIMPLE</style>
+			</object>
+		</object>
+	</object>
+</wxsmith>
