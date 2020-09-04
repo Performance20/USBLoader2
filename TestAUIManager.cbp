@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TestAUIManager" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/TestAUIManager" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/TestAUIManager" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="`wx-config --cflags`" />
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add option="`wx-config --libs`" />
+		</Linker>
+		<Unit filename="About.cpp" />
+		<Unit filename="About.h" />
+		<Unit filename="TestAUIManagerApp.cpp" />
+		<Unit filename="TestAUIManagerApp.h" />
+		<Unit filename="TestAUIManagerMain.cpp" />
+		<Unit filename="TestAUIManagerMain.h" />
+		<Unit filename="wxsmith/About.wxs" />
+		<Unit filename="wxsmith/TestAUIManagerframe.wxs" />
+		<Extensions>
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="TestAUIManagerApp.cpp" main="TestAUIManagerFrame" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxFrame wxs="wxsmith/TestAUIManagerframe.wxs" src="TestAUIManagerMain.cpp" hdr="TestAUIManagerMain.h" fwddecl="0" i18n="1" name="TestAUIManagerFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/About.wxs" src="About.cpp" hdr="About.h" fwddecl="0" i18n="1" name="About" language="CPP" />
+				</resources>
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
