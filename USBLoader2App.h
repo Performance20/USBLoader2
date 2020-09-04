@@ -14,8 +14,8 @@
 
 class USBLoader2App : public wxApp
 {
-public:
-    virtual bool OnInit();
+    public:
+        virtual bool OnInit();
 };
 
 #endif // USBLoader2APP_H
