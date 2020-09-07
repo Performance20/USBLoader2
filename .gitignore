@@ -34,6 +34,6 @@
 #my
 .vs/
 Debug/
-.vs/USBLoader2/v16/ipch/AutoPCH/b6ff5d3e1dd77a9d/USBLOADER2APP.ipch
-.vs/USBLoader2/v16/Browse.VC.db
-*.db
+bin/
+obj/
+
