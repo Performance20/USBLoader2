@@ -1332,6 +1332,7 @@
 									<object class="sizeritem">
 										<object class="wxTextCtrl" name="ID_TEXTCTRLEchtModus" variable="TextCtrlEchtModus" member="yes">
 											<maxlength>2</maxlength>
+											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
