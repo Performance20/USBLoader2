@@ -2,7 +2,7 @@
 <wxsmith>
 	<object class="wxFrame" name="USBLoader2Frame">
 		<title>Zuendmodul Konfigurator </title>
-		<size>550,700</size>
+		<size>600,700</size>
 		<minsize>500,600</minsize>
 		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
 			<pos>184,200</pos>
@@ -34,6 +34,7 @@
 												<item>Dynamisch nach Tabelle (M4)</item>
 											</content>
 											<default>1</default>
+											<dimension>2</dimension>
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
