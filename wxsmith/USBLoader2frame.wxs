@@ -34,7 +34,6 @@
 												<item>Dynamisch nach Tabelle (M4)</item>
 											</content>
 											<default>1</default>
-											<dimension>4</dimension>
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>

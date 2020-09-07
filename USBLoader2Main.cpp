@@ -238,7 +238,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     	_("Fester ZP von OT mit Starthilfe (M3)"),
     	_("Dynamisch nach Tabelle (M4)")
     };
-    RadioBox1 = new wxRadioBox(PanelBasis, ID_RADIOBOX1, _("Basisfunktion"), wxDefaultPosition, wxDefaultSize, 4, __wxRadioBoxChoices_1, 4, 0, wxDefaultValidator, _T("ID_RADIOBOX1"));
+    RadioBox1 = new wxRadioBox(PanelBasis, ID_RADIOBOX1, _("Basisfunktion"), wxDefaultPosition, wxDefaultSize, 4, __wxRadioBoxChoices_1, 1, 0, wxDefaultValidator, _T("ID_RADIOBOX1"));
     RadioBox1->SetSelection(1);
     BoxSizer2->Add(RadioBox1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText35 = new wxStaticText(PanelBasis, ID_STATICTEXT35, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT35"));
