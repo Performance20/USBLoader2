@@ -58,7 +58,7 @@ class USBLoader2Frame: public wxFrame
         static const long ID_STATICTEXT32;
         static const long ID_STATICTEXT33;
         static const long ID_CHOICE2;
-        static const long ID_PANEL2;
+        static const long ID_PANELBasis;
         static const long ID_STATICTEXT1;
         static const long ID_STATICTEXT6;
         static const long ID_STATICTEXT7;
@@ -142,6 +142,7 @@ class USBLoader2Frame: public wxFrame
         static const long ID_STATICTEXT41;
         static const long ID_PANELEchtWerte;
         static const long ID_NOTEBOOK1;
+        static const long ID_TEXTCTRLLOG;
         static const long ID_PANEL1;
         static const long idMenuQuit;
         static const long idMenuVerbinden;
@@ -158,7 +159,7 @@ class USBLoader2Frame: public wxFrame
         wxNotebook* Notebook1;
         wxPanel* EchtWerte;
         wxPanel* Panel1;
-        wxPanel* Panel2;
+        wxPanel* PanelBasis;
         wxPanel* PanelTB1;
         wxPanel* PanelTB2;
         wxPanel* PanelTB3;
@@ -254,6 +255,7 @@ class USBLoader2Frame: public wxFrame
         wxStaticText* StaticText9;
         wxStatusBar* StatusBar1;
         wxTextCtrl* TextCtrl1;
+        wxTextCtrl* TextCtrlLOG;
         wxTextCtrl* TextCtrlRPM;
         wxTextCtrl* TextCtrlTPR;
         //*)
