@@ -2,8 +2,8 @@
 <wxsmith>
 	<object class="wxFrame" name="USBLoader2Frame">
 		<title>Zuendmodul Konfigurator </title>
-		<size>600,700</size>
-		<minsize>500,600</minsize>
+		<size>580,700</size>
+		<minsize>580,600</minsize>
 		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
 			<pos>184,200</pos>
 			<object class="wxBoxSizer" variable="BoxSizer1" member="no">
@@ -1193,7 +1193,6 @@
 									<cols>3</cols>
 									<rows>6</rows>
 									<vgap>10</vgap>
-									<growablecols>0</growablecols>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT46" variable="StaticText46" member="yes">
 											<label></label>

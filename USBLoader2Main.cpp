@@ -221,8 +221,8 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     wxMenuItem* MenuItem2;
 
     Create(parent, id, _("Zuendmodul Konfigurator "), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
-    SetClientSize(wxSize(600,700));
-    SetMinSize(wxSize(500,600));
+    SetClientSize(wxSize(580,700));
+    SetMinSize(wxSize(580,600));
     Panel1 = new wxPanel(this, ID_PANEL1, wxPoint(184,200), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
     Notebook1 = new wxNotebook(Panel1, ID_NOTEBOOK1, wxDefaultPosition, wxDefaultSize, wxNB_FIXEDWIDTH|wxBORDER_RAISED, _T("ID_NOTEBOOK1"));
@@ -568,7 +568,6 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     GridSizer3->SetSizeHints(PanelTB3);
     EchtWerte = new wxPanel(Notebook1, ID_PANELEchtWerte, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELEchtWerte"));
     FlexGridSizer2 = new wxFlexGridSizer(6, 3, 10, 0);
-    FlexGridSizer2->AddGrowableCol(0);
     StaticText46 = new wxStaticText(EchtWerte, ID_STATICTEXT46, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT46"));
     FlexGridSizer2->Add(StaticText46, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText45 = new wxStaticText(EchtWerte, ID_STATICTEXT45, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT45"));
