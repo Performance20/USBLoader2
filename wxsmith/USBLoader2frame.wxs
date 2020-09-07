@@ -495,7 +495,7 @@
 											<value>7000</value>
 											<max>10000</max>
 											<size>120,30</size>
-											<style>wxSP_VERTICAL|wxALIGN_RIGHT</style>
+											<style>wxSP_VERTICAL</style>
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -819,7 +819,6 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
-											<style>wxSP_VERTICAL|wxALIGN_LEFT</style>
 										</object>
 										<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -912,7 +911,7 @@
 										<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes">
 											<value>00000</value>
 											<maxlength>5</maxlength>
-											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT|wxTE_DONTWRAP</style>
+											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
 										</object>
 										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -938,7 +937,7 @@
 										<object class="wxTextCtrl" name="ID_TEXTCTRLTPR" variable="TextCtrlTPR" member="yes">
 											<value>0000</value>
 											<maxlength>4</maxlength>
-											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT|wxTE_DONTWRAP</style>
+											<style>wxTE_READONLY|wxTE_RIGHT|wxTE_DONTWRAP</style>
 										</object>
 										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
