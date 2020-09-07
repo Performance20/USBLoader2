@@ -885,9 +885,9 @@
 										<object class="wxTextCtrl" name="ID_TEXTCTRLRPM" variable="TextCtrlRPM" member="yes">
 											<value>00000</value>
 											<maxlength>5</maxlength>
-											<style>wxTE_READONLY|wxTE_RIGHT</style>
+											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
 										</object>
-										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -913,7 +913,7 @@
 											<maxlength>5</maxlength>
 											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
 										</object>
-										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -937,9 +937,9 @@
 										<object class="wxTextCtrl" name="ID_TEXTCTRLTPR" variable="TextCtrlTPR" member="yes">
 											<value>0000</value>
 											<maxlength>4</maxlength>
-											<style>wxTE_READONLY|wxTE_RIGHT|wxTE_DONTWRAP</style>
+											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
 										</object>
-										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
