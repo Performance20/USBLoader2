@@ -326,7 +326,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     GridSizer1->Add(SpinCtrlTB1_GR9, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText17 = new wxStaticText(PanelTB1, ID_STATICTEXT17, _("10."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT17"));
     GridSizer1->Add(StaticText17, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    SpinCtrlTB1_UM10 = new wxSpinCtrl(PanelTB1, ID_SPINCTRLTB1_UM10, _T("7000"), wxDefaultPosition, wxSize(120,30), 0, 0, 10000, 7000, _T("ID_SPINCTRLTB1_UM10"));
+    SpinCtrlTB1_UM10 = new wxSpinCtrl(PanelTB1, ID_SPINCTRLTB1_UM10, _T("7000"), wxDefaultPosition, wxSize(120,30), wxSP_VERTICAL|wxALIGN_RIGHT, 0, 10000, 7000, _T("ID_SPINCTRLTB1_UM10"));
     SpinCtrlTB1_UM10->SetValue(_T("7000"));
     GridSizer1->Add(SpinCtrlTB1_UM10, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SpinCtrlTB1_GR10 = new wxSpinCtrl(PanelTB1, ID_SPINCTRLTB1_GR10, _T("-22"), wxDefaultPosition, wxSize(120,30), 0, -30, 20, -22, _T("ID_SPINCTRLTB1_GR10"));
@@ -417,9 +417,9 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     GridSizer2->Add(SpinCtrlTB2_GR9, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText30 = new wxStaticText(PanelTB2, ID_STATICTEXT30, _("10"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT30"));
     GridSizer2->Add(StaticText30, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    SpinCtrlTB2_UM10 = new wxSpinCtrl(PanelTB2, ID_SPINCTRLTB2_UM10, _T("0"), wxDefaultPosition, wxSize(120,30), 0, 0, 10000, 0, _T("ID_SPINCTRLTB2_UM10"));
+    SpinCtrlTB2_UM10 = new wxSpinCtrl(PanelTB2, ID_SPINCTRLTB2_UM10, _T("0"), wxDefaultPosition, wxSize(120,30), wxSP_VERTICAL|wxALIGN_LEFT, 0, 10000, 0, _T("ID_SPINCTRLTB2_UM10"));
     SpinCtrlTB2_UM10->SetValue(_T("0"));
-    GridSizer2->Add(SpinCtrlTB2_UM10, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    GridSizer2->Add(SpinCtrlTB2_UM10, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SpinCtrlTB2_GR10 = new wxSpinCtrl(PanelTB2, ID_SPINCTRLTB2_GR10, _T("0"), wxDefaultPosition, wxSize(120,30), 0, -30, 20, 0, _T("ID_SPINCTRLTB2_GR10"));
     SpinCtrlTB2_GR10->SetValue(_T("0"));
     GridSizer2->Add(SpinCtrlTB2_GR10, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -437,7 +437,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     FlexGridSizer2->Add(StaticText44, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText38 = new wxStaticText(EchtWerte, ID_STATICTEXT38, _("Umdrehungen/Minute"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT38"));
     FlexGridSizer2->Add(StaticText38, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrlRPM = new wxTextCtrl(EchtWerte, ID_TEXTCTRLRPM, _("00000"), wxDefaultPosition, wxDefaultSize, wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT|wxTE_DONTWRAP, wxDefaultValidator, _T("ID_TEXTCTRLRPM"));
+    TextCtrlRPM = new wxTextCtrl(EchtWerte, ID_TEXTCTRLRPM, _("00000"), wxDefaultPosition, wxDefaultSize, wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLRPM"));
     TextCtrlRPM->SetMaxLength(5);
     FlexGridSizer2->Add(TextCtrlRPM, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText39 = new wxStaticText(EchtWerte, ID_STATICTEXT39, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT39"));
