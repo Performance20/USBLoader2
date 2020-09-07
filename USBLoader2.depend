@@ -965,12 +965,13 @@
 
 1585059103 /usr/include/wx-3.0/wx/gtk/app.h
 
-1599218788 /home/helge/Desktop/USBLoader2/USBLoader2Main.h
+1599229337 /home/helge/Desktop/USBLoader2/USBLoader2Main.h
+	<wx/choice.h>
 	<wx/frame.h>
 	<wx/menu.h>
 	<wx/notebook.h>
 	<wx/panel.h>
-	<wx/radiobut.h>
+	<wx/radiobox.h>
 	<wx/sizer.h>
 	<wx/spinctrl.h>
 	<wx/stattext.h>
@@ -1190,4 +1191,21 @@
 	"wx/os2/stattext.h"
 
 1585059103 /usr/include/wx-3.0/wx/gtk/stattext.h
+
+1585059103 /usr/include/wx-3.0/wx/radiobox.h
+	"wx/defs.h"
+	"wx/ctrlsub.h"
+	"wx/dynarray.h"
+	"wx/univ/radiobox.h"
+	"wx/msw/radiobox.h"
+	"wx/motif/radiobox.h"
+	"wx/gtk/radiobox.h"
+	"wx/gtk1/radiobox.h"
+	"wx/osx/radiobox.h"
+	"wx/cocoa/radiobox.h"
+	"wx/os2/radiobox.h"
+
+1585059103 /usr/include/wx-3.0/wx/gtk/radiobox.h
+	"wx/bitmap.h"
+	"wx/list.h"
 
