@@ -419,7 +419,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     GridSizer2->Add(StaticText30, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SpinCtrlTB2_UM10 = new wxSpinCtrl(PanelTB2, ID_SPINCTRLTB2_UM10, _T("0"), wxDefaultPosition, wxSize(120,30), 0, 0, 10000, 0, _T("ID_SPINCTRLTB2_UM10"));
     SpinCtrlTB2_UM10->SetValue(_T("0"));
-    GridSizer2->Add(SpinCtrlTB2_UM10, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    GridSizer2->Add(SpinCtrlTB2_UM10, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SpinCtrlTB2_GR10 = new wxSpinCtrl(PanelTB2, ID_SPINCTRLTB2_GR10, _T("0"), wxDefaultPosition, wxSize(120,30), 0, -30, 20, 0, _T("ID_SPINCTRLTB2_GR10"));
     SpinCtrlTB2_GR10->SetValue(_T("0"));
     GridSizer2->Add(SpinCtrlTB2_GR10, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);

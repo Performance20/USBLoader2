@@ -820,7 +820,7 @@
 											<max>10000</max>
 											<size>120,30</size>
 										</object>
-										<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
