@@ -2,7 +2,7 @@
 <wxsmith>
 	<object class="wxFrame" name="USBLoader2Frame">
 		<title>Zuendmodul Konfigurator </title>
-		<size>500,800</size>
+		<size>550,700</size>
 		<minsize>500,600</minsize>
 		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
 			<pos>184,200</pos>
@@ -28,13 +28,13 @@
 										<object class="wxRadioBox" name="ID_RADIOBOX1" variable="RadioBox1" member="yes">
 											<label>Basisfunktion</label>
 											<content>
-												<item>Manuell via Geber</item>
-												<item>Fester Zuendzeitpunkt</item>
-												<item>Mit Starthilfe</item>
-												<item>Dynamisch nach Tabelle</item>
+												<item>Manuell via Geber (M1)</item>
+												<item>Fester Zuendzeitpunkt von OT (M2)</item>
+												<item>Fester ZP von OT mit Starthilfe (M3)</item>
+												<item>Dynamisch nach Tabelle (M4)</item>
 											</content>
 											<default>1</default>
-											<dimension>2</dimension>
+											<dimension>4</dimension>
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -49,7 +49,7 @@
 									<object class="sizeritem">
 										<object class="wxFlexGridSizer" variable="FlexGridSizer1" member="no">
 											<cols>3</cols>
-											<rows>5</rows>
+											<rows>6</rows>
 											<vgap>10</vgap>
 											<object class="sizeritem">
 												<object class="wxStaticText" name="ID_STATICTEXT36" variable="StaticText36" member="yes">
@@ -79,8 +79,34 @@
 												<option>1</option>
 											</object>
 											<object class="sizeritem">
+												<object class="wxStaticText" name="ID_STATICTEXT62" variable="StaticText62" member="yes">
+													<label>Starthilfe bis:</label>
+												</object>
+												<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+											<object class="sizeritem">
+												<object class="wxSpinCtrl" name="ID_SPINCTRLStarthilfeUMDR" variable="SpinCtrlStarthilfeUMDR" member="yes">
+													<value>500</value>
+													<max>2000</max>
+													<size>120,30</size>
+												</object>
+												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+											<object class="sizeritem">
+												<object class="wxStaticText" name="ID_STATICTEXT63" variable="StaticText63" member="yes">
+													<label>Umdrehungen/Min.</label>
+												</object>
+												<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+											<object class="sizeritem">
 												<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
-													<label>Fester Zuendzeitpunkt:</label>
+													<label>Fester Zuendzeitpunkt von OT:</label>
 													<style>wxWANTS_CHARS</style>
 												</object>
 												<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -108,36 +134,8 @@
 												<option>1</option>
 											</object>
 											<object class="sizeritem">
-												<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
-													<label>Spule laden:</label>
-													<tooltip>Wieviel Grad von einer Umdrehung für das magnetische Laden der Zünnspule genutzt werden (bei Unterbrecher-Nocken ca. 180°)</tooltip>
-												</object>
-												<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
-												<border>5</border>
-												<option>1</option>
-											</object>
-											<object class="sizeritem">
-												<object class="wxSpinCtrl" name="ID_SPINCTRL3" variable="SpinCtrl3" member="yes">
-													<value>270</value>
-													<min>90</min>
-													<max>320</max>
-													<size>120,30</size>
-												</object>
-												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
-												<border>5</border>
-												<option>1</option>
-											</object>
-											<object class="sizeritem">
-												<object class="wxStaticText" name="ID_STATICTEXT5" variable="StaticText5" member="yes">
-													<label>Grad</label>
-												</object>
-												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
-												<border>5</border>
-												<option>1</option>
-											</object>
-											<object class="sizeritem">
 												<object class="wxStaticText" name="ID_STATICTEXT31" variable="StaticText31" member="yes">
-													<label>Aktive Tabelle:</label>
+													<label>Aktive Zündtabelle:</label>
 												</object>
 												<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
@@ -161,6 +159,33 @@
 													<label></label>
 												</object>
 												<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+											<object class="sizeritem">
+												<object class="wxStaticText" name="ID_STATICTEXT64" variable="StaticText64" member="yes">
+													<label>Spule laden:</label>
+												</object>
+												<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+											<object class="sizeritem">
+												<object class="wxSpinCtrl" name="ID_SPINCTRL4" variable="SpinCtrl4" member="yes">
+													<value>270</value>
+													<min>90</min>
+													<max>320</max>
+													<size>120,30</size>
+												</object>
+												<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+											<object class="sizeritem">
+												<object class="wxStaticText" name="ID_STATICTEXT65" variable="StaticText65" member="yes">
+													<label>Grad</label>
+												</object>
+												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
 												<option>1</option>
 											</object>
@@ -840,15 +865,335 @@
 							<label>Tabelle2</label>
 						</object>
 						<object class="notebookpage">
-							<object class="wxPanel" name="ID_PANELTB3" variable="PanelTB3" member="yes" />
+							<object class="wxPanel" name="ID_PANELTB3" variable="PanelTB3" member="yes">
+								<object class="wxGridSizer" variable="GridSizer3" member="no">
+									<cols>3</cols>
+									<rows>11</rows>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT49" variable="StaticText49" member="yes">
+											<label>Position</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT50" variable="StaticText50" member="yes">
+											<label>Umdrehung/Minute</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT51" variable="StaticText51" member="yes">
+											<label>Grad (Wert 0 = OT)</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT52" variable="StaticText52" member="yes">
+											<label>1.</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_UM1" variable="SpinCtrlTB3_UM1" member="yes">
+											<value>0</value>
+											<max>10000</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_GR" variable="SpinCtrlTB3_GR1" member="yes">
+											<value>0</value>
+											<min>-30</min>
+											<max>20</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT53" variable="StaticText53" member="yes">
+											<label>2.</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_UM2" variable="SpinCtrlTB3_UM2" member="yes">
+											<value>0</value>
+											<max>10000</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_GR2" variable="SpinCtrlTB3_GR2" member="yes">
+											<value>0</value>
+											<min>-30</min>
+											<max>20</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT54" variable="StaticText54" member="yes">
+											<label>3.</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_UM3" variable="SpinCtrlTB3_UM3" member="yes">
+											<value>0</value>
+											<max>10000</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_GR3" variable="SpinCtrlTB3_GR3" member="yes">
+											<value>0</value>
+											<min>-30</min>
+											<max>20</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT55" variable="StaticText55" member="yes">
+											<label>4.</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_UM4" variable="SpinCtrlTB3_UM4" member="yes">
+											<value>0</value>
+											<max>10000</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_GR4" variable="SpinCtrlTB3_GR4" member="yes">
+											<value>0</value>
+											<min>-30</min>
+											<max>20</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT56" variable="StaticText56" member="yes">
+											<label>5.</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_UM5" variable="SpinCtrlTB3_UM5" member="yes">
+											<value>0</value>
+											<max>10000</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_GR5" variable="SpinCtrlTB3_GR5" member="yes">
+											<value>0</value>
+											<min>-30</min>
+											<max>20</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT57" variable="StaticText57" member="yes">
+											<label>6.</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_UM6" variable="SpinCtrlTB3_UM6" member="yes">
+											<value>0</value>
+											<max>10000</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_GR6" variable="SpinCtrlTB3_GR6" member="yes">
+											<value>0</value>
+											<min>-30</min>
+											<max>20</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT58" variable="StaticText58" member="yes">
+											<label>7.</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_UM7" variable="SpinCtrlTB3_UM7" member="yes">
+											<value>0</value>
+											<max>10000</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_GR7" variable="SpinCtrlTB3_GR7" member="yes">
+											<value>0</value>
+											<min>-30</min>
+											<max>20</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT59" variable="StaticText59" member="yes">
+											<label>8.</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_UM8" variable="SpinCtrlTB3_UM8" member="yes">
+											<value>0</value>
+											<max>10000</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_GR8" variable="SpinCtrlTB3_GR8" member="yes">
+											<value>0</value>
+											<min>-30</min>
+											<max>20</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT60" variable="StaticText60" member="yes">
+											<label>9.</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_UM9" variable="SpinCtrlTB3_UM9" member="yes">
+											<value>0</value>
+											<max>10000</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_GR9" variable="SpinCtrlTB3_GR9" member="yes">
+											<value>0</value>
+											<min>-30</min>
+											<max>20</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT61" variable="StaticText61" member="yes">
+											<label>10.</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_UM10" variable="SpinCtrlTB3_UM10" member="yes">
+											<value>0</value>
+											<max>10000</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_GR10" variable="SpinCtrlTB3_GR10" member="yes">
+											<value>0</value>
+											<min>-30</min>
+											<max>20</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+								</object>
+							</object>
 							<label>Tabelle3</label>
 						</object>
 						<object class="notebookpage">
 							<object class="wxPanel" name="ID_PANELEchtWerte" variable="EchtWerte" member="yes">
 								<object class="wxFlexGridSizer" variable="FlexGridSizer2" member="no">
 									<cols>3</cols>
-									<rows>4</rows>
+									<rows>6</rows>
 									<vgap>10</vgap>
+									<growablecols>0</growablecols>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT46" variable="StaticText46" member="yes">
 											<label></label>
@@ -875,7 +1220,7 @@
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT38" variable="StaticText38" member="yes">
-											<label>Umdrehungen/Minute</label>
+											<label>Umdrehungen/Minute:</label>
 										</object>
 										<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -901,7 +1246,7 @@
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT42" variable="StaticText42" member="yes">
-											<label>Umdrehungen/Sekunde</label>
+											<label>Umdrehungen/Sekunde:</label>
 										</object>
 										<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -927,7 +1272,7 @@
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT40" variable="StaticText40" member="yes">
-											<label>Zeit pro Umdrehung</label>
+											<label>Zeit pro Umdrehung:</label>
 										</object>
 										<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -946,6 +1291,56 @@
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT41" variable="StaticText41" member="yes">
 											<label>Millisekunden</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT47" variable="StaticText47" member="yes">
+											<label>Aktueller Zuendzeitpunkt:</label>
+										</object>
+										<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextCtrl2" member="yes">
+											<value>00</value>
+											<maxlength>2</maxlength>
+											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT48" variable="StaticText48" member="yes">
+											<label>Grad</label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
+											<label>Modus:</label>
+										</object>
+										<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="ID_TEXTCTRLEchtModus" variable="TextCtrlEchtModus" member="yes">
+											<maxlength>2</maxlength>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT5" variable="StaticText5" member="yes">
+											<label></label>
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
