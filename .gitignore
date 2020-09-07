@@ -36,8 +36,11 @@
 Debug/
 bin/
 obj/
+bin/Debug
+obj/Debug
 
 .vs/USBLoader2/v16/.suo
 .vs/USBLoader2/v16/.suo
 .vs/USBLoader2/v16/Browse.VC.db
 .vs/USBLoader2/v16/ipch/AutoPCH/b6ff5d3e1dd77a9d/USBLOADER2APP.ipch
+
