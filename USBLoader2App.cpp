@@ -20,6 +20,10 @@ bool USBLoader2App::OnInit()
 {
     //(*AppInitialize
     bool wxsOK = true;
+    wxLocale* locale = new wxLocale();
+
+    locale->Init(wxLANGUAGE_GERMAN, wxLOCALE_LOAD_DEFAULT);
+
     wxInitAllImageHandlers();
     if ( wxsOK )
     {

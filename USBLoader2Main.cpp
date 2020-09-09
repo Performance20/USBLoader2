@@ -195,6 +195,8 @@ const long USBLoader2Frame::idMenuSpeichern = wxNewId();
 const long USBLoader2Frame::idMenuQuit = wxNewId();
 const long USBLoader2Frame::idMenuVerbinden = wxNewId();
 const long USBLoader2Frame::idMenuTrennen = wxNewId();
+const long USBLoader2Frame::idMenuKonfigLaden = wxNewId();
+const long USBLoader2Frame::ID_MenuidMenuKonfigHolen = wxNewId();
 const long USBLoader2Frame::idMenuAbout = wxNewId();
 const long USBLoader2Frame::ID_STATUSBAR1 = wxNewId();
 //*)
@@ -235,7 +237,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     wxString __wxRadioBoxChoices_1[4] =
     {
     	_("Manuell via Geber (M1)"),
-    	_("Fester Zuendzeitpunkt von OT (M2)"),
+    	_("Fester Zündzeitpunkt von OT (M2)"),
     	_("Fester ZP von OT mit Starthilfe (M3)"),
     	_("Dynamisch nach Tabelle (M4)")
     };
@@ -245,10 +247,11 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     StaticText35 = new wxStaticText(PanelBasis, ID_STATICTEXT35, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT35"));
     BoxSizer2->Add(StaticText35, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     FlexGridSizer1 = new wxFlexGridSizer(6, 3, 10, 0);
-    StaticText36 = new wxStaticText(PanelBasis, ID_STATICTEXT36, _("Starthilfe Zuendzeitpunkt:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT36"));
+    StaticText36 = new wxStaticText(PanelBasis, ID_STATICTEXT36, _("Starthilfe Zündzeitpunkt:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT36"));
     FlexGridSizer1->Add(StaticText36, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     SpinCtrl1 = new wxSpinCtrl(PanelBasis, ID_SPINCTRL1, _T("0"), wxDefaultPosition, wxSize(120,30), 0, -30, 20, 0, _T("ID_SPINCTRL1"));
     SpinCtrl1->SetValue(_T("0"));
+    SpinCtrl1->SetToolTip(_("Zündzeitpunkt beim Starten im Modus M3"));
     FlexGridSizer1->Add(SpinCtrl1, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText37 = new wxStaticText(PanelBasis, ID_STATICTEXT37, _("Grad (Wert 0 = OT)"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT37"));
     FlexGridSizer1->Add(StaticText37, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
@@ -256,14 +259,15 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     FlexGridSizer1->Add(StaticText62, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     SpinCtrlStarthilfeUMDR = new wxSpinCtrl(PanelBasis, ID_SPINCTRLStarthilfeUMDR, _T("500"), wxDefaultPosition, wxSize(120,30), 0, 0, 2000, 500, _T("ID_SPINCTRLStarthilfeUMDR"));
     SpinCtrlStarthilfeUMDR->SetValue(_T("500"));
+    SpinCtrlStarthilfeUMDR->SetToolTip(_("Bis zu welcher Umdrehung der Starthilfe Zündzeitpunkt genutzt wird (Modus M3). Wird die Umdrehung höher, wird auf  festen Zündzeitpunkt umgestellt."));
     FlexGridSizer1->Add(SpinCtrlStarthilfeUMDR, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText63 = new wxStaticText(PanelBasis, ID_STATICTEXT63, _("Umdrehungen/Min."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT63"));
     FlexGridSizer1->Add(StaticText63, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText2 = new wxStaticText(PanelBasis, ID_STATICTEXT2, _("Fester Zuendzeitpunkt von OT:"), wxDefaultPosition, wxDefaultSize, wxWANTS_CHARS, _T("ID_STATICTEXT2"));
+    StaticText2 = new wxStaticText(PanelBasis, ID_STATICTEXT2, _("Fester Zündzeitpunkt von OT:"), wxDefaultPosition, wxDefaultSize, wxWANTS_CHARS, _T("ID_STATICTEXT2"));
     FlexGridSizer1->Add(StaticText2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SpinCtrl2 = new wxSpinCtrl(PanelBasis, ID_SPINCTRL2, _T("-22"), wxDefaultPosition, wxSize(120,30), 0, -30, 20, -22, _T("ID_SPINCTRL2"));
     SpinCtrl2->SetValue(_T("-22"));
-    SpinCtrl2->SetToolTip(_("Grad von OT, bei dem gezündet wird = -22 Grad wäre 22 Grad vot OT"));
+    SpinCtrl2->SetToolTip(_("Grad weg von OT, bei dem gezündet wird z: Bsp. -22 Grad wäre 22 Grad vor OT"));
     FlexGridSizer1->Add(SpinCtrl2, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText4 = new wxStaticText(PanelBasis, ID_STATICTEXT4, _("Grad (Wert 0 = OT)"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT4"));
     FlexGridSizer1->Add(StaticText4, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
@@ -273,6 +277,8 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     Choice1->SetSelection( Choice1->Append(_("Tabelle1")) );
     Choice1->Append(_("Tabelle2"));
     Choice1->Append(_("Tabelle3"));
+    Choice1->SetToolTip(_("Aktiv benutzte Zündzeitpunkt-Tabelle  bei Modus M4"));
+    Choice1->SetHelpText(_("Test"));
     FlexGridSizer1->Add(Choice1, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText32 = new wxStaticText(PanelBasis, ID_STATICTEXT32, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT32"));
     FlexGridSizer1->Add(StaticText32, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -280,6 +286,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     FlexGridSizer1->Add(StaticText64, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     SpinCtrl4 = new wxSpinCtrl(PanelBasis, ID_SPINCTRL4, _T("270"), wxDefaultPosition, wxSize(120,30), 0, 90, 320, 270, _T("ID_SPINCTRL4"));
     SpinCtrl4->SetValue(_T("270"));
+    SpinCtrl4->SetToolTip(_("Zeitdauer, wieviel von einer Umdrehung für das Laden und Entladen der Zündspule genutzt wird. Beipiel Wert = 270° -> 3/4 einer Umdrehung werden zum Laden und 1/4 = 90° werden zum Entladen = Zünden genutzt. Eine Umdrehung hat 360°."));
     FlexGridSizer1->Add(SpinCtrl4, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText65 = new wxStaticText(PanelBasis, ID_STATICTEXT65, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT65"));
     FlexGridSizer1->Add(StaticText65, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
@@ -287,8 +294,11 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     FlexGridSizer1->Add(StaticText33, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     Choice2 = new wxChoice(PanelBasis, ID_CHOICE2, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE2"));
     Choice2->Append(_("Aus"));
+    Choice2->Append(_("An"));
+    Choice2->Append(_("Blinken"));
     Choice2->SetSelection( Choice2->Append(_("Eingangssignal")) );
     Choice2->Append(_("Diagnose"));
+    Choice2->SetToolTip(_("Verhalten der LED"));
     FlexGridSizer1->Add(Choice2, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer2->Add(FlexGridSizer1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     PanelBasis->SetSizer(BoxSizer2);
@@ -596,7 +606,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     FlexGridSizer2->Add(TextCtrlTPR, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText41 = new wxStaticText(EchtWerte, ID_STATICTEXT41, _("Millisekunden"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT41"));
     FlexGridSizer2->Add(StaticText41, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText47 = new wxStaticText(EchtWerte, ID_STATICTEXT47, _("Aktueller Zuendzeitpunkt:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT47"));
+    StaticText47 = new wxStaticText(EchtWerte, ID_STATICTEXT47, _("Aktueller Zündzeitpunkt:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT47"));
     FlexGridSizer2->Add(StaticText47, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     TextCtrl2 = new wxTextCtrl(EchtWerte, ID_TEXTCTRL2, _("00"), wxDefaultPosition, wxDefaultSize, wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRL2"));
     TextCtrl2->SetMaxLength(2);
@@ -626,21 +636,27 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     BoxSizer1->SetSizeHints(Panel1);
     HauptMenuBar = new wxMenuBar();
     Menu1 = new wxMenu();
-    MenuItem5 = new wxMenuItem(Menu1, idMenuSpeichern, _("Speichern\tAlt-S"), _("Speichern der Konfiguration"), wxITEM_NORMAL);
+    MenuItem5 = new wxMenuItem(Menu1, idMenuSpeichern, _("Konfiguration Speichern\tAlt-S"), _("Speichern der Konfiguration"), wxITEM_NORMAL);
     Menu1->Append(MenuItem5);
-    MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Schliessen\tAlt-F4"), _("Programmen beenden"), wxITEM_NORMAL);
+    Menu1->AppendSeparator();
+    MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Schließen\tAlt-F4"), _("Programmen beenden"), wxITEM_NORMAL);
     Menu1->Append(MenuItem1);
-    HauptMenuBar->Append(Menu1, _("&File"));
+    HauptMenuBar->Append(Menu1, _("Datei"));
     Menu3 = new wxMenu();
-    MenuItem3 = new wxMenuItem(Menu3, idMenuVerbinden, _("Verbinden\tAlt-V"), _("Verbinden Modul"), wxITEM_NORMAL);
+    MenuItem3 = new wxMenuItem(Menu3, idMenuVerbinden, _("Verbinden Zündmodul"), _("Verbinden Modul"), wxITEM_NORMAL);
     Menu3->Append(MenuItem3);
-    MenuItem4 = new wxMenuItem(Menu3, idMenuTrennen, _("Trennen\tAlt-T"), _("Trennen Modul"), wxITEM_NORMAL);
+    MenuItem7 = new wxMenuItem(Menu3, idMenuTrennen, _("Trennen Zündmodul"), _("Trennen Modul"), wxITEM_NORMAL);
+    Menu3->Append(MenuItem7);
+    Menu3->AppendSeparator();
+    MenuItem4 = new wxMenuItem(Menu3, idMenuKonfigLaden, _("Konfig übertragen -> Zündmodul"), _("Konfiguration in Zündmodul laden"), wxITEM_NORMAL);
     Menu3->Append(MenuItem4);
-    HauptMenuBar->Append(Menu3, _("&Kommunikation"));
+    MenuItem6 = new wxMenuItem(Menu3, ID_MenuidMenuKonfigHolen, _("Konfig holen <- Zündmodul"), _("Konfiguration aus Zündmodul holen"), wxITEM_NORMAL);
+    Menu3->Append(MenuItem6);
+    HauptMenuBar->Append(Menu3, _("Kommunikation"));
     Menu2 = new wxMenu();
-    MenuItem2 = new wxMenuItem(Menu2, idMenuAbout, _("About\tF1"), _("Show info about this application"), wxITEM_NORMAL);
+    MenuItem2 = new wxMenuItem(Menu2, idMenuAbout, _("Info\tF1"), _("Zeigt Programm Infos"), wxITEM_NORMAL);
     Menu2->Append(MenuItem2);
-    HauptMenuBar->Append(Menu2, _("Help"));
+    HauptMenuBar->Append(Menu2, _("Hilfe"));
     SetMenuBar(HauptMenuBar);
     StatusBar1 = new wxStatusBar(this, ID_STATUSBAR1, 0, _T("ID_STATUSBAR1"));
     int __wxStatusBarWidths_1[2] = { -1, -1 };

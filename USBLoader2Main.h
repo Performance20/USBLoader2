@@ -198,6 +198,8 @@ class USBLoader2Frame: public wxFrame
         static const long idMenuQuit;
         static const long idMenuVerbinden;
         static const long idMenuTrennen;
+        static const long idMenuKonfigLaden;
+        static const long ID_MenuidMenuKonfigHolen;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
@@ -208,6 +210,8 @@ class USBLoader2Frame: public wxFrame
         wxMenuItem* MenuItem3;
         wxMenuItem* MenuItem4;
         wxMenuItem* MenuItem5;
+        wxMenuItem* MenuItem6;
+        wxMenuItem* MenuItem7;
         wxNotebook* Notebook1;
         wxPanel* EchtWerte;
         wxPanel* Panel1;
