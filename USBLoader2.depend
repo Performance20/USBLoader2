@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1599654909 source:/home/helge/Desktop/USBLoader2/About.cpp
+1599657383 source:/home/helge/Desktop/USBLoader2/About.cpp
 	"About.h"
 	<wx/intl.h>
 	<wx/string.h>
 
-1599144005 /home/helge/Desktop/USBLoader2/About.h
+1599656763 /home/helge/Desktop/USBLoader2/About.h
 	<wx/button.h>
 	<wx/dialog.h>
 	<wx/panel.h>
@@ -918,12 +918,12 @@
 
 1585059103 /usr/include/wx-3.0/wx/gtk/textctrl.h
 
-1599654733 source:/home/helge/Desktop/USBLoader2/USBLoader2App.cpp
+1599661615 source:/home/helge/Desktop/USBLoader2/USBLoader2App.cpp
 	"USBLoader2App.h"
 	"USBLoader2Main.h"
 	<wx/image.h>
 
-1599218788 /home/helge/Desktop/USBLoader2/USBLoader2App.h
+1599661615 /home/helge/Desktop/USBLoader2/USBLoader2App.h
 	<wx/app.h>
 
 1585059103 /usr/include/wx-3.0/wx/app.h
@@ -965,8 +965,9 @@
 
 1585059103 /usr/include/wx-3.0/wx/gtk/app.h
 
-1599653607 /home/helge/Desktop/USBLoader2/USBLoader2Main.h
+1599664782 /home/helge/Desktop/USBLoader2/USBLoader2Main.h
 	"USBDevice.h"
+	"ConfigData.h"
 	<wx/choice.h>
 	<wx/frame.h>
 	<wx/menu.h>
@@ -1210,7 +1211,7 @@
 	"wx/bitmap.h"
 	"wx/list.h"
 
-1599655568 source:/home/helge/Desktop/USBLoader2/USBLoader2Main.cpp
+1599665924 source:/home/helge/Desktop/USBLoader2/USBLoader2Main.cpp
 	"USBLoader2Main.h"
 	<wx/msgdlg.h>
 	<wx/intl.h>
@@ -1250,4 +1251,77 @@
 	"protocol.h"
 
 1599546931 /home/helge/Desktop/USBLoader2/protocol.h
+
+1599663241 /home/helge/Desktop/USBLoader2/ConfigData.h
+	<wx/stdpaths.h>
+	<wx/config.h>
+	<wx/confbase.h>
+	<wx/fileconf.h>
+
+1585059103 /usr/include/wx-3.0/wx/stdpaths.h
+	"wx/defs.h"
+	"wx/string.h"
+	"wx/filefn.h"
+	"wx/msw/stdpaths.h"
+	"wx/osx/core/stdpaths.h"
+	"wx/os2/stdpaths.h"
+	"wx/unix/stdpaths.h"
+
+1585059103 /usr/include/wx-3.0/wx/unix/stdpaths.h
+
+1585059103 /usr/include/wx-3.0/wx/config.h
+	"wx/confbase.h"
+	"wx/msw/regconf.h"
+	"wx/os2/iniconf.h"
+	"wx/fileconf.h"
+
+1585059103 /usr/include/wx-3.0/wx/confbase.h
+	"wx/defs.h"
+	"wx/string.h"
+	"wx/object.h"
+	"wx/base64.h"
+
+1585059103 /usr/include/wx-3.0/wx/base64.h
+	"wx/string.h"
+	"wx/buffer.h"
+
+1585059103 /usr/include/wx-3.0/wx/fileconf.h
+	"wx/defs.h"
+	"wx/textfile.h"
+	"wx/string.h"
+	"wx/confbase.h"
+	"wx/filename.h"
+
+1585059103 /usr/include/wx-3.0/wx/textfile.h
+	"wx/defs.h"
+	"wx/textbuf.h"
+	"wx/file.h"
+
+1585059103 /usr/include/wx-3.0/wx/textbuf.h
+	"wx/defs.h"
+	"wx/arrstr.h"
+	"wx/convauto.h"
+	"wx/string.h"
+	"wx/dynarray.h"
+
+1585059103 /usr/include/wx-3.0/wx/convauto.h
+	"wx/strconv.h"
+	"wx/fontenc.h"
+
+1585059103 /usr/include/wx-3.0/wx/file.h
+	"wx/defs.h"
+	"wx/string.h"
+	"wx/filefn.h"
+	"wx/convauto.h"
+
+1585059103 /usr/include/wx-3.0/wx/filename.h
+	"wx/arrstr.h"
+	"wx/filefn.h"
+	"wx/datetime.h"
+	"wx/intl.h"
+	"wx/longlong.h"
+	"wx/file.h"
+
+1599661123 source:/home/helge/Desktop/USBLoader2/ConfigData.cpp
+	"ConfigData.h"
 

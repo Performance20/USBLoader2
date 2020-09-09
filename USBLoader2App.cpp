@@ -14,6 +14,7 @@
 #include <wx/image.h>
 //*)
 
+
 IMPLEMENT_APP(USBLoader2App);
 
 bool USBLoader2App::OnInit()

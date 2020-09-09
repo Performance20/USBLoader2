@@ -47,10 +47,10 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 
 //(*IdInit(USBLoader2Frame)
 const long USBLoader2Frame::ID_STATICTEXT34 = wxNewId();
-const long USBLoader2Frame::ID_RADIOBOX1 = wxNewId();
+const long USBLoader2Frame::ID_RADIOBOXBasisfunktion = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT35 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT36 = wxNewId();
-const long USBLoader2Frame::ID_SPINCTRL1 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLStarthilfe = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT37 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT62 = wxNewId();
 const long USBLoader2Frame::ID_SPINCTRLStarthilfeUMDR = wxNewId();
@@ -66,6 +66,7 @@ const long USBLoader2Frame::ID_SPINCTRL4 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT65 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT33 = wxNewId();
 const long USBLoader2Frame::ID_CHOICE2 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT66 = wxNewId();
 const long USBLoader2Frame::ID_PANELBasis = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT1 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT6 = wxNewId();
@@ -241,18 +242,19 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     	_("Fester ZP von OT mit Starthilfe (M3)"),
     	_("Dynamisch nach Tabelle (M4)")
     };
-    RadioBox1 = new wxRadioBox(PanelBasis, ID_RADIOBOX1, _("Basisfunktion"), wxDefaultPosition, wxDefaultSize, 4, __wxRadioBoxChoices_1, 2, 0, wxDefaultValidator, _T("ID_RADIOBOX1"));
-    RadioBox1->SetSelection(1);
-    BoxSizer2->Add(RadioBox1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    RadioBoxBasisfunktion = new wxRadioBox(PanelBasis, ID_RADIOBOXBasisfunktion, _("Basisfunktion"), wxDefaultPosition, wxDefaultSize, 4, __wxRadioBoxChoices_1, 2, 0, wxDefaultValidator, _T("ID_RADIOBOXBasisfunktion"));
+    RadioBoxBasisfunktion->SetSelection(1);
+    config.basisFunktion << RadioBoxBasisfunktion->GetSelection();
+    BoxSizer2->Add(RadioBoxBasisfunktion, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText35 = new wxStaticText(PanelBasis, ID_STATICTEXT35, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT35"));
     BoxSizer2->Add(StaticText35, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    FlexGridSizer1 = new wxFlexGridSizer(6, 3, 10, 0);
+    FlexGridSizer1 = new wxFlexGridSizer(7, 3, 10, 0);
     StaticText36 = new wxStaticText(PanelBasis, ID_STATICTEXT36, _("Starthilfe Zündzeitpunkt:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT36"));
     FlexGridSizer1->Add(StaticText36, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    SpinCtrl1 = new wxSpinCtrl(PanelBasis, ID_SPINCTRL1, _T("0"), wxDefaultPosition, wxSize(120,30), 0, -30, 20, 0, _T("ID_SPINCTRL1"));
-    SpinCtrl1->SetValue(_T("0"));
-    SpinCtrl1->SetToolTip(_("Zündzeitpunkt beim Starten im Modus M3"));
-    FlexGridSizer1->Add(SpinCtrl1, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlStarthilfe = new wxSpinCtrl(PanelBasis, ID_SPINCTRLStarthilfe, _T("0"), wxDefaultPosition, wxSize(120,30), 0, -30, 20, 0, _T("ID_SPINCTRLStarthilfe"));
+    SpinCtrlStarthilfe->SetValue(_T("0"));
+    SpinCtrlStarthilfe->SetToolTip(_("Zündzeitpunkt beim Starten im Modus M3"));
+    FlexGridSizer1->Add(SpinCtrlStarthilfe, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText37 = new wxStaticText(PanelBasis, ID_STATICTEXT37, _("Grad (Wert 0 = OT)"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT37"));
     FlexGridSizer1->Add(StaticText37, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText62 = new wxStaticText(PanelBasis, ID_STATICTEXT62, _("Starthilfe bis:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT62"));
@@ -300,6 +302,8 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     Choice2->Append(_("Diagnose"));
     Choice2->SetToolTip(_("Verhalten der LED"));
     FlexGridSizer1->Add(Choice2, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText66 = new wxStaticText(PanelBasis, ID_STATICTEXT66, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT66"));
+    FlexGridSizer1->Add(StaticText66, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer2->Add(FlexGridSizer1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     PanelBasis->SetSizer(BoxSizer2);
     BoxSizer2->Fit(PanelBasis);
@@ -665,12 +669,15 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetStatusStyles(2,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
 
+    Connect(ID_RADIOBOXBasisfunktion,wxEVT_COMMAND_RADIOBOX_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnRadioBoxBasisfunktionSelect);
     Connect(idMenuSpeichern,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnSpeichern);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnQuit);
     Connect(idMenuVerbinden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConnectUsb);
     Connect(idMenuTrennen,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnDisconnectUsb);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnAbout);
     //*)
+
+
 }
 
 USBLoader2Frame::~USBLoader2Frame()
@@ -780,3 +787,13 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 void USBLoader2Frame::OnSpeichern(wxCommandEvent& event)
 {
 }
+
+void USBLoader2Frame::OnRadioBoxBasisfunktionSelect(wxCommandEvent& event)
+{
+    config.basisFunktion.clear();
+    config.basisFunktion << RadioBoxBasisfunktion->GetSelection();
+    *TextCtrlLOG << config.basisFunktion.c_str() << "\n";
+}
+
+
+

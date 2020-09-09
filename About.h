@@ -33,6 +33,7 @@ class About: public wxDialog
 
 		//(*Handlers(About)
 		void OnOKClick(wxCommandEvent& event);
+		void OnKeyDown(wxKeyEvent& event);
 		//*)
 
 		DECLARE_EVENT_TABLE()

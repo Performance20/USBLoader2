@@ -25,7 +25,7 @@
 										<border>5</border>
 									</object>
 									<object class="sizeritem">
-										<object class="wxRadioBox" name="ID_RADIOBOX1" variable="RadioBox1" member="yes">
+										<object class="wxRadioBox" name="ID_RADIOBOXBasisfunktion" variable="RadioBoxBasisfunktion" member="yes">
 											<label>Basisfunktion</label>
 											<content>
 												<item>Manuell via Geber (M1)</item>
@@ -35,6 +35,8 @@
 											</content>
 											<default>1</default>
 											<dimension>2</dimension>
+											<extra_code>config.basisFunktion &lt;&lt; RadioBoxBasisfunktion-&gt;GetSelection();</extra_code>
+											<handler function="OnRadioBoxBasisfunktionSelect" entry="EVT_RADIOBOX" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -49,7 +51,7 @@
 									<object class="sizeritem">
 										<object class="wxFlexGridSizer" variable="FlexGridSizer1" member="no">
 											<cols>3</cols>
-											<rows>6</rows>
+											<rows>7</rows>
 											<vgap>10</vgap>
 											<object class="sizeritem">
 												<object class="wxStaticText" name="ID_STATICTEXT36" variable="StaticText36" member="yes">
@@ -60,7 +62,7 @@
 												<option>1</option>
 											</object>
 											<object class="sizeritem">
-												<object class="wxSpinCtrl" name="ID_SPINCTRL1" variable="SpinCtrl1" member="yes">
+												<object class="wxSpinCtrl" name="ID_SPINCTRLStarthilfe" variable="SpinCtrlStarthilfe" member="yes">
 													<value>0</value>
 													<min>-30</min>
 													<max>20</max>
@@ -215,6 +217,14 @@
 													<tooltip>Verhalten der LED</tooltip>
 												</object>
 												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>1</option>
+											</object>
+											<object class="sizeritem">
+												<object class="wxStaticText" name="ID_STATICTEXT66" variable="StaticText66" member="yes">
+													<label>Label</label>
+												</object>
+												<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
 												<option>1</option>
 											</object>

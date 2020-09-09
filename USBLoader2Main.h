@@ -11,6 +11,7 @@
 #define USBLoader2MAIN_H
 
 #include "USBDevice.h"
+#include "ConfigData.h"
 
 
 //(*Headers(USBLoader2Frame)
@@ -40,20 +41,23 @@ class USBLoader2Frame: public wxFrame
         bool fininish;
         bool connected;
 
+        ConfigData config;
+
         //(*Handlers(USBLoader2Frame)
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
         void OnDisconnectUsb(wxCommandEvent& event);
         void OnConnectUsb(wxCommandEvent& event);
         void OnSpeichern(wxCommandEvent& event);
+        void OnRadioBoxBasisfunktionSelect(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
         static const long ID_STATICTEXT34;
-        static const long ID_RADIOBOX1;
+        static const long ID_RADIOBOXBasisfunktion;
         static const long ID_STATICTEXT35;
         static const long ID_STATICTEXT36;
-        static const long ID_SPINCTRL1;
+        static const long ID_SPINCTRLStarthilfe;
         static const long ID_STATICTEXT37;
         static const long ID_STATICTEXT62;
         static const long ID_SPINCTRLStarthilfeUMDR;
@@ -69,6 +73,7 @@ class USBLoader2Frame: public wxFrame
         static const long ID_STATICTEXT65;
         static const long ID_STATICTEXT33;
         static const long ID_CHOICE2;
+        static const long ID_STATICTEXT66;
         static const long ID_PANELBasis;
         static const long ID_STATICTEXT1;
         static const long ID_STATICTEXT6;
@@ -219,11 +224,11 @@ class USBLoader2Frame: public wxFrame
         wxPanel* PanelTB1;
         wxPanel* PanelTB2;
         wxPanel* PanelTB3;
-        wxRadioBox* RadioBox1;
-        wxSpinCtrl* SpinCtrl1;
+        wxRadioBox* RadioBoxBasisfunktion;
         wxSpinCtrl* SpinCtrl2;
         wxSpinCtrl* SpinCtrl4;
         wxSpinCtrl* SpinCtrlSpinCtrlTB1_UM2;
+        wxSpinCtrl* SpinCtrlStarthilfe;
         wxSpinCtrl* SpinCtrlStarthilfeUMDR;
         wxSpinCtrl* SpinCtrlTB1_GR10;
         wxSpinCtrl* SpinCtrlTB1_GR1;
@@ -345,6 +350,7 @@ class USBLoader2Frame: public wxFrame
         wxStaticText* StaticText63;
         wxStaticText* StaticText64;
         wxStaticText* StaticText65;
+        wxStaticText* StaticText66;
         wxStaticText* StaticText6;
         wxStaticText* StaticText7;
         wxStaticText* StaticText8;

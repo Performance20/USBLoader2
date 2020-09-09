@@ -19,7 +19,7 @@ END_EVENT_TABLE()
 About::About(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size)
 {
 	//(*Initialize(About)
-	Create(parent, id, _("About"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("id"));
+	Create(parent, id, _("About"), wxDefaultPosition, wxDefaultSize, 0, _T("id"));
 	SetClientSize(wxSize(300,300));
 	Move(wxDefaultPosition);
 	SetFocus();
@@ -29,6 +29,12 @@ About::About(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& siz
 	TextCtrl1 = new wxTextCtrl(Panel1, ID_TEXTCTRL1, _("\nZündmodul Konfigurator \n\nVersion: 0.0 \n\nHelge Scheunemann, Sept. 2020\n\nKontakt: zm-mz@scheuni.de"), wxPoint(24,40), wxSize(248,160), wxTE_NO_VSCROLL|wxTE_MULTILINE|wxTE_READONLY|wxTE_CENTRE|wxBORDER_SIMPLE, wxDefaultValidator, _T("ID_TEXTCTRL1"));
 
 	Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&About::OnOKClick);
+	Panel1->Connect(wxEVT_KEY_DOWN,(wxObjectEventFunction)&About::OnKeyDown,0,this);
+	Panel1->Connect(wxEVT_KEY_UP,(wxObjectEventFunction)&About::OnKeyDown,0,this);
+	Panel1->Connect(wxEVT_CHAR,(wxObjectEventFunction)&About::OnKeyDown,0,this);
+	Connect(wxEVT_KEY_DOWN,(wxObjectEventFunction)&About::OnKeyDown);
+	Connect(wxEVT_KEY_UP,(wxObjectEventFunction)&About::OnKeyDown);
+	Connect(wxEVT_CHAR,(wxObjectEventFunction)&About::OnKeyDown);
 	//*)
 }
 
@@ -42,4 +48,14 @@ About::~About()
 void About::OnOKClick(wxCommandEvent& event)
 {
     Close();
+}
+
+void About::OnKeyDown(wxKeyEvent& event)
+{
+    int KeyCode = event.GetKeyCode();
+    if (KeyCode == 27)
+    {
+        Destroy();
+    }
+    event.Skip();
 }

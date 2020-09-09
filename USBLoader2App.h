@@ -12,6 +12,7 @@
 
 #include <wx/app.h>
 
+
 class USBLoader2App : public wxApp
 {
     public:
