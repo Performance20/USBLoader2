@@ -10,6 +10,9 @@
 #ifndef USBLoader2MAIN_H
 #define USBLoader2MAIN_H
 
+#include "USBDevice.h"
+
+
 //(*Headers(USBLoader2Frame)
 #include <wx/choice.h>
 #include <wx/frame.h>
@@ -33,11 +36,16 @@ class USBLoader2Frame: public wxFrame
 
     private:
 
+        USBDevice* digiSpark;
+        bool fininish;
+        bool connected;
+
         //(*Handlers(USBLoader2Frame)
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
         void OnDisconnectUsb(wxCommandEvent& event);
         void OnConnectUsb(wxCommandEvent& event);
+        void OnSpeichern(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
@@ -186,6 +194,7 @@ class USBLoader2Frame: public wxFrame
         static const long ID_NOTEBOOK1;
         static const long ID_TEXTCTRLLOG;
         static const long ID_PANEL1;
+        static const long idMenuSpeichern;
         static const long idMenuQuit;
         static const long idMenuVerbinden;
         static const long idMenuTrennen;
@@ -198,6 +207,7 @@ class USBLoader2Frame: public wxFrame
         wxChoice* Choice2;
         wxMenuItem* MenuItem3;
         wxMenuItem* MenuItem4;
+        wxMenuItem* MenuItem5;
         wxNotebook* Notebook1;
         wxPanel* EchtWerte;
         wxPanel* Panel1;

@@ -191,6 +191,7 @@ const long USBLoader2Frame::ID_PANELEchtWerte = wxNewId();
 const long USBLoader2Frame::ID_NOTEBOOK1 = wxNewId();
 const long USBLoader2Frame::ID_TEXTCTRLLOG = wxNewId();
 const long USBLoader2Frame::ID_PANEL1 = wxNewId();
+const long USBLoader2Frame::idMenuSpeichern = wxNewId();
 const long USBLoader2Frame::idMenuQuit = wxNewId();
 const long USBLoader2Frame::idMenuVerbinden = wxNewId();
 const long USBLoader2Frame::idMenuTrennen = wxNewId();
@@ -625,13 +626,15 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     BoxSizer1->SetSizeHints(Panel1);
     HauptMenuBar = new wxMenuBar();
     Menu1 = new wxMenu();
-    MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
+    MenuItem5 = new wxMenuItem(Menu1, idMenuSpeichern, _("Speichern\tAlt-S"), _("Speichern der Konfiguration"), wxITEM_NORMAL);
+    Menu1->Append(MenuItem5);
+    MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Schliessen\tAlt-F4"), _("Programmen beenden"), wxITEM_NORMAL);
     Menu1->Append(MenuItem1);
     HauptMenuBar->Append(Menu1, _("&File"));
     Menu3 = new wxMenu();
-    MenuItem3 = new wxMenuItem(Menu3, idMenuVerbinden, _("Verbinden"), _("Verbinden Modul"), wxITEM_NORMAL);
+    MenuItem3 = new wxMenuItem(Menu3, idMenuVerbinden, _("Verbinden\tAlt-V"), _("Verbinden Modul"), wxITEM_NORMAL);
     Menu3->Append(MenuItem3);
-    MenuItem4 = new wxMenuItem(Menu3, idMenuTrennen, _("Trennen"), _("Trennen Modul"), wxITEM_NORMAL);
+    MenuItem4 = new wxMenuItem(Menu3, idMenuTrennen, _("Trennen\tAlt-T"), _("Trennen Modul"), wxITEM_NORMAL);
     Menu3->Append(MenuItem4);
     HauptMenuBar->Append(Menu3, _("&Kommunikation"));
     Menu2 = new wxMenu();
@@ -646,6 +649,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetStatusStyles(2,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
 
+    Connect(idMenuSpeichern,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnSpeichern);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnQuit);
     Connect(idMenuVerbinden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConnectUsb);
     Connect(idMenuTrennen,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnDisconnectUsb);
@@ -657,6 +661,8 @@ USBLoader2Frame::~USBLoader2Frame()
 {
     //(*Destroy(USBLoader2Frame)
     //*)
+    fininish = true;
+    delete digiSpark;
 }
 
 void USBLoader2Frame::OnQuit(wxCommandEvent& event)
@@ -676,14 +682,85 @@ void USBLoader2Frame::OnDisconnectUsb(wxCommandEvent& event)
 {
     wxString s;
 
+    fininish = true;
+    delete digiSpark;
+    connected = false;
 	s << "Nicht verbunden";
 	this->SetStatusText(s, 1);
 }
 
 void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 {
-    wxString s;
+    wxString m, s;
+	int led = 0;
 
-	s << "Verbunden";
+	if (connected == true) // vendor 5824, product 1503
+	{
+		cout << "Device is already connected!!!" << endl << ends;
+		return;
+	}
+
+	wxStreamToTextRedirector redirect(TextCtrlLOG);
+
+	fininish = false;
+	digiSpark = new USBDevice();
+
+	//digiSpark->connect_device();
+	digiSpark->connect_device_with_search();
+
+	if (digiSpark->isConnected()) // vendor 5824, product 1503
+	{
+		s << "Verbunden";
+		led = digiSpark->getLED();
+	//	if (led > 0)
+				//m_checkBox1->SetValue(true);
+	//	else
+	//		if (!led)
+				//m_checkBox1->SetValue(false);
+		connected = true;
+	}
+	else
+	{
+		s << "Nicht Verbunden";
+		cout << digiSpark->getLog();
+		cout << digiSpark->print_deviceList();
+		cout << digiSpark->getLog();
+		connected = false;
+		delete digiSpark;
+		return; // exit no device connected
+	}
 	this->SetStatusText(s, 1);
+	int k = 0;
+	while (fininish == false) {
+		cout << digiSpark->getLog();
+		cout << digiSpark->readString();
+
+	/*	if (digiSpark->isConnected())
+		{
+			if (connected == false)
+			{
+				connected = true;
+				s << "Verbunden";
+				this->SetStatusText(s, 2);
+			}
+
+		}
+		else
+		{
+			if (connected == true)
+			{
+				connected = false;
+				s << "Nicht Verbunden";
+				this->SetStatusText(s, 2);
+			}
+		}
+*/
+		wxYield();
+		//::wxSleep(1);
+	}
+	return;
+}
+
+void USBLoader2Frame::OnSpeichern(wxCommandEvent& event)
+{
 }

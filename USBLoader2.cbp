@@ -39,13 +39,19 @@
 		</Linker>
 		<Unit filename="About.cpp" />
 		<Unit filename="About.h" />
+		<Unit filename="USBDevice.cpp" />
+		<Unit filename="USBDevice.h" />
 		<Unit filename="USBLoader2App.cpp" />
 		<Unit filename="USBLoader2App.h" />
 		<Unit filename="USBLoader2Main.cpp" />
 		<Unit filename="USBLoader2Main.h" />
+		<Unit filename="protocol.h" />
 		<Unit filename="wxsmith/About.wxs" />
 		<Unit filename="wxsmith/USBLoader2frame.wxs" />
 		<Extensions>
+			<lib_finder>
+				<lib name="libusb-1.0" />
+			</lib_finder>
 			<wxsmith version="1">
 				<gui name="wxWidgets" src="USBLoader2App.cpp" main="USBLoader2Frame" init_handlers="necessary" language="CPP" />
 				<resources>
