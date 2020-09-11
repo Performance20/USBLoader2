@@ -13,6 +13,10 @@
 #include "USBDevice.h"
 #include "ConfigData.h"
 
+#include <wx/stdpaths.h>
+#include <wx/config.h>
+#include <wx/confbase.h>
+#include <wx/fileconf.h>
 
 //(*Headers(USBLoader2Frame)
 #include <wx/choice.h>
@@ -50,6 +54,7 @@ class USBLoader2Frame: public wxFrame
         void OnConnectUsb(wxCommandEvent& event);
         void OnSpeichern(wxCommandEvent& event);
         void OnRadioBoxBasisfunktionSelect(wxCommandEvent& event);
+        void OnLadenKonfig(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
@@ -63,16 +68,16 @@ class USBLoader2Frame: public wxFrame
         static const long ID_SPINCTRLStarthilfeUMDR;
         static const long ID_STATICTEXT63;
         static const long ID_STATICTEXT2;
-        static const long ID_SPINCTRL2;
+        static const long ID_SPINCTRL2FZZP;
         static const long ID_STATICTEXT4;
         static const long ID_STATICTEXT31;
-        static const long ID_CHOICE1;
+        static const long ID_CHOICETAB;
         static const long ID_STATICTEXT32;
         static const long ID_STATICTEXT64;
-        static const long ID_SPINCTRL4;
+        static const long ID_SPINCTRLSPLoad;
         static const long ID_STATICTEXT65;
         static const long ID_STATICTEXT33;
-        static const long ID_CHOICE2;
+        static const long ID_CHOICELED;
         static const long ID_STATICTEXT66;
         static const long ID_PANELBasis;
         static const long ID_STATICTEXT1;
@@ -200,6 +205,7 @@ class USBLoader2Frame: public wxFrame
         static const long ID_TEXTCTRLLOG;
         static const long ID_PANEL1;
         static const long idMenuSpeichern;
+        static const long idMenuLaden;
         static const long idMenuQuit;
         static const long idMenuVerbinden;
         static const long idMenuTrennen;
@@ -210,13 +216,14 @@ class USBLoader2Frame: public wxFrame
         //*)
 
         //(*Declarations(USBLoader2Frame)
-        wxChoice* Choice1;
-        wxChoice* Choice2;
+        wxChoice* ChoiceLED;
+        wxChoice* ChoiceTAB;
         wxMenuItem* MenuItem3;
         wxMenuItem* MenuItem4;
         wxMenuItem* MenuItem5;
         wxMenuItem* MenuItem6;
         wxMenuItem* MenuItem7;
+        wxMenuItem* MenuItem8;
         wxNotebook* Notebook1;
         wxPanel* EchtWerte;
         wxPanel* Panel1;
@@ -225,9 +232,8 @@ class USBLoader2Frame: public wxFrame
         wxPanel* PanelTB2;
         wxPanel* PanelTB3;
         wxRadioBox* RadioBoxBasisfunktion;
-        wxSpinCtrl* SpinCtrl2;
-        wxSpinCtrl* SpinCtrl4;
-        wxSpinCtrl* SpinCtrlSpinCtrlTB1_UM2;
+        wxSpinCtrl* SpinCtrlFZZP;
+        wxSpinCtrl* SpinCtrlSPLoad;
         wxSpinCtrl* SpinCtrlStarthilfe;
         wxSpinCtrl* SpinCtrlStarthilfeUMDR;
         wxSpinCtrl* SpinCtrlTB1_GR10;
@@ -242,6 +248,7 @@ class USBLoader2Frame: public wxFrame
         wxSpinCtrl* SpinCtrlTB1_GR9;
         wxSpinCtrl* SpinCtrlTB1_UM10;
         wxSpinCtrl* SpinCtrlTB1_UM1;
+        wxSpinCtrl* SpinCtrlTB1_UM2;
         wxSpinCtrl* SpinCtrlTB1_UM3;
         wxSpinCtrl* SpinCtrlTB1_UM4;
         wxSpinCtrl* SpinCtrlTB1_UM5;

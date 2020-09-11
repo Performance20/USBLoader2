@@ -118,7 +118,7 @@
 												<option>1</option>
 											</object>
 											<object class="sizeritem">
-												<object class="wxSpinCtrl" name="ID_SPINCTRL2" variable="SpinCtrl2" member="yes">
+												<object class="wxSpinCtrl" name="ID_SPINCTRL2FZZP" variable="SpinCtrlFZZP" member="yes">
 													<value>-22</value>
 													<min>-30</min>
 													<max>20</max>
@@ -146,7 +146,7 @@
 												<option>1</option>
 											</object>
 											<object class="sizeritem">
-												<object class="wxChoice" name="ID_CHOICE1" variable="Choice1" member="yes">
+												<object class="wxChoice" name="ID_CHOICETAB" variable="ChoiceTAB" member="yes">
 													<content>
 														<item>Tabelle1</item>
 														<item>Tabelle2</item>
@@ -177,7 +177,7 @@
 												<option>1</option>
 											</object>
 											<object class="sizeritem">
-												<object class="wxSpinCtrl" name="ID_SPINCTRL4" variable="SpinCtrl4" member="yes">
+												<object class="wxSpinCtrl" name="ID_SPINCTRLSPLoad" variable="SpinCtrlSPLoad" member="yes">
 													<value>270</value>
 													<min>90</min>
 													<max>320</max>
@@ -205,7 +205,7 @@
 												<option>1</option>
 											</object>
 											<object class="sizeritem">
-												<object class="wxChoice" name="ID_CHOICE2" variable="Choice2" member="yes">
+												<object class="wxChoice" name="ID_CHOICELED" variable="ChoiceLED" member="yes">
 													<content>
 														<item>Aus</item>
 														<item>An</item>
@@ -302,7 +302,7 @@
 										<option>1</option>
 									</object>
 									<object class="sizeritem">
-										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_UM2" variable="SpinCtrlSpinCtrlTB1_UM2" member="yes">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_UM2" variable="SpinCtrlTB1_UM2" member="yes">
 											<value>2000</value>
 											<max>10000</max>
 											<size>120,30</size>
@@ -1389,8 +1389,14 @@
 				<object class="wxMenuItem" name="idMenuSpeichern" variable="MenuItem5" member="yes">
 					<label>Konfiguration Speichern</label>
 					<accel>Alt-S</accel>
-					<help>Speichern der Konfiguration</help>
+					<help>Speichern Konfiguration in Datei</help>
 					<handler function="OnSpeichern" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="idMenuLaden" variable="MenuItem8" member="yes">
+					<label>Konfiguration Laden</label>
+					<accel>Alt-L</accel>
+					<help>Laden Konfiguration aus Datei</help>
+					<handler function="OnLadenKonfig" entry="EVT_MENU" />
 				</object>
 				<object class="separator" />
 				<object class="wxMenuItem" name="idMenuQuit" variable="MenuItem1" member="no">

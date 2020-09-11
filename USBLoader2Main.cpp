@@ -9,6 +9,7 @@
 
 #include "USBLoader2Main.h"
 #include <wx/msgdlg.h>
+#include <wx/filedlg.h>
 
 //(*InternalHeaders(USBLoader2Frame)
 #include <wx/intl.h>
@@ -56,16 +57,16 @@ const long USBLoader2Frame::ID_STATICTEXT62 = wxNewId();
 const long USBLoader2Frame::ID_SPINCTRLStarthilfeUMDR = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT63 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT2 = wxNewId();
-const long USBLoader2Frame::ID_SPINCTRL2 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRL2FZZP = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT4 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT31 = wxNewId();
-const long USBLoader2Frame::ID_CHOICE1 = wxNewId();
+const long USBLoader2Frame::ID_CHOICETAB = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT32 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT64 = wxNewId();
-const long USBLoader2Frame::ID_SPINCTRL4 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLSPLoad = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT65 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT33 = wxNewId();
-const long USBLoader2Frame::ID_CHOICE2 = wxNewId();
+const long USBLoader2Frame::ID_CHOICELED = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT66 = wxNewId();
 const long USBLoader2Frame::ID_PANELBasis = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT1 = wxNewId();
@@ -193,6 +194,7 @@ const long USBLoader2Frame::ID_NOTEBOOK1 = wxNewId();
 const long USBLoader2Frame::ID_TEXTCTRLLOG = wxNewId();
 const long USBLoader2Frame::ID_PANEL1 = wxNewId();
 const long USBLoader2Frame::idMenuSpeichern = wxNewId();
+const long USBLoader2Frame::idMenuLaden = wxNewId();
 const long USBLoader2Frame::idMenuQuit = wxNewId();
 const long USBLoader2Frame::idMenuVerbinden = wxNewId();
 const long USBLoader2Frame::idMenuTrennen = wxNewId();
@@ -267,41 +269,41 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     FlexGridSizer1->Add(StaticText63, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText2 = new wxStaticText(PanelBasis, ID_STATICTEXT2, _("Fester Zündzeitpunkt von OT:"), wxDefaultPosition, wxDefaultSize, wxWANTS_CHARS, _T("ID_STATICTEXT2"));
     FlexGridSizer1->Add(StaticText2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    SpinCtrl2 = new wxSpinCtrl(PanelBasis, ID_SPINCTRL2, _T("-22"), wxDefaultPosition, wxSize(120,30), 0, -30, 20, -22, _T("ID_SPINCTRL2"));
-    SpinCtrl2->SetValue(_T("-22"));
-    SpinCtrl2->SetToolTip(_("Grad weg von OT, bei dem gezündet wird z: Bsp. -22 Grad wäre 22 Grad vor OT"));
-    FlexGridSizer1->Add(SpinCtrl2, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlFZZP = new wxSpinCtrl(PanelBasis, ID_SPINCTRL2FZZP, _T("-22"), wxDefaultPosition, wxSize(120,30), 0, -30, 20, -22, _T("ID_SPINCTRL2FZZP"));
+    SpinCtrlFZZP->SetValue(_T("-22"));
+    SpinCtrlFZZP->SetToolTip(_("Grad weg von OT, bei dem gezündet wird z: Bsp. -22 Grad wäre 22 Grad vor OT"));
+    FlexGridSizer1->Add(SpinCtrlFZZP, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText4 = new wxStaticText(PanelBasis, ID_STATICTEXT4, _("Grad (Wert 0 = OT)"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT4"));
     FlexGridSizer1->Add(StaticText4, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText31 = new wxStaticText(PanelBasis, ID_STATICTEXT31, _("Aktive Zündtabelle:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT31"));
     FlexGridSizer1->Add(StaticText31, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    Choice1 = new wxChoice(PanelBasis, ID_CHOICE1, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE1"));
-    Choice1->SetSelection( Choice1->Append(_("Tabelle1")) );
-    Choice1->Append(_("Tabelle2"));
-    Choice1->Append(_("Tabelle3"));
-    Choice1->SetToolTip(_("Aktiv benutzte Zündzeitpunkt-Tabelle  bei Modus M4"));
-    Choice1->SetHelpText(_("Test"));
-    FlexGridSizer1->Add(Choice1, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    ChoiceTAB = new wxChoice(PanelBasis, ID_CHOICETAB, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICETAB"));
+    ChoiceTAB->SetSelection( ChoiceTAB->Append(_("Tabelle1")) );
+    ChoiceTAB->Append(_("Tabelle2"));
+    ChoiceTAB->Append(_("Tabelle3"));
+    ChoiceTAB->SetToolTip(_("Aktiv benutzte Zündzeitpunkt-Tabelle  bei Modus M4"));
+    ChoiceTAB->SetHelpText(_("Test"));
+    FlexGridSizer1->Add(ChoiceTAB, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText32 = new wxStaticText(PanelBasis, ID_STATICTEXT32, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT32"));
     FlexGridSizer1->Add(StaticText32, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText64 = new wxStaticText(PanelBasis, ID_STATICTEXT64, _("Spule laden:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT64"));
     FlexGridSizer1->Add(StaticText64, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    SpinCtrl4 = new wxSpinCtrl(PanelBasis, ID_SPINCTRL4, _T("270"), wxDefaultPosition, wxSize(120,30), 0, 90, 320, 270, _T("ID_SPINCTRL4"));
-    SpinCtrl4->SetValue(_T("270"));
-    SpinCtrl4->SetToolTip(_("Zeitdauer, wieviel von einer Umdrehung für das Laden und Entladen der Zündspule genutzt wird. Beipiel Wert = 270° -> 3/4 einer Umdrehung werden zum Laden und 1/4 = 90° werden zum Entladen = Zünden genutzt. Eine Umdrehung hat 360°."));
-    FlexGridSizer1->Add(SpinCtrl4, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlSPLoad = new wxSpinCtrl(PanelBasis, ID_SPINCTRLSPLoad, _T("270"), wxDefaultPosition, wxSize(120,30), 0, 90, 320, 270, _T("ID_SPINCTRLSPLoad"));
+    SpinCtrlSPLoad->SetValue(_T("270"));
+    SpinCtrlSPLoad->SetToolTip(_("Zeitdauer, wieviel von einer Umdrehung für das Laden und Entladen der Zündspule genutzt wird. Beipiel Wert = 270° -> 3/4 einer Umdrehung werden zum Laden und 1/4 = 90° werden zum Entladen = Zünden genutzt. Eine Umdrehung hat 360°."));
+    FlexGridSizer1->Add(SpinCtrlSPLoad, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText65 = new wxStaticText(PanelBasis, ID_STATICTEXT65, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT65"));
     FlexGridSizer1->Add(StaticText65, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText33 = new wxStaticText(PanelBasis, ID_STATICTEXT33, _("LED:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT33"));
     FlexGridSizer1->Add(StaticText33, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    Choice2 = new wxChoice(PanelBasis, ID_CHOICE2, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE2"));
-    Choice2->Append(_("Aus"));
-    Choice2->Append(_("An"));
-    Choice2->Append(_("Blinken"));
-    Choice2->SetSelection( Choice2->Append(_("Eingangssignal")) );
-    Choice2->Append(_("Diagnose"));
-    Choice2->SetToolTip(_("Verhalten der LED"));
-    FlexGridSizer1->Add(Choice2, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    ChoiceLED = new wxChoice(PanelBasis, ID_CHOICELED, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICELED"));
+    ChoiceLED->Append(_("Aus"));
+    ChoiceLED->Append(_("An"));
+    ChoiceLED->Append(_("Blinken"));
+    ChoiceLED->SetSelection( ChoiceLED->Append(_("Eingangssignal")) );
+    ChoiceLED->Append(_("Diagnose"));
+    ChoiceLED->SetToolTip(_("Verhalten der LED"));
+    FlexGridSizer1->Add(ChoiceLED, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText66 = new wxStaticText(PanelBasis, ID_STATICTEXT66, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT66"));
     FlexGridSizer1->Add(StaticText66, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer2->Add(FlexGridSizer1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -326,9 +328,9 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     GridSizer1->Add(SpinCtrlTB1_GR1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText9 = new wxStaticText(PanelTB1, ID_STATICTEXT9, _("2."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT9"));
     GridSizer1->Add(StaticText9, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    SpinCtrlSpinCtrlTB1_UM2 = new wxSpinCtrl(PanelTB1, ID_SPINCTRLTB1_UM2, _T("2000"), wxDefaultPosition, wxSize(120,30), 0, 0, 10000, 2000, _T("ID_SPINCTRLTB1_UM2"));
-    SpinCtrlSpinCtrlTB1_UM2->SetValue(_T("2000"));
-    GridSizer1->Add(SpinCtrlSpinCtrlTB1_UM2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlTB1_UM2 = new wxSpinCtrl(PanelTB1, ID_SPINCTRLTB1_UM2, _T("2000"), wxDefaultPosition, wxSize(120,30), 0, 0, 10000, 2000, _T("ID_SPINCTRLTB1_UM2"));
+    SpinCtrlTB1_UM2->SetValue(_T("2000"));
+    GridSizer1->Add(SpinCtrlTB1_UM2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SpinCtrlTB1_GR2 = new wxSpinCtrl(PanelTB1, ID_SPINCTRLTB1_GR2, _T("-22"), wxDefaultPosition, wxSize(120,30), 0, -30, 20, -22, _T("ID_SPINCTRLTB1_GR2"));
     SpinCtrlTB1_GR2->SetValue(_T("-22"));
     GridSizer1->Add(SpinCtrlTB1_GR2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -640,8 +642,10 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     BoxSizer1->SetSizeHints(Panel1);
     HauptMenuBar = new wxMenuBar();
     Menu1 = new wxMenu();
-    MenuItem5 = new wxMenuItem(Menu1, idMenuSpeichern, _("Konfiguration Speichern\tAlt-S"), _("Speichern der Konfiguration"), wxITEM_NORMAL);
+    MenuItem5 = new wxMenuItem(Menu1, idMenuSpeichern, _("Konfiguration Speichern\tAlt-S"), _("Speichern Konfiguration in Datei"), wxITEM_NORMAL);
     Menu1->Append(MenuItem5);
+    MenuItem8 = new wxMenuItem(Menu1, idMenuLaden, _("Konfiguration Laden\tAlt-L"), _("Laden Konfiguration aus Datei"), wxITEM_NORMAL);
+    Menu1->Append(MenuItem8);
     Menu1->AppendSeparator();
     MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Schließen\tAlt-F4"), _("Programmen beenden"), wxITEM_NORMAL);
     Menu1->Append(MenuItem1);
@@ -671,6 +675,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
 
     Connect(ID_RADIOBOXBasisfunktion,wxEVT_COMMAND_RADIOBOX_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnRadioBoxBasisfunktionSelect);
     Connect(idMenuSpeichern,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnSpeichern);
+    Connect(idMenuLaden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnLadenKonfig);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnQuit);
     Connect(idMenuVerbinden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConnectUsb);
     Connect(idMenuTrennen,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnDisconnectUsb);
@@ -786,6 +791,101 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 
 void USBLoader2Frame::OnSpeichern(wxCommandEvent& event)
 {
+    wxFileConfig *ConfigINI;
+    wxString appPath, tmps;
+
+
+    wxFileDialog saveFileDialog(this, _("Konfiguration speichern"), "", "", "CFG Dateien (*.cfg)|*.cfg", wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+    if (saveFileDialog.ShowModal() == wxID_CANCEL)
+        return;     // the user changed idea...
+
+    appPath = saveFileDialog.GetPath();
+    tmps = appPath.AfterLast('.');
+    if (appPath.AfterLast('.') != "cfg")
+    {
+        appPath.append(".cfg");
+    }
+
+    ConfigINI = new wxFileConfig(wxEmptyString, wxEmptyString, appPath);
+
+    ConfigINI->SetPath("/Basis");
+	ConfigINI->Write("Basisfunktion",RadioBoxBasisfunktion->GetSelection());
+    ConfigINI->Write("StarthilfeZZP",SpinCtrlStarthilfe->GetValue());
+    ConfigINI->Write("StarthilfeUPM",SpinCtrlStarthilfeUMDR->GetValue());
+    ConfigINI->Write("ZZP",SpinCtrlFZZP->GetValue());
+    ConfigINI->Write("ZTAB",ChoiceTAB->GetSelection());
+    ConfigINI->Write("Spule",SpinCtrlSPLoad->GetValue());
+    ConfigINI->Write("LED",ChoiceLED->GetSelection());
+
+    ConfigINI->SetPath("/Tabelle1");
+    ConfigINI->Write("UPM1",SpinCtrlTB1_UM1->GetValue());
+    ConfigINI->Write("Grad1",SpinCtrlTB1_GR1->GetValue());
+    ConfigINI->Write("UPM2",SpinCtrlTB1_UM2->GetValue());
+    ConfigINI->Write("Grad2",SpinCtrlTB1_GR2->GetValue());
+    ConfigINI->Write("UPM3",SpinCtrlTB1_UM3->GetValue());
+    ConfigINI->Write("Grad3",SpinCtrlTB1_GR3->GetValue());
+    ConfigINI->Write("UPM4",SpinCtrlTB1_UM4->GetValue());
+    ConfigINI->Write("Grad4",SpinCtrlTB1_GR4->GetValue());
+    ConfigINI->Write("UPM5",SpinCtrlTB1_UM5->GetValue());
+    ConfigINI->Write("Grad5",SpinCtrlTB1_GR5->GetValue());
+    ConfigINI->Write("UPM6",SpinCtrlTB1_UM6->GetValue());
+    ConfigINI->Write("Grad6",SpinCtrlTB1_GR6->GetValue());
+    ConfigINI->Write("UPM7",SpinCtrlTB1_UM7->GetValue());
+    ConfigINI->Write("Grad7",SpinCtrlTB1_GR7->GetValue());
+    ConfigINI->Write("UPM8",SpinCtrlTB1_UM8->GetValue());
+    ConfigINI->Write("Grad8",SpinCtrlTB1_GR8->GetValue());
+    ConfigINI->Write("UPM9",SpinCtrlTB1_UM9->GetValue());
+    ConfigINI->Write("Grad9",SpinCtrlTB1_GR9->GetValue());
+    ConfigINI->Write("UPM10",SpinCtrlTB1_UM10->GetValue());
+    ConfigINI->Write("Grad10",SpinCtrlTB1_GR10->GetValue());
+
+    ConfigINI->SetPath("/Tabelle2");
+    ConfigINI->Write("UPM1",SpinCtrlTB2_UM1->GetValue());
+    ConfigINI->Write("Grad1",SpinCtrlTB2_GR1->GetValue());
+    ConfigINI->Write("UPM2",SpinCtrlTB2_UM2->GetValue());
+    ConfigINI->Write("Grad2",SpinCtrlTB2_GR2->GetValue());
+    ConfigINI->Write("UPM3",SpinCtrlTB2_UM3->GetValue());
+    ConfigINI->Write("Grad3",SpinCtrlTB2_GR3->GetValue());
+    ConfigINI->Write("UPM4",SpinCtrlTB2_UM4->GetValue());
+    ConfigINI->Write("Grad4",SpinCtrlTB2_GR4->GetValue());
+    ConfigINI->Write("UPM5",SpinCtrlTB2_UM5->GetValue());
+    ConfigINI->Write("Grad5",SpinCtrlTB2_GR5->GetValue());
+    ConfigINI->Write("UPM6",SpinCtrlTB2_UM6->GetValue());
+    ConfigINI->Write("Grad6",SpinCtrlTB2_GR6->GetValue());
+    ConfigINI->Write("UPM7",SpinCtrlTB2_UM7->GetValue());
+    ConfigINI->Write("Grad7",SpinCtrlTB2_GR7->GetValue());
+    ConfigINI->Write("UPM8",SpinCtrlTB2_UM8->GetValue());
+    ConfigINI->Write("Grad8",SpinCtrlTB2_GR8->GetValue());
+    ConfigINI->Write("UPM9",SpinCtrlTB2_UM9->GetValue());
+    ConfigINI->Write("Grad9",SpinCtrlTB2_GR9->GetValue());
+    ConfigINI->Write("UPM10",SpinCtrlTB2_UM10->GetValue());
+    ConfigINI->Write("Grad10",SpinCtrlTB2_GR10->GetValue());
+
+    ConfigINI->SetPath("/Tabelle3");
+    ConfigINI->Write("UPM1",SpinCtrlTB3_UM1->GetValue());
+    ConfigINI->Write("Grad1",SpinCtrlTB3_GR1->GetValue());
+    ConfigINI->Write("UPM2",SpinCtrlTB3_UM2->GetValue());
+    ConfigINI->Write("Grad2",SpinCtrlTB3_GR2->GetValue());
+    ConfigINI->Write("UPM3",SpinCtrlTB3_UM3->GetValue());
+    ConfigINI->Write("Grad3",SpinCtrlTB3_GR3->GetValue());
+    ConfigINI->Write("UPM4",SpinCtrlTB3_UM4->GetValue());
+    ConfigINI->Write("Grad4",SpinCtrlTB3_GR4->GetValue());
+    ConfigINI->Write("UPM5",SpinCtrlTB3_UM5->GetValue());
+    ConfigINI->Write("Grad5",SpinCtrlTB3_GR5->GetValue());
+    ConfigINI->Write("UPM6",SpinCtrlTB3_UM6->GetValue());
+    ConfigINI->Write("Grad6",SpinCtrlTB3_GR6->GetValue());
+    ConfigINI->Write("UPM7",SpinCtrlTB3_UM7->GetValue());
+    ConfigINI->Write("Grad7",SpinCtrlTB3_GR7->GetValue());
+    ConfigINI->Write("UPM8",SpinCtrlTB3_UM8->GetValue());
+    ConfigINI->Write("Grad8",SpinCtrlTB3_GR8->GetValue());
+    ConfigINI->Write("UPM9",SpinCtrlTB3_UM9->GetValue());
+    ConfigINI->Write("Grad9",SpinCtrlTB3_GR9->GetValue());
+    ConfigINI->Write("UPM10",SpinCtrlTB3_UM10->GetValue());
+    ConfigINI->Write("Grad10",SpinCtrlTB3_GR10->GetValue());
+
+    ConfigINI->Flush();//Force save data in .ini file
+    delete ConfigINI;
+
 }
 
 void USBLoader2Frame::OnRadioBoxBasisfunktionSelect(wxCommandEvent& event)
@@ -797,3 +897,102 @@ void USBLoader2Frame::OnRadioBoxBasisfunktionSelect(wxCommandEvent& event)
 
 
 
+void USBLoader2Frame::OnLadenKonfig(wxCommandEvent& event)
+{
+     /*
+     if (...current content has not been saved...)
+    {
+        if (wxMessageBox(_("Current content has not been saved! Proceed?"), _("Please confirm"),
+                         wxICON_QUESTION | wxYES_NO, this) == wxNO )
+            return;
+        //else: proceed asking to the user the new file to open
+    }
+    */
+
+
+    wxFileConfig *ConfigINI;
+    wxString appPath, tmps;
+
+    wxFileDialog openFileDialog(this, _("Konfiguration laden"), "", "", "CFG Datei (*.cfg)|*.cfg", wxFD_OPEN | wxFD_FILE_MUST_EXIST);
+    if (openFileDialog.ShowModal() == wxID_CANCEL)
+        return;     // the user changed idea...
+
+    appPath = openFileDialog.GetPath();
+
+    ConfigINI = new wxFileConfig(wxEmptyString, wxEmptyString, appPath);
+
+	ConfigINI->SetPath("/Basis");
+    RadioBoxBasisfunktion->SetSelection(ConfigINI->Read("Basisfunktion", 1));
+    SpinCtrlStarthilfe->SetValue(ConfigINI->Read("StarthilfeZZP", "0"));
+    SpinCtrlStarthilfeUMDR->SetValue(ConfigINI->Read("StarthilfeUPM", "500"));
+    SpinCtrlFZZP->SetValue(ConfigINI->Read("ZZP", "-22"));
+    ChoiceTAB->SetSelection(ConfigINI->Read("ZTAB", 1));
+    SpinCtrlSPLoad->SetValue(ConfigINI->Read("Spule", "270"));
+    ChoiceLED->SetSelection(ConfigINI->Read("LED", 3));
+
+    ConfigINI->SetPath("/Tabelle1");
+    SpinCtrlTB1_UM1->SetValue(ConfigINI->Read("UPM1", "500"));
+    SpinCtrlTB1_GR1->SetValue(ConfigINI->Read("Grad1", "0"));
+    SpinCtrlTB1_UM2->SetValue(ConfigINI->Read("UPM2", "2000"));
+    SpinCtrlTB1_GR2->SetValue(ConfigINI->Read("Grad2", "-22"));
+    SpinCtrlTB1_UM3->SetValue(ConfigINI->Read("UPM3", "3000"));
+    SpinCtrlTB1_GR3->SetValue(ConfigINI->Read("Grad3", "-22"));
+    SpinCtrlTB1_UM4->SetValue(ConfigINI->Read("UPM4", "3500"));
+    SpinCtrlTB1_GR4->SetValue(ConfigINI->Read("Grad4", "-22"));
+    SpinCtrlTB1_UM5->SetValue(ConfigINI->Read("UPM5", "4000"));
+    SpinCtrlTB1_GR5->SetValue(ConfigINI->Read("Grad5", "-22"));
+    SpinCtrlTB1_UM6->SetValue(ConfigINI->Read("UPM6", "4500"));
+    SpinCtrlTB1_GR6->SetValue(ConfigINI->Read("Grad6", "-22"));
+    SpinCtrlTB1_UM7->SetValue(ConfigINI->Read("UPM7", "5000"));
+    SpinCtrlTB1_GR7->SetValue(ConfigINI->Read("Grad7", "-22"));
+    SpinCtrlTB1_UM8->SetValue(ConfigINI->Read("UPM8", "5500"));
+    SpinCtrlTB1_GR8->SetValue(ConfigINI->Read("Grad8", "-22"));
+    SpinCtrlTB1_UM9->SetValue(ConfigINI->Read("UPM9", "6500"));
+    SpinCtrlTB1_GR9->SetValue(ConfigINI->Read("Grad9", "-22"));
+    SpinCtrlTB1_UM10->SetValue(ConfigINI->Read("UPM10", "7000"));
+    SpinCtrlTB1_GR10->SetValue(ConfigINI->Read("Grad10", "-22"));
+
+    ConfigINI->SetPath("/Tabelle2");
+    SpinCtrlTB2_UM1->SetValue(ConfigINI->Read("UPM1", "0"));
+    SpinCtrlTB2_GR1->SetValue(ConfigINI->Read("Grad1", "0"));
+    SpinCtrlTB2_UM2->SetValue(ConfigINI->Read("UPM2", "0"));
+    SpinCtrlTB2_GR2->SetValue(ConfigINI->Read("Grad2", "0"));
+    SpinCtrlTB2_UM3->SetValue(ConfigINI->Read("UPM3", "0"));
+    SpinCtrlTB2_GR3->SetValue(ConfigINI->Read("Grad3", "0"));
+    SpinCtrlTB2_UM4->SetValue(ConfigINI->Read("UPM4", "0"));
+    SpinCtrlTB2_GR4->SetValue(ConfigINI->Read("Grad4", "0"));
+    SpinCtrlTB2_UM5->SetValue(ConfigINI->Read("UPM5", "0"));
+    SpinCtrlTB2_GR5->SetValue(ConfigINI->Read("Grad5", "0"));
+    SpinCtrlTB2_UM6->SetValue(ConfigINI->Read("UPM6", "0"));
+    SpinCtrlTB2_GR6->SetValue(ConfigINI->Read("Grad6", "0"));
+    SpinCtrlTB2_UM7->SetValue(ConfigINI->Read("UPM7", "0"));
+    SpinCtrlTB2_GR7->SetValue(ConfigINI->Read("Grad7", "0"));
+    SpinCtrlTB2_UM8->SetValue(ConfigINI->Read("UPM8", "0"));
+    SpinCtrlTB2_GR8->SetValue(ConfigINI->Read("Grad8", "0"));
+    SpinCtrlTB2_UM9->SetValue(ConfigINI->Read("UPM9", "0"));
+    SpinCtrlTB2_GR9->SetValue(ConfigINI->Read("Grad9", "0"));
+    SpinCtrlTB2_UM10->SetValue(ConfigINI->Read("UPM10", "0"));
+    SpinCtrlTB2_GR10->SetValue(ConfigINI->Read("Grad10", "0"));
+
+    ConfigINI->SetPath("/Tabelle3");
+    SpinCtrlTB3_UM1->SetValue(ConfigINI->Read("UPM1", "0"));
+    SpinCtrlTB3_GR1->SetValue(ConfigINI->Read("Grad1", "0"));
+    SpinCtrlTB3_UM2->SetValue(ConfigINI->Read("UPM2", "0"));
+    SpinCtrlTB3_GR2->SetValue(ConfigINI->Read("Grad2", "0"));
+    SpinCtrlTB3_UM3->SetValue(ConfigINI->Read("UPM3", "0"));
+    SpinCtrlTB3_GR3->SetValue(ConfigINI->Read("Grad3", "0"));
+    SpinCtrlTB3_UM4->SetValue(ConfigINI->Read("UPM4", "0"));
+    SpinCtrlTB3_GR4->SetValue(ConfigINI->Read("Grad4", "0"));
+    SpinCtrlTB3_UM5->SetValue(ConfigINI->Read("UPM5", "0"));
+    SpinCtrlTB3_GR5->SetValue(ConfigINI->Read("Grad5", "0"));
+    SpinCtrlTB3_UM6->SetValue(ConfigINI->Read("UPM6", "0"));
+    SpinCtrlTB3_GR6->SetValue(ConfigINI->Read("Grad6", "0"));
+    SpinCtrlTB3_UM7->SetValue(ConfigINI->Read("UPM7", "0"));
+    SpinCtrlTB3_GR7->SetValue(ConfigINI->Read("Grad7", "0"));
+    SpinCtrlTB3_UM8->SetValue(ConfigINI->Read("UPM8", "0"));
+    SpinCtrlTB3_GR8->SetValue(ConfigINI->Read("Grad8", "0"));
+    SpinCtrlTB3_UM9->SetValue(ConfigINI->Read("UPM9", "0"));
+    SpinCtrlTB3_GR9->SetValue(ConfigINI->Read("Grad9", "0"));
+    SpinCtrlTB3_UM10->SetValue(ConfigINI->Read("UPM10", "0"));
+    SpinCtrlTB3_GR10->SetValue(ConfigINI->Read("Grad10", "0"));
+}
