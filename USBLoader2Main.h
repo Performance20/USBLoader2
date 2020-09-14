@@ -45,7 +45,11 @@ class USBLoader2Frame: public wxFrame
         bool fininish;
         bool connected;
 
+        bool configchange;
+
         ConfigData config;
+
+        void ConfigChange(void);
 
         //(*Handlers(USBLoader2Frame)
         void OnQuit(wxCommandEvent& event);
@@ -55,6 +59,8 @@ class USBLoader2Frame: public wxFrame
         void OnSpeichern(wxCommandEvent& event);
         void OnRadioBoxBasisfunktionSelect(wxCommandEvent& event);
         void OnLadenKonfig(wxCommandEvent& event);
+        void OnDataChange(wxCommandEvent& event);
+        void OnSpinCtrlChange(wxSpinEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
@@ -373,5 +379,10 @@ class USBLoader2Frame: public wxFrame
 
         DECLARE_EVENT_TABLE()
 };
+
+inline void USBLoader2Frame::ConfigChange(void)
+{
+    configchange = true;
+}
 
 #endif // USBLoader2MAIN_H

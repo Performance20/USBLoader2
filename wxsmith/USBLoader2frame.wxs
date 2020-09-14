@@ -36,7 +36,7 @@
 											<default>1</default>
 											<dimension>2</dimension>
 											<extra_code>config.basisFunktion &lt;&lt; RadioBoxBasisfunktion-&gt;GetSelection();</extra_code>
-											<handler function="OnRadioBoxBasisfunktionSelect" entry="EVT_RADIOBOX" />
+											<handler function="OnDataChange" entry="EVT_RADIOBOX" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -68,6 +68,7 @@
 													<max>20</max>
 													<size>120,30</size>
 													<tooltip>Zündzeitpunkt beim Starten im Modus M3</tooltip>
+													<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 												</object>
 												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
@@ -95,6 +96,7 @@
 													<max>2000</max>
 													<size>120,30</size>
 													<tooltip>Bis zu welcher Umdrehung der Starthilfe Zündzeitpunkt genutzt wird (Modus M3). Wird die Umdrehung höher, wird auf  festen Zündzeitpunkt umgestellt.</tooltip>
+													<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 												</object>
 												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
@@ -124,6 +126,7 @@
 													<max>20</max>
 													<size>120,30</size>
 													<tooltip>Grad weg von OT, bei dem gezündet wird z: Bsp. -22 Grad wäre 22 Grad vor OT</tooltip>
+													<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 												</object>
 												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
@@ -155,6 +158,7 @@
 													<selection>0</selection>
 													<tooltip>Aktiv benutzte Zündzeitpunkt-Tabelle  bei Modus M4</tooltip>
 													<help>Test</help>
+													<handler function="OnDataChange" entry="EVT_CHOICE" />
 												</object>
 												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
@@ -183,6 +187,7 @@
 													<max>320</max>
 													<size>120,30</size>
 													<tooltip>Zeitdauer, wieviel von einer Umdrehung für das Laden und Entladen der Zündspule genutzt wird. Beipiel Wert = 270° -&gt; 3/4 einer Umdrehung werden zum Laden und 1/4 = 90° werden zum Entladen = Zünden genutzt. Eine Umdrehung hat 360°.</tooltip>
+													<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 												</object>
 												<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
@@ -215,6 +220,7 @@
 													</content>
 													<selection>3</selection>
 													<tooltip>Verhalten der LED</tooltip>
+													<handler function="OnDataChange" entry="EVT_CHOICE" />
 												</object>
 												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
@@ -277,6 +283,7 @@
 											<value>500</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -288,6 +295,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -306,6 +314,7 @@
 											<value>2000</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -317,6 +326,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -335,6 +345,7 @@
 											<value>3000</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -346,6 +357,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -364,6 +376,7 @@
 											<value>3500</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -375,6 +388,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -393,6 +407,7 @@
 											<value>4500</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -404,6 +419,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -422,6 +438,7 @@
 											<value>5000</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -433,6 +450,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -451,6 +469,7 @@
 											<value>5500</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -462,6 +481,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -480,6 +500,7 @@
 											<value>6000</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -491,6 +512,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -509,6 +531,7 @@
 											<value>6500</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -520,6 +543,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -539,6 +563,7 @@
 											<max>10000</max>
 											<size>120,30</size>
 											<style>wxSP_VERTICAL</style>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -550,6 +575,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -601,6 +627,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -612,6 +639,7 @@
 											<min>-30</min>
 											<max>22</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -630,6 +658,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -641,6 +670,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -659,6 +689,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -670,6 +701,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -688,6 +720,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -699,6 +732,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -717,6 +751,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -728,6 +763,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -746,6 +782,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -757,6 +794,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -775,6 +813,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -786,6 +825,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -804,6 +844,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -815,6 +856,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -833,6 +875,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -844,6 +887,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -862,6 +906,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -873,6 +918,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -924,6 +970,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -935,6 +982,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -953,6 +1001,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -964,6 +1013,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -982,6 +1032,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -993,6 +1044,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1011,6 +1063,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1022,6 +1075,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1040,6 +1094,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1051,6 +1106,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1069,6 +1125,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1080,6 +1137,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1098,6 +1156,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1109,6 +1168,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1127,6 +1187,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1138,6 +1199,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1156,6 +1218,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1167,6 +1230,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1185,6 +1249,7 @@
 											<value>0</value>
 											<max>10000</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1196,6 +1261,7 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>

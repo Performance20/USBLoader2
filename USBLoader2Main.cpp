@@ -673,7 +673,73 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetStatusStyles(2,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
 
-    Connect(ID_RADIOBOXBasisfunktion,wxEVT_COMMAND_RADIOBOX_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnRadioBoxBasisfunktionSelect);
+    Connect(ID_RADIOBOXBasisfunktion,wxEVT_COMMAND_RADIOBOX_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnDataChange);
+    Connect(ID_SPINCTRLStarthilfe,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLStarthilfeUMDR,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRL2FZZP,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_CHOICETAB,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnDataChange);
+    Connect(ID_SPINCTRLSPLoad,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_CHOICELED,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnDataChange);
+    Connect(ID_SPINCTRLTB1_UM1,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_GR1,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_UM2,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_GR2,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_UM3,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_GR3,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_UM4,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_GR4,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_UM5,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_GR5,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_UM6,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_GR6,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_UM7,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_GR7,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_UM8,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_GR8,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_UM9,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_GR9,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_UM10,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB1_GR10,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_UM1,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_GR1,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_UM2,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_GR2,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_UM3,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_GR3,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_UM4,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_GR4,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_UM5,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_GR5,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_UM6,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_GR6,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_UM7,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_GR7,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_UM8,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_GR8,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_UM9,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_GR9,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_UM10,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB2_GR10,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_UM1,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_GR,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_UM2,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_GR2,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_UM3,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_GR3,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_UM4,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_GR4,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_UM5,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_GR5,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_UM6,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_GR6,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_UM7,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_GR7,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_UM8,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_GR8,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_UM9,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_GR9,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_UM10,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_SPINCTRLTB3_GR10,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
     Connect(idMenuSpeichern,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnSpeichern);
     Connect(idMenuLaden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnLadenKonfig);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnQuit);
@@ -682,7 +748,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnAbout);
     //*)
 
-
+    configchange = false;
 }
 
 USBLoader2Frame::~USBLoader2Frame()
@@ -995,4 +1061,14 @@ void USBLoader2Frame::OnLadenKonfig(wxCommandEvent& event)
     SpinCtrlTB3_GR9->SetValue(ConfigINI->Read("Grad9", "0"));
     SpinCtrlTB3_UM10->SetValue(ConfigINI->Read("UPM10", "0"));
     SpinCtrlTB3_GR10->SetValue(ConfigINI->Read("Grad10", "0"));
+}
+
+void USBLoader2Frame::OnDataChange(wxCommandEvent& event)
+{
+    ConfigChange();
+}
+
+void USBLoader2Frame::OnSpinCtrlChange(wxSpinEvent& event)
+{
+    ConfigChange();
 }
