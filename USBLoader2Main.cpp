@@ -746,9 +746,11 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     Connect(idMenuVerbinden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConnectUsb);
     Connect(idMenuTrennen,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnDisconnectUsb);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnAbout);
+    Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&USBLoader2Frame::OnClose);
     //*)
 
-    configchange = false;
+    resetConfigChange();
+
 }
 
 USBLoader2Frame::~USBLoader2Frame()
@@ -952,6 +954,7 @@ void USBLoader2Frame::OnSpeichern(wxCommandEvent& event)
     ConfigINI->Flush();//Force save data in .ini file
     delete ConfigINI;
 
+    resetConfigChange();
 }
 
 void USBLoader2Frame::OnRadioBoxBasisfunktionSelect(wxCommandEvent& event)
@@ -965,16 +968,15 @@ void USBLoader2Frame::OnRadioBoxBasisfunktionSelect(wxCommandEvent& event)
 
 void USBLoader2Frame::OnLadenKonfig(wxCommandEvent& event)
 {
-     /*
-     if (...current content has not been saved...)
-    {
-        if (wxMessageBox(_("Current content has not been saved! Proceed?"), _("Please confirm"),
-                         wxICON_QUESTION | wxYES_NO, this) == wxNO )
-            return;
-        //else: proceed asking to the user the new file to open
-    }
-    */
 
+    if (isConfigChanged() == true)
+    {
+     if ( wxMessageBox("Änderungen nicht gespeichert.., wirklich überschreiben?", "Bitte bestätigen",
+                          wxICON_QUESTION | wxYES_NO) != wxYES )
+        {
+            return;
+        }
+    }
 
     wxFileConfig *ConfigINI;
     wxString appPath, tmps;
@@ -1061,6 +1063,8 @@ void USBLoader2Frame::OnLadenKonfig(wxCommandEvent& event)
     SpinCtrlTB3_GR9->SetValue(ConfigINI->Read("Grad9", "0"));
     SpinCtrlTB3_UM10->SetValue(ConfigINI->Read("UPM10", "0"));
     SpinCtrlTB3_GR10->SetValue(ConfigINI->Read("Grad10", "0"));
+
+    resetConfigChange();
 }
 
 void USBLoader2Frame::OnDataChange(wxCommandEvent& event)
@@ -1071,4 +1075,21 @@ void USBLoader2Frame::OnDataChange(wxCommandEvent& event)
 void USBLoader2Frame::OnSpinCtrlChange(wxSpinEvent& event)
 {
     ConfigChange();
+}
+
+void USBLoader2Frame::OnClose(wxCloseEvent& event)
+{
+
+    if (isConfigChanged() == true)
+    {
+     if ( wxMessageBox("Änderungen nicht gespeichert.., wirklich schließen?",
+                          "Bitte bestätigen",
+                          wxICON_QUESTION | wxYES_NO) != wxYES )
+        {
+            event.Veto();
+            return;
+        }
+    }
+    event.Skip();
+    Destroy();
 }

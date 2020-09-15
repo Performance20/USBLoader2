@@ -45,11 +45,13 @@ class USBLoader2Frame: public wxFrame
         bool fininish;
         bool connected;
 
-        bool configchange;
+        bool cfgchange;
 
         ConfigData config;
 
         void ConfigChange(void);
+        bool isConfigChanged(void);
+        void resetConfigChange(void);
 
         //(*Handlers(USBLoader2Frame)
         void OnQuit(wxCommandEvent& event);
@@ -61,6 +63,7 @@ class USBLoader2Frame: public wxFrame
         void OnLadenKonfig(wxCommandEvent& event);
         void OnDataChange(wxCommandEvent& event);
         void OnSpinCtrlChange(wxSpinEvent& event);
+        void OnClose(wxCloseEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
@@ -382,7 +385,18 @@ class USBLoader2Frame: public wxFrame
 
 inline void USBLoader2Frame::ConfigChange(void)
 {
-    configchange = true;
+    cfgchange = true;
 }
+
+inline bool USBLoader2Frame::isConfigChanged(void)
+{
+    return cfgchange;
+}
+
+inline void USBLoader2Frame::resetConfigChange(void)
+{
+    cfgchange = false;
+}
+
 
 #endif // USBLoader2MAIN_H
