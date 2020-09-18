@@ -11,6 +11,7 @@ const long About::ID_TEXTCTRL1 = wxNewId();
 const long About::ID_PANEL1 = wxNewId();
 //*)
 
+
 BEGIN_EVENT_TABLE(About,wxDialog)
 	//(*EventTable(About)
 	//*)
