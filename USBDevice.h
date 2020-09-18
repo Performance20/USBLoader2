@@ -16,7 +16,7 @@
 
 #if defined(__linux__)
 #include "libusb-1.0/libusb.h"
-#elif defined(__WIN32)
+#elif defined(_WINDOWS)
 #include "libusb/libusb.h"
 #endif
 
@@ -56,7 +56,7 @@ protected:
 	bool fininish;
 	uint16_t vendor_id;
 	uint16_t product_id;
-	bool connected;
+	bool interface_connected;
 	bool bibo_connected;
 	bool USB_init;
 	//std::ostream* out = NULL;
@@ -98,9 +98,10 @@ public:
 	int setLED_off();
 	int getLED();
 	bool isConnected();
+	
 };
 
 inline bool USBDevice::isConnected()
 {
-	return this->connected;
+	return this->interface_connected;
 }

@@ -165,6 +165,7 @@
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Helge\source\repos\wxWidgets\include;C:\Users\Helge\source\repos\wxWidgets\lib\vc_x64_lib\mswu;C:\Users\Helge\source\repos\libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_DEPRECATE=1;_CRT_NON_CONFORMING_SWPRINTFS=1;_SCL_SECURE_NO_WARNINGS=1;__WXMSW__;_UNICODE;_WINDOWS;NOPCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
       <Command>xcopy /y /d "C:\Users\Helge\source\repos\libusb\x64\Release\dll\libusb-1.0.dll" "$(OutDir)"</Command>

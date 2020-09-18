@@ -37,7 +37,7 @@
 
     USBDevice::~USBDevice()
     {
-		if (connected == true) {
+ 		if (interface_connected == true) {
 			libusb_release_interface(handle, 0);
 			libusb_close(handle);
 		}
@@ -49,7 +49,7 @@
 	void USBDevice::init() {
 		int ret;
 
-		connected = false;
+		interface_connected = false;
 		handle = NULL;
 
 		ret = libusb_init(NULL);
@@ -67,7 +67,7 @@
 		int ret;
 		libusb_device_handle* _handle = NULL;
 
-		if (connected == false)
+		if (interface_connected == false)
 		{
 			_handle = libusb_open_device_with_vid_pid(NULL, vendor_id, product_id);
 			if (_handle == NULL) {  // have not connected my DigiSpark
@@ -81,7 +81,7 @@
 				return;
 			}
 			handle = _handle;
-			connected = true;
+			interface_connected = true;
 
 		}
 		else
@@ -109,7 +109,7 @@
 		for (i = 0; devs[i]; i++) {
 			if (this->claim_device(devs[i], 0, &_handle) == 1) { //found my DigiSpark
 				handle = _handle;
-				connected = true;
+				interface_connected = true;
 				break;
 			}
 		}
@@ -125,7 +125,7 @@
 		int ret, i = 0;
 		unsigned int bus, addr;
 
-		if (connected == false)
+		if (interface_connected == false)
 		{
 			cnt = libusb_get_device_list(NULL, &devs);
 			if (cnt < 0)
@@ -168,7 +168,7 @@
 					addr = libusb_get_device_address(dev);
 					*out << "Device founded:  bus: " << bus << " device: " << addr << " vendor ID: " << vendor_id << " product ID: " << product_id << "\n" << ends;
 					handle = _handle;
-					connected = true;
+					interface_connected = true;
 					libusb_free_device_list(devs, 1);
 					return;
 				}
@@ -367,7 +367,7 @@ int  USBDevice::readUSBhid(const unsigned char* data)
 {
 			int status;
 
-			if (connected == true) {
+			if (interface_connected == true) {
 				//status = libusb_control_transfer(device, (0x01 << 5) | 0x80, 0x01, 0, 0, (unsigned char*) data, 1, 1000);
 				status = libusb_control_transfer(handle, CTRL_IN, HID_GET_REPORT, (HID_REPORT_TYPE_FEATURE << 8) | 0x00,
 					0, (unsigned char*)data, PACKET_CTRL_LEN, TIMEOUT);
@@ -387,7 +387,7 @@ int  USBDevice::readUSBVendor(const unsigned char* data)
 {
 	int status;
 
-	if (connected == true) {
+	if (interface_connected == true) {
 		//status = libusb_control_transfer(handle, (0x01 << 5) | 0x80, 0x01, 0, 0, (unsigned char*) data, 1, 1000);
 		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
 			REQ_LOGGING, 0, 0, (unsigned char*) data, 1, TIMEOUT);
@@ -409,7 +409,7 @@ int USBDevice::USBDevice::setLED(int val)
 	int status;
 	unsigned char data[1];
 
-	if (connected == true) {
+	if (interface_connected == true) {
 		//status = libusb_control_transfer(device, (0x01 << 5) | 0x80, 0x01, 0, 0, (unsigned char*) data, 1, 1000);
 		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_OUT,
 			REQ_ONBOARD_LED_SET, val, 0, data, 1, TIMEOUT);
@@ -435,7 +435,7 @@ int USBDevice::getLED()
 	int status, ret = 0;
 	unsigned char data[1];
 
-	if (connected == true) {
+	if (interface_connected == true) {
 		//status = libusb_control_transfer(device, (0x01 << 5) | 0x80, 0x01, 0, 0, (unsigned char*) data, 1, 1000);
 		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
 			REQ_ONBOARD_LED_GET, 0, 0, data, 1, TIMEOUT);
@@ -466,7 +466,7 @@ int  USBDevice::writeUSB(const unsigned char* data)
 {
 	int status;
 
-	if (connected == true) {
+	if (interface_connected == true) {
 	//status = libusb_control_transfer(this->handle, (0x01 << 5), 0x09, 0, 0, (unsigned char*) data, 0, 1000);
 		status = libusb_control_transfer(handle, CTRL_OUT, HID_SET_REPORT, (HID_REPORT_TYPE_FEATURE << 8) | 0x00,
 					0, (unsigned char*)data, PACKET_CTRL_LEN, TIMEOUT);
@@ -517,11 +517,11 @@ int  USBDevice::writeUSB(const unsigned char* data)
 
 int USBDevice::reset_device()
 {
-	if (connected == true) {
+	if (interface_connected == true) {
 		libusb_release_interface(handle, 0);
 		libusb_close(handle);
 		//libusb_exit(NULL);
-		connected = false;
+		interface_connected = false;
 	}
 	return 1;
 }
@@ -565,7 +565,7 @@ std::string USBDevice::readString() { // blocking reading
 	std::string ss("");
 	bool loopcnt = true;
 
-	if (connected == true)
+	if (interface_connected == true)
 	{
 		while (loopcnt == true) {
 			if (this->readUSBVendor(&c))

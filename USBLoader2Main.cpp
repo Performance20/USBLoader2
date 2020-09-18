@@ -749,7 +749,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     //*)
 
     resetConfigChange();
-
+    digiSpark = NULL;
 }
 
 USBLoader2Frame::~USBLoader2Frame()
@@ -757,7 +757,7 @@ USBLoader2Frame::~USBLoader2Frame()
     //(*Destroy(USBLoader2Frame)
     //*)
     fininish = true;
-    delete digiSpark;
+    if (digiSpark != NULL) delete digiSpark;
 }
 
 void USBLoader2Frame::OnQuit(wxCommandEvent& event)
@@ -778,7 +778,8 @@ void USBLoader2Frame::OnDisconnectUsb(wxCommandEvent& event)
     wxString s;
 
     fininish = true;
-    delete digiSpark;
+    if (digiSpark != NULL) delete digiSpark;
+    digiSpark = NULL;
     connected = false;
 	s << "Nicht verbunden";
 	this->SetStatusText(s, 1);

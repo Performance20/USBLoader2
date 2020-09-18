@@ -44,7 +44,8 @@ class USBLoader2Frame: public wxFrame
     public:
 
         USBLoader2Frame(wxWindow* parent,wxWindowID id = -1);
-        virtual ~USBLoader2Frame();
+        //virtual ~USBLoader2Frame();
+        ~USBLoader2Frame();
 
     private:
 
