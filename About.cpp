@@ -26,7 +26,7 @@ About::About(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& siz
 	Panel1 = new wxPanel(this, ID_PANEL1, wxPoint(0,0), wxSize(300,300), 0, _T("ID_PANEL1"));
 	Button1 = new wxButton(Panel1, ID_BUTTON1, _("OK"), wxPoint(112,232), wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
 	Button1->SetFocus();
-	TextCtrl1 = new wxTextCtrl(Panel1, ID_TEXTCTRL1, _("\nZÃ¼ndmodul Konfigurator \n\nVersion: 0.0 \n\nHelge Scheunemann, Sept. 2020\n\nKontakt: zm-mz@scheuni.de"), wxPoint(24,40), wxSize(248,160), wxTE_NO_VSCROLL|wxTE_MULTILINE|wxTE_READONLY|wxTE_CENTRE|wxBORDER_SIMPLE, wxDefaultValidator, _T("ID_TEXTCTRL1"));
+	TextCtrl1 = new wxTextCtrl(Panel1, ID_TEXTCTRL1, _("\nZündmodul Konfigurator \n\nVersion: 0.0 \n\nHelge Scheunemann, Sept. 2020\n\nKontakt: zm-mz@scheuni.de"), wxPoint(24,40), wxSize(248,160), wxTE_NO_VSCROLL|wxTE_MULTILINE|wxTE_READONLY|wxTE_CENTRE|wxBORDER_SIMPLE, wxDefaultValidator, _T("ID_TEXTCTRL1"));
 
 	Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&About::OnOKClick);
 	Panel1->Connect(wxEVT_KEY_DOWN,(wxObjectEventFunction)&About::OnKeyDown,0,this);

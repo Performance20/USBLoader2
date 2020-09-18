@@ -9,9 +9,11 @@
 
 #ifndef USBLoader2MAIN_H
 #define USBLoader2MAIN_H
+//#include "ConfigData.h"
 
-#include "USBDevice.h"
-#include "ConfigData.h"
+#include <string.h>
+#include <iostream>
+#include <sstream>
 
 #include <wx/stdpaths.h>
 #include <wx/config.h>
@@ -32,6 +34,11 @@
 #include <wx/textctrl.h>
 //*)
 
+#include "USBDevice.h"
+
+
+using namespace std;
+
 class USBLoader2Frame: public wxFrame
 {
     public:
@@ -47,7 +54,7 @@ class USBLoader2Frame: public wxFrame
 
         bool cfgchange;
 
-        ConfigData config;
+      //  ConfigData config;
 
         void ConfigChange(void);
         bool isConfigChanged(void);

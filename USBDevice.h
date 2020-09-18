@@ -9,10 +9,13 @@
 
 #pragma once
 
-#include "libusb-1.0/libusb.h"
+
 #include <string.h>
 #include <iostream>
 #include <sstream>
+
+//#include "libusb-1.0/libusb.h"
+#include "libusb/libusb.h"
 
 #include "protocol.h"
 
