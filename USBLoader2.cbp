@@ -41,8 +41,6 @@
 		</Linker>
 		<Unit filename="About.cpp" />
 		<Unit filename="About.h" />
-		<Unit filename="ConfigData.cpp" />
-		<Unit filename="ConfigData.h" />
 		<Unit filename="USBDevice.cpp" />
 		<Unit filename="USBDevice.h" />
 		<Unit filename="USBLoader2App.cpp" />

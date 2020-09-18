@@ -14,8 +14,11 @@
 #include <iostream>
 #include <sstream>
 
-//#include "libusb-1.0/libusb.h"
+#if defined(__linux__)
+#include "libusb-1.0/libusb.h"
+#elif defined(__WIN32)
 #include "libusb/libusb.h"
+#endif
 
 #include "protocol.h"
 

@@ -226,8 +226,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     wxMenuItem* MenuItem1;
     wxMenuItem* MenuItem2;
 
-
-    Create(parent, id, _("Zuendmodul Konfigurator "), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
+    Create(parent, id, _("Zündmodul Konfigurator "), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
     SetClientSize(wxSize(580,700));
     SetMinSize(wxSize(580,600));
     Panel1 = new wxPanel(this, ID_PANEL1, wxPoint(184,200), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
@@ -247,7 +246,6 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     };
     RadioBoxBasisfunktion = new wxRadioBox(PanelBasis, ID_RADIOBOXBasisfunktion, _("Basisfunktion"), wxDefaultPosition, wxDefaultSize, 4, __wxRadioBoxChoices_1, 2, 0, wxDefaultValidator, _T("ID_RADIOBOXBasisfunktion"));
     RadioBoxBasisfunktion->SetSelection(1);
-    //config.basisFunktion << RadioBoxBasisfunktion->GetSelection();
     BoxSizer2->Add(RadioBoxBasisfunktion, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText35 = new wxStaticText(PanelBasis, ID_STATICTEXT35, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT35"));
     BoxSizer2->Add(StaticText35, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -855,7 +853,7 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 		wxYield();
 		//::wxSleep(1);
 	}
-    
+
 	return;
 }
 

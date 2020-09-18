@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="USBLoader2Frame">
-		<title>Zuendmodul Konfigurator </title>
+		<title>Zündmodul Konfigurator </title>
 		<size>580,700</size>
 		<minsize>580,600</minsize>
 		<handler function="OnClose" entry="EVT_CLOSE" />
@@ -36,7 +36,6 @@
 											</content>
 											<default>1</default>
 											<dimension>2</dimension>
-											<extra_code>config.basisFunktion &lt;&lt; RadioBoxBasisfunktion-&gt;GetSelection();</extra_code>
 											<handler function="OnDataChange" entry="EVT_RADIOBOX" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
