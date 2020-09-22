@@ -141,6 +141,35 @@
 												<option>1</option>
 											</object>
 											<object class="sizeritem">
+												<object class="wxStaticText" name="ID_STATICTEXT67" variable="StaticText67" member="yes">
+													<label>Schließwinkel:</label>
+												</object>
+												<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>4</option>
+											</object>
+											<object class="sizeritem">
+												<object class="wxSpinCtrl" name="ID_SPINCTRLSchliessWinkel" variable="SpinCtrlSchliessWinkel" member="yes">
+													<value>-180</value>
+													<min>-240</min>
+													<max>-140</max>
+													<size>120,30</size>
+													<help>Ab welcher Gradzahl die Spule gegen Masse geladen wird, Werte vom ZZP -140 bis - 240 Grad möglich.  Bei der ETZ mit Elektronikzündung zum Beispiel -180 Grad = eine  halber Umdrehung vor dem Zündzeitpunkt.</help>
+													<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
+												</object>
+												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>4</option>
+											</object>
+											<object class="sizeritem">
+												<object class="wxStaticText" name="ID_STATICTEXT68" variable="StaticText68" member="yes">
+													<label>Grad (Wert = Grad vor ZZP)</label>
+												</object>
+												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+												<border>5</border>
+												<option>4</option>
+											</object>
+											<object class="sizeritem">
 												<object class="wxStaticText" name="ID_STATICTEXT31" variable="StaticText31" member="yes">
 													<label>Aktive Zündtabelle:</label>
 												</object>
@@ -245,7 +274,7 @@
 						<object class="notebookpage">
 							<object class="wxPanel" name="ID_PANELTB1" variable="PanelTB1" member="yes">
 								<object class="wxGridSizer" variable="GridSizer1" member="no">
-									<cols>3</cols>
+									<cols>4</cols>
 									<rows>11</rows>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
@@ -265,11 +294,19 @@
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT7" variable="StaticText7" member="yes">
-											<label>Grad (Wert 0 = OT)</label>
+											<label>ZZP (Wert 0° = OT)</label>
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT69" variable="StaticText69" member="yes">
+											<label>Schließwinkel</label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT8" variable="StaticText8" member="yes">
@@ -300,6 +337,18 @@
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_SW1" variable="SpinCtrlTB1_SW1" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT9" variable="StaticText9" member="yes">
@@ -333,6 +382,18 @@
 										<option>1</option>
 									</object>
 									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_SW2" variable="SpinCtrlTB1_SW2" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT10" variable="StaticText10" member="yes">
 											<label>3.</label>
 										</object>
@@ -362,6 +423,18 @@
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_SW3" variable="SpinCtrlTB1_SW3" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT11" variable="StaticText11" member="yes">
@@ -395,6 +468,18 @@
 										<option>1</option>
 									</object>
 									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_SW4" variable="SpinCtrlTB1_SW4" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT12" variable="StaticText12" member="yes">
 											<label>5.</label>
 										</object>
@@ -424,6 +509,18 @@
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_SW5" variable="SpinCtrlTB1_SW5" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT13" variable="StaticText13" member="yes">
@@ -457,6 +554,18 @@
 										<option>1</option>
 									</object>
 									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_SW6" variable="SpinCtrlTB1_SW6" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT14" variable="StaticText14" member="yes">
 											<label>7.</label>
 										</object>
@@ -486,6 +595,18 @@
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_SW7" variable="SpinCtrlTB1_SW7" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT15" variable="StaticText15" member="yes">
@@ -519,6 +640,18 @@
 										<option>1</option>
 									</object>
 									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_SW8" variable="SpinCtrlTB1_SW8" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT16" variable="StaticText16" member="yes">
 											<label>9.</label>
 										</object>
@@ -548,6 +681,18 @@
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_SW9" variable="SpinCtrlTB1_SW9" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT17" variable="StaticText17" member="yes">
@@ -581,6 +726,18 @@
 										<border>5</border>
 										<option>1</option>
 									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB1_SW10" variable="SpinCtrlTB1_SW10" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
 								</object>
 							</object>
 							<label>Tabelle1</label>
@@ -608,7 +765,7 @@
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT20" variable="StaticText20" member="yes">
-											<label>Grad (Wert 0 = OT)</label>
+											<label>ZZP (Wert 0° = OT)</label>
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -951,7 +1108,7 @@
 									</object>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT51" variable="StaticText51" member="yes">
-											<label>Grad (Wert 0 = OT)</label>
+											<label>ZZP (Wert 0° = OT)</label>
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -1275,7 +1432,7 @@
 							<object class="wxPanel" name="ID_PANELEchtWerte" variable="EchtWerte" member="yes">
 								<object class="wxFlexGridSizer" variable="FlexGridSizer2" member="no">
 									<cols>3</cols>
-									<rows>6</rows>
+									<rows>7</rows>
 									<vgap>10</vgap>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT46" variable="StaticText46" member="yes">
@@ -1389,8 +1546,8 @@
 									</object>
 									<object class="sizeritem">
 										<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextCtrl2" member="yes">
-											<value>00</value>
-											<maxlength>2</maxlength>
+											<value>0</value>
+											<maxlength>3</maxlength>
 											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -1406,6 +1563,32 @@
 										<option>1</option>
 									</object>
 									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT70" variable="StaticText70" member="yes">
+											<label>Schließwinkel:</label>
+										</object>
+										<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextCtrl3" member="yes">
+											<value>0</value>
+											<maxlength>4</maxlength>
+											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT71" variable="StaticText71" member="yes">
+											<label>Grad</label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
 											<label>Modus:</label>
 										</object>
@@ -1415,6 +1598,7 @@
 									</object>
 									<object class="sizeritem">
 										<object class="wxTextCtrl" name="ID_TEXTCTRLEchtModus" variable="TextCtrlEchtModus" member="yes">
+											<value>Mx</value>
 											<maxlength>2</maxlength>
 											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
 										</object>
