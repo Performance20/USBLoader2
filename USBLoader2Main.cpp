@@ -884,6 +884,8 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnQuit);
     Connect(idMenuVerbinden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConnectUsb);
     Connect(idMenuTrennen,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnDisconnectUsb);
+    Connect(idMenuKonfigLaden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConfigUpload);
+    Connect(ID_MenuidMenuKonfigHolen,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConfigDownload);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnAbout);
     //*)
 
@@ -1295,4 +1297,12 @@ void USBLoader2Frame::OnClose(wxCloseEvent& event)
     }
     event.Skip();
     Destroy();
+}
+
+void USBLoader2Frame::OnConfigUpload(wxCommandEvent& event)
+{
+}
+
+void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
+{
 }

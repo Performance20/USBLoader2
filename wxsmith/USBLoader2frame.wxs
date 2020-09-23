@@ -1886,10 +1886,12 @@
 				<object class="wxMenuItem" name="idMenuKonfigLaden" variable="MenuItem4" member="yes">
 					<label>Konfig übertragen -&gt; Zündmodul</label>
 					<help>Konfiguration in Zündmodul laden</help>
+					<handler function="OnConfigUpload" entry="EVT_MENU" />
 				</object>
 				<object class="wxMenuItem" name="ID_MenuidMenuKonfigHolen" variable="MenuItem6" member="yes">
 					<label>Konfig holen &lt;- Zündmodul</label>
 					<help>Konfiguration aus Zündmodul holen</help>
+					<handler function="OnConfigDownload" entry="EVT_MENU" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="Menu2" member="no">

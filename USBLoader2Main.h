@@ -72,6 +72,8 @@ class USBLoader2Frame: public wxFrame
         void OnDataChange(wxCommandEvent& event);
         void OnSpinCtrlChange(wxSpinEvent& event);
         void OnClose(wxCloseEvent& event);
+        void OnConfigUpload(wxCommandEvent& event);
+        void OnConfigDownload(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
