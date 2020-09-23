@@ -4,7 +4,6 @@
 		<title>Zündmodul Konfigurator </title>
 		<size>580,700</size>
 		<minsize>580,600</minsize>
-		<handler function="OnClose" entry="EVT_CLOSE" />
 		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
 			<pos>184,200</pos>
 			<object class="wxBoxSizer" variable="BoxSizer1" member="no">
@@ -559,7 +558,6 @@
 											<min>-240</min>
 											<max>-140</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
@@ -745,7 +743,7 @@
 						<object class="notebookpage">
 							<object class="wxPanel" name="ID_PANELTB2" variable="PanelTB2" member="yes">
 								<object class="wxGridSizer" variable="GridSizer2" member="no">
-									<cols>3</cols>
+									<cols>4</cols>
 									<rows>11</rows>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT18" variable="StaticText18" member="yes">
@@ -772,6 +770,14 @@
 										<option>1</option>
 									</object>
 									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT72" variable="StaticText72" member="yes">
+											<label>Schließwinkel</label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT21" variable="StaticText21" member="yes">
 											<label>1.</label>
 										</object>
@@ -796,9 +802,19 @@
 											<min>-30</min>
 											<max>22</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB2_SW1" variable="SpinCtrlTB2_SW1" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -827,9 +843,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB2_SW2" variable="SpinCtrlTB2_SW2" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -858,9 +884,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB2_SW3" variable="SpinCtrlTB2_SW3" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -889,9 +925,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB2_SW4" variable="SpinCtrlTB2_SW4" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -920,9 +966,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB2_SW5" variable="SpinCtrlTB2_SW5" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -951,9 +1007,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB2_SW6" variable="SpinCtrlTB2_SW6" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -982,9 +1048,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB2_SW7" variable="SpinCtrlTB2_SW7" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1013,9 +1089,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB2_SW8" variable="SpinCtrlTB2_SW8" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1044,9 +1130,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB2_SW9" variable="SpinCtrlTB2_SW9" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1075,9 +1171,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB2_SW10" variable="SpinCtrlTB2_SW10" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1088,7 +1194,7 @@
 						<object class="notebookpage">
 							<object class="wxPanel" name="ID_PANELTB3" variable="PanelTB3" member="yes">
 								<object class="wxGridSizer" variable="GridSizer3" member="no">
-									<cols>3</cols>
+									<cols>4</cols>
 									<rows>11</rows>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT49" variable="StaticText49" member="yes">
@@ -1115,6 +1221,14 @@
 										<option>1</option>
 									</object>
 									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT73" variable="StaticText73" member="yes">
+											<label>Schließwinkel</label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT52" variable="StaticText52" member="yes">
 											<label>1.</label>
 										</object>
@@ -1139,9 +1253,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_SW1" variable="SpinCtrlTB3_SW1" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1170,9 +1294,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_SW2" variable="SpinCtrlTB3_SW2" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1201,9 +1335,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_SW3" variable="SpinCtrlTB3_SW3" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1232,9 +1376,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_SW4" variable="SpinCtrlTB3_SW4" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1263,9 +1417,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_SW5" variable="SpinCtrlTB3_SW5" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1294,9 +1458,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_SW6" variable="SpinCtrlTB3_SW6" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1325,9 +1499,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_SW7" variable="SpinCtrlTB3_SW7" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1356,9 +1540,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_SW8" variable="SpinCtrlTB3_SW8" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1387,9 +1581,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_SW9" variable="SpinCtrlTB3_SW9" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -1418,9 +1622,19 @@
 											<min>-30</min>
 											<max>20</max>
 											<size>120,30</size>
-											<handler function="OnSpinCtrlChange" entry="EVT_SPINCTRL" />
 										</object>
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSpinCtrl" name="ID_SPINCTRLTB3_SW10" variable="SpinCtrlTB3_SW10" member="yes">
+											<value>-180</value>
+											<min>-240</min>
+											<max>-140</max>
+											<size>120,30</size>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
