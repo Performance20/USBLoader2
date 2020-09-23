@@ -52,7 +52,6 @@ class USBDevice
 {
 private:
 
-protected:
 	bool fininish;
 	uint16_t vendor_id;
 	uint16_t product_id;
@@ -61,11 +60,11 @@ protected:
 	bool USB_init;
 	//std::ostream* out = NULL;
 	//std::ostream& _cout = std::cout;
-	std::ostringstream* out;
+	ostringstream* out;
 	libusb_device_handle* handle;  // handle DigiSpark
-	std::string  readed;
+	string  readed;
 
-	std::string print_device(libusb_device* dev, int level);
+	string print_device(libusb_device* dev, int level);
 	int find_device(libusb_device* dev, int level, libusb_device_handle** handleusb, std::string& sout);
 	int claim_device(libusb_device* dev, int level, libusb_device_handle** handleusb);
 	const char* libusb_error_text(ssize_t err_number);
@@ -74,7 +73,8 @@ protected:
 	int writeUSB(const unsigned char* data);
 	void init();
 	int reset_device();
-
+		
+protected:
 
 public:
 	USBDevice(uint16_t _vendor_id, uint16_t _product_id);
@@ -85,14 +85,14 @@ public:
 	void connect_device();
 	void connect_device_with_search();
 
-	std::string print_deviceList();
-	std::string print_connectedDevice();
+	string print_deviceList();
+	string print_connectedDevice();
 
 	void writeln(std::string a);
 	void write(std::string a);
 	void writeByte(signed char b);
-	std::string readString();
-	std::string getLog();
+	string readString();
+	string getLog();
 	int setLED(int val);
 	int setLED_on();
 	int setLED_off();

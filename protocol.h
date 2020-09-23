@@ -35,6 +35,11 @@ static bool  LOG_stateon = VAL_STATE_OFF;		// values: STATE_ON or STATE_OFF
 // onboard LED handling
 #define REQ_ONBOARD_LED_SET					3  // set onboard LED
 #define REQ_ONBOARD_LED_GET					4
+#define LED_STATE_OFF						0
+#define LED_STATE_ON						1
+#define LED_STATE_BLINK						2
+#define LED_STATE_INPUT						3
+#define LED_STATE_DIAG						4
 static bool  LED_stateon = VAL_STATE_OFF;		// values: STATE_ON or STATE_OFF 
 
 // define if table controlled by egine rpm or a fix value is used
