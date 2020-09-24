@@ -404,82 +404,6 @@ int  USBDevice::readUSBVendor(const unsigned char* data)
 }
 
 
-int USBDevice::USBDevice::setLED(int val)
-{
-	int status;
-	unsigned char data[1];
-
-	if (interface_connected == true) {
-		//status = libusb_control_transfer(device, (0x01 << 5) | 0x80, 0x01, 0, 0, (unsigned char*) data, 1, 1000);
-		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_OUT,
-			REQ_ONBOARD_LED_SET, val, 0, data, 1, TIMEOUT);
-
-		if (status < 0) {
-			*out << endl << libusb_error_name(status) << endl << ends;
-			reset_device();
-			return status;
-		}
-		else
-			return status;
-	}
-	return -1;
-}
-
-int USBDevice::setLED_off(void)
-{
-	return setLED(VAL_STATE_OFF);
-}
-
-int USBDevice::getLED()
-{
-	int status, ret = 0;
-	unsigned char data[1];
-
-	if (interface_connected == true) {
-		//status = libusb_control_transfer(device, (0x01 << 5) | 0x80, 0x01, 0, 0, (unsigned char*) data, 1, 1000);
-		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
-			REQ_ONBOARD_LED_GET, 0, 0, data, 1, TIMEOUT);
-
-		if (status < 0) {
-			*out << endl << libusb_error_name(status) << endl << ends;
-			this->reset_device();
-			return -1;
-		}
-		else
-		{
-			ret = ret + data[0];
-			return ret;
-		}
-	}
-	return -1;
-}
-
-
-
-
-int USBDevice::setLED_on(void)
-{
-	return setLED(VAL_STATE_ON);
-}
-
-int  USBDevice::writeUSB(const unsigned char* data)
-{
-	int status;
-
-	if (interface_connected == true) {
-	//status = libusb_control_transfer(this->handle, (0x01 << 5), 0x09, 0, 0, (unsigned char*) data, 0, 1000);
-		status = libusb_control_transfer(handle, CTRL_OUT, HID_SET_REPORT, (HID_REPORT_TYPE_FEATURE << 8) | 0x00,
-					0, (unsigned char*)data, PACKET_CTRL_LEN, TIMEOUT);
-
-		if (status < 0) {
-			*out << endl << libusb_error_name(status) << endl << ends;
-			this->reset_device();
-			return status;
-		}
-	}
-	return 0;
-}
-
 
 		const char* USBDevice::libusb_error_text(ssize_t err_number) {
 			switch (err_number) {
@@ -583,17 +507,6 @@ std::string USBDevice::readString() { // blocking reading
 	return ss;
 }
 
-
-std::string USBDevice::getLog() {
-
-	static std::string ss;
-
-	ss = out->str();
-	out->str("");
-	out->clear();
-	return ss;
-		}
-
 std::string USBDevice::print_connectedDevice() {
 	libusb_device** devs;
 	libusb_device_handle* _handle;
@@ -614,5 +527,189 @@ std::string USBDevice::print_connectedDevice() {
 	libusb_free_device_list(devs, 1);
 	return ss;
 }
+
+
+int  USBDevice::writeUSB(const unsigned char* data)
+{
+	int status;
+
+	if (interface_connected == true) {
+		//status = libusb_control_transfer(this->handle, (0x01 << 5), 0x09, 0, 0, (unsigned char*) data, 0, 1000);
+		status = libusb_control_transfer(handle, CTRL_OUT, HID_SET_REPORT, (HID_REPORT_TYPE_FEATURE << 8) | 0x00,
+			0, (unsigned char*)data, PACKET_CTRL_LEN, TIMEOUT);
+
+		if (status < 0) {
+			*out << endl << libusb_error_name(status) << endl << ends;
+			this->reset_device();
+			return status;
+		}
+	}
+	return 0;
+}
+
+
+int USBDevice::SetValue(uint8_t cmd, uint16_t val1, uint16_t val2) // send data TO ignition module
+{
+	int status;
+	unsigned char data[1];
+
+	if (interface_connected == true) {
+		//status = libusb_control_transfer(device, (0x01 << 5) | 0x80, 0x01, 0, 0, (unsigned char*) data, 1, 1000);
+		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_OUT,
+			cmd, val1, val2, data, 1, TIMEOUT);
+
+		if (status < 0) {
+			*out << endl << libusb_error_name(status) << endl << ends;
+			reset_device();
+			return status;
+		}
+		else
+			return status;
+	}
+	return -1;
+}
+
+
+int USBDevice::GetValue(uint8_t cmd,  int& val)  // get data FROM ignition module
+{
+	int status, ret = 0;
+	unsigned char data[TRANSBUFFERSIZE];
+
+	if (interface_connected == true) {
+		//status = libusb_control_transfer(device, (0x01 << 5) | 0x80, 0x01, 0, 0, (unsigned char*) data, 1, 1000);
+		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
+			cmd, 0, 0, data, TRANSBUFFERSIZE, TIMEOUT);
+
+		if (status < 0) {
+			*out << endl << libusb_error_name(status) << endl << ends;
+			this->reset_device();
+		}
+		else
+		{
+			ret = ret + data[0];
+			val = ret;
+			return 1;
+		}
+	}
+	return -1;
+}
+
+
+std::string USBDevice::getLog() {
+
+	static std::string ss;
+
+	ss = out->str();
+	out->str("");
+	out->clear();
+	return ss;
+		}
+
+bool USBDevice::getMode(int& val)
+{
+	int mode;
+
+	if (GetValue(REQ_ignition_mode_GET, mode) == -1) return false;
+	val = mode;
+	return true;
+}
+
+bool USBDevice::setMode(uint8_t mode)
+{
+	if (SetValue(REQ_ignition_mode_SET, mode) < 0) return false;
+	return true;
+}
+
+bool USBDevice::getStartHelpZZP(int& val)
+{
+	int v1;
+
+	if (GetValue(REQ_ONBOARD_LED_GET, v1) == -1)	return false;
+	val = v1;
+	return true;
+}
+
+bool USBDevice::setStartHelpZZP(int8_t val)
+{
+	if (SetValue(REQ_ITH_startpoint_SET, val) < 0) return false;
+	return true;
+}
+
+bool USBDevice::getStartHelpRPM(int& val)
+{
+	int v1;
+
+		if (GetValue(REQ_starthelp_RPM_GET, v1) == -1)	return false;
+	val = v1;
+	return true;
+}
+
+bool USBDevice::setStartHelpRPM(int16_t val)
+{
+	if (SetValue(REQ_starthelp_RPM_SET, val) < 0) return false;
+	return true;
+}
+
+bool USBDevice::getFixZZP(int& val)
+{
+	int vv;
+
+	if (GetValue(REQ_ignition_fix_startpoint_GET, vv) == -1)	return false;
+	val = vv;
+	return true;
+}
+
+bool USBDevice::setFixZZP(int8_t val)
+{
+	if (SetValue(REQ_ignition_fix_startpoint_SET, val) < 0) return false;
+	return true;
+}
+
+bool USBDevice::getDwellAngle(int& val)
+{
+	int vv;
+
+	if (GetValue(REQ_Dwell_Angle_GET, vv) == -1)	return false;
+	val = vv;
+	return true;
+}
+
+bool USBDevice::setDwellAngle(int16_t val)
+{
+	if (SetValue(REQ_Dwell_Angle_SET, val) < 0) return false;
+	return true;
+}
+
+bool USBDevice::getIPTable(int& val)
+{
+	int vv;
+
+	if (GetValue(REQ_ip_tbl_GET, vv) == -1)	return false;
+	val = vv;
+	return true;
+}
+
+bool USBDevice::setIPTable(uint8_t val)
+{
+	if (SetValue(REQ_ip_tbl_SET, val) < 0) return false;
+	return true;
+}
+
+
+bool USBDevice::getLED(int& led)
+{
+	int val;
+
+	if (GetValue(REQ_ONBOARD_LED_GET, val) == -1) return false;
+	led = val;
+	return false;
+}
+
+bool USBDevice::setLED(uint8_t val)
+{
+	if (SetValue(REQ_ONBOARD_LED_SET, val) < 0) return false;
+	return true;
+}
+
 
 

@@ -43,6 +43,7 @@ using namespace std;
 #define DIGISPARK_PRODUCT_ID		0x05df;
 #define PACKET_CTRL_LEN 			1
 #define TIMEOUT						1000 /* timeout in ms */
+#define TRANSBUFFERSIZE				5  // max. bytes to transfer per ctrl message = 4 Bytes & 0 
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -73,6 +74,8 @@ private:
 	int writeUSB(const unsigned char* data);
 	void init();
 	int reset_device();
+	int SetValue(uint8_t cmd, uint16_t val1, uint16_t val2 = 0);
+	int GetValue(uint8_t cmd, int& val);
 		
 protected:
 
@@ -93,15 +96,59 @@ public:
 	void writeByte(signed char b);
 	string readString();
 	string getLog();
-	int setLED(int val);
-	int setLED_on();
-	int setLED_off();
-	int getLED();
-	bool isConnected();
 	
+	bool setMode(uint8_t mode);
+	bool getMode(int& mode);
+
+	bool setStartHelpZZP(int8_t val);
+	bool getStartHelpZZP(int& val);
+
+	bool setStartHelpRPM(int16_t val);
+	bool getStartHelpRPM(int& val);
+	
+	bool getFixZZP(int& val);
+	bool setFixZZP(int8_t val);
+
+	bool getDwellAngle(int& val);
+	bool setDwellAngle(int16_t val);
+	
+	bool getIPTable(int& val);
+	bool setIPTable(uint8_t val);
+	
+	bool getLED(int& val);
+	bool setLED(uint8_t val);
+	bool setLED_on();
+	bool setLED_off();
+
+	bool isConnected();
 };
 
 inline bool USBDevice::isConnected()
 {
 	return this->interface_connected;
 }
+
+inline bool USBDevice::setLED_off(void)
+{
+	return setLED(VAL_LED_STATE_OFF);
+}
+
+inline bool USBDevice::setLED_on(void)
+{
+	return setLED(VAL_LED_STATE_ON);
+}
+
+
+/*
+typedef signed char        int8_t;
+typedef short              int16_t;
+typedef int                int32_t;
+typedef long long          int64_t;
+typedef unsigned char      uint8_t;
+typedef unsigned short     uint16_t;
+typedef unsigned int       uint32_t;
+typedef unsigned long long uint64_t;
+
+ Wert = ( int ) ( ( ( unsigned int )( Byte1 << 8 ) ) | Byte2 );
+
+*/

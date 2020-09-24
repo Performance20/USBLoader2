@@ -948,12 +948,12 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 	if (digiSpark->isConnected()) // vendor 5824, product 1503
 	{
 		s << "Verbunden";
-		led = digiSpark->getLED();
-	//	if (led > 0)
-				//m_checkBox1->SetValue(true);
-	//	else
-	//		if (!led)
-				//m_checkBox1->SetValue(false);
+		digiSpark->getLED(led);
+		if (led == VAL_LED_STATE_ON)
+            cout << "\nLED an\n";
+		else
+			if (led == VAL_LED_STATE_OFF)
+            cout << "\nLED aus\n";
 		connected = true;
 	}
 	else
@@ -967,7 +967,7 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 		return; // exit no device connected
 	}
 	this->SetStatusText(s, 1);
-	int k = 0;
+	//int k = 0;
 	while (fininish == false) {
 		cout << digiSpark->getLog();
 		cout << digiSpark->readString();
@@ -1301,6 +1301,18 @@ void USBLoader2Frame::OnClose(wxCloseEvent& event)
 
 void USBLoader2Frame::OnConfigUpload(wxCommandEvent& event)
 {
+    // Basis
+   
+    digiSpark->setMode(RadioBoxBasisfunktion->GetSelection());      // Mode M0 - 3
+    digiSpark->setStartHelpZZP(SpinCtrlStarthilfe->GetValue());     // Starhilfe Grad
+    digiSpark->setStartHelpRPM(SpinCtrlStarthilfeUMDR->GetValue()); // Starhilfe RPM
+    digiSpark->setFixZZP(SpinCtrlFZZP->GetValue());                 // fester ZZP von OT
+    digiSpark->setDwellAngle(SpinCtrlSchliessWinkel->GetValue());   // Schliesswinkel
+    digiSpark->setIPTable(ChoiceTAB->GetSelection());               // Zündtabelle
+    digiSpark->setLED(ChoiceLED->GetSelection());                   //LED
+
+    /*     ConfigINI->Write("Spule", SpinCtrlSPLoad->GetValue());
+     */
 }
 
 void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
