@@ -929,7 +929,6 @@ void USBLoader2Frame::OnDisconnectUsb(wxCommandEvent& event)
 void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 {
     wxString m, s;
-	int led = 0;
 
 	if (connected == true) // vendor 5824, product 1503
 	{
@@ -948,20 +947,13 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 	if (digiSpark->isConnected()) // vendor 5824, product 1503
 	{
 		s << "Verbunden";
-		digiSpark->getLED(led);
-		if (led == VAL_LED_STATE_ON)
-            cout << "\nLED an\n";
-		else
-			if (led == VAL_LED_STATE_OFF)
-            cout << "\nLED aus\n";
 		connected = true;
 	}
 	else
 	{
 		s << "Nicht Verbunden";
-		cout << digiSpark->getLog();
 		cout << digiSpark->print_deviceList();
-		cout << digiSpark->getLog();
+        cout << digiSpark->getLog();
 		connected = false;
 		delete digiSpark;
 		return; // exit no device connected
@@ -970,7 +962,6 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 	//int k = 0;
 	while (fininish == false) {
 		cout << digiSpark->getLog();
-		cout << digiSpark->readString();
 
 	/*	if (digiSpark->isConnected())
 		{
@@ -995,7 +986,6 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 		wxYield();
 		//::wxSleep(1);
 	}
-
 	return;
 }
 
@@ -1317,4 +1307,7 @@ void USBLoader2Frame::OnConfigUpload(wxCommandEvent& event)
 
 void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
 {
+    int val;
+
+    if (digiSpark->getLED(val)) ChoiceLED->SetSelection(val);
 }

@@ -59,8 +59,6 @@ private:
 	bool interface_connected;
 	bool bibo_connected;
 	bool USB_init;
-	//std::ostream* out = NULL;
-	//std::ostream& _cout = std::cout;
 	ostringstream* out;
 	libusb_device_handle* handle;  // handle DigiSpark
 	string  readed;
@@ -69,14 +67,13 @@ private:
 	int find_device(libusb_device* dev, int level, libusb_device_handle** handleusb, std::string& sout);
 	int claim_device(libusb_device* dev, int level, libusb_device_handle** handleusb);
 	const char* libusb_error_text(ssize_t err_number);
-	int readUSBhid(const unsigned char* data);
-	int readUSBVendor(const unsigned char* data);
-	int writeUSB(const unsigned char* data);
+	
 	void init();
 	int reset_device();
 	int SetValue(uint8_t cmd, uint16_t val1, uint16_t val2 = 0);
 	int GetValue(uint8_t cmd, int& val);
-		
+	string readString();
+
 protected:
 
 public:
@@ -91,10 +88,6 @@ public:
 	string print_deviceList();
 	string print_connectedDevice();
 
-	void writeln(std::string a);
-	void write(std::string a);
-	void writeByte(signed char b);
-	string readString();
 	string getLog();
 	
 	bool setMode(uint8_t mode);
