@@ -61,6 +61,8 @@ class USBLoader2Frame: public wxFrame
         bool isConfigChanged(void);
         void resetConfigChange(void);
 
+        void activateMenuComm(bool val);
+
         //(*Handlers(USBLoader2Frame)
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
@@ -74,6 +76,7 @@ class USBLoader2Frame: public wxFrame
         void OnClose(wxCloseEvent& event);
         void OnConfigUpload(wxCommandEvent& event);
         void OnConfigDownload(wxCommandEvent& event);
+        void OnLogModeSet(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
@@ -100,7 +103,6 @@ class USBLoader2Frame: public wxFrame
         static const long ID_STATICTEXT65;
         static const long ID_STATICTEXT33;
         static const long ID_CHOICELED;
-        static const long ID_STATICTEXT66;
         static const long ID_PANELBasis;
         static const long ID_STATICTEXT1;
         static const long ID_STATICTEXT6;
@@ -269,6 +271,7 @@ class USBLoader2Frame: public wxFrame
         static const long idMenuTrennen;
         static const long idMenuKonfigLaden;
         static const long ID_MenuidMenuKonfigHolen;
+        static const long ID_MenuLogmodus;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
@@ -276,11 +279,12 @@ class USBLoader2Frame: public wxFrame
         //(*Declarations(USBLoader2Frame)
         wxChoice* ChoiceLED;
         wxChoice* ChoiceTAB;
-        wxMenuItem* MenuItem3;
-        wxMenuItem* MenuItem4;
+        wxMenuItem* Komm_KonfHolen;
+        wxMenuItem* Komm_KonfRueber;
+        wxMenuItem* Komm_LogMode;
+        wxMenuItem* Komm_TennModul;
+        wxMenuItem* Komm_VerbModul;
         wxMenuItem* MenuItem5;
-        wxMenuItem* MenuItem6;
-        wxMenuItem* MenuItem7;
         wxMenuItem* MenuItem8;
         wxNotebook* Notebook1;
         wxPanel* EchtWerte;
@@ -446,7 +450,6 @@ class USBLoader2Frame: public wxFrame
         wxStaticText* StaticText63;
         wxStaticText* StaticText64;
         wxStaticText* StaticText65;
-        wxStaticText* StaticText66;
         wxStaticText* StaticText67;
         wxStaticText* StaticText68;
         wxStaticText* StaticText69;

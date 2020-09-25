@@ -70,7 +70,6 @@ const long USBLoader2Frame::ID_SPINCTRLSPLoad = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT65 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT33 = wxNewId();
 const long USBLoader2Frame::ID_CHOICELED = wxNewId();
-const long USBLoader2Frame::ID_STATICTEXT66 = wxNewId();
 const long USBLoader2Frame::ID_PANELBasis = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT1 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT6 = wxNewId();
@@ -239,6 +238,7 @@ const long USBLoader2Frame::idMenuVerbinden = wxNewId();
 const long USBLoader2Frame::idMenuTrennen = wxNewId();
 const long USBLoader2Frame::idMenuKonfigLaden = wxNewId();
 const long USBLoader2Frame::ID_MenuidMenuKonfigHolen = wxNewId();
+const long USBLoader2Frame::ID_MenuLogmodus = wxNewId();
 const long USBLoader2Frame::idMenuAbout = wxNewId();
 const long USBLoader2Frame::ID_STATUSBAR1 = wxNewId();
 //*)
@@ -258,12 +258,12 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     wxGridSizer* GridSizer1;
     wxGridSizer* GridSizer2;
     wxGridSizer* GridSizer3;
-    wxMenu* Menu1;
-    wxMenu* Menu2;
-    wxMenu* Menu3;
+    wxMenu* Datei;
+    wxMenu* Hilfe;
+    wxMenu* Kommunikation;
     wxMenuBar* HauptMenuBar;
+    wxMenuItem* Hilfe_Info;
     wxMenuItem* MenuItem1;
-    wxMenuItem* MenuItem2;
 
     Create(parent, id, _("Zündmodul Konfigurator "), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
     SetClientSize(wxSize(580,700));
@@ -278,10 +278,10 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     BoxSizer2->Add(StaticText34, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     wxString __wxRadioBoxChoices_1[4] =
     {
-    	_("Manuell via Geber (M1)"),
-    	_("Fester Zündzeitpunkt von OT (M2)"),
-    	_("Fester ZP von OT mit Starthilfe (M3)"),
-    	_("Dynamisch nach Tabelle (M4)")
+    	_("Manuell via Geber (M0)"),
+    	_("Fester Zündzeitpunkt von OT (M1)"),
+    	_("Fester ZP von OT mit Starthilfe (M2)"),
+    	_("Dynamisch nach Tabelle (M3)")
     };
     RadioBoxBasisfunktion = new wxRadioBox(PanelBasis, ID_RADIOBOXBasisfunktion, _("Basisfunktion"), wxDefaultPosition, wxDefaultSize, 4, __wxRadioBoxChoices_1, 2, 0, wxDefaultValidator, _T("ID_RADIOBOXBasisfunktion"));
     RadioBoxBasisfunktion->SetSelection(1);
@@ -350,8 +350,6 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     ChoiceLED->Append(_("Diagnose"));
     ChoiceLED->SetToolTip(_("Verhalten der LED"));
     FlexGridSizer1->Add(ChoiceLED, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText66 = new wxStaticText(PanelBasis, ID_STATICTEXT66, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT66"));
-    FlexGridSizer1->Add(StaticText66, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer2->Add(FlexGridSizer1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     PanelBasis->SetSizer(BoxSizer2);
     BoxSizer2->Fit(PanelBasis);
@@ -790,30 +788,37 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     BoxSizer1->Fit(Panel1);
     BoxSizer1->SetSizeHints(Panel1);
     HauptMenuBar = new wxMenuBar();
-    Menu1 = new wxMenu();
-    MenuItem5 = new wxMenuItem(Menu1, idMenuSpeichern, _("Konfiguration Speichern\tAlt-S"), _("Speichern Konfiguration in Datei"), wxITEM_NORMAL);
-    Menu1->Append(MenuItem5);
-    MenuItem8 = new wxMenuItem(Menu1, idMenuLaden, _("Konfiguration Laden\tAlt-L"), _("Laden Konfiguration aus Datei"), wxITEM_NORMAL);
-    Menu1->Append(MenuItem8);
-    Menu1->AppendSeparator();
-    MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Schließen\tAlt-F4"), _("Programmen beenden"), wxITEM_NORMAL);
-    Menu1->Append(MenuItem1);
-    HauptMenuBar->Append(Menu1, _("Datei"));
-    Menu3 = new wxMenu();
-    MenuItem3 = new wxMenuItem(Menu3, idMenuVerbinden, _("Verbinden Zündmodul"), _("Verbinden Modul"), wxITEM_NORMAL);
-    Menu3->Append(MenuItem3);
-    MenuItem7 = new wxMenuItem(Menu3, idMenuTrennen, _("Trennen Zündmodul"), _("Trennen Modul"), wxITEM_NORMAL);
-    Menu3->Append(MenuItem7);
-    Menu3->AppendSeparator();
-    MenuItem4 = new wxMenuItem(Menu3, idMenuKonfigLaden, _("Konfig übertragen -> Zündmodul"), _("Konfiguration in Zündmodul laden"), wxITEM_NORMAL);
-    Menu3->Append(MenuItem4);
-    MenuItem6 = new wxMenuItem(Menu3, ID_MenuidMenuKonfigHolen, _("Konfig holen <- Zündmodul"), _("Konfiguration aus Zündmodul holen"), wxITEM_NORMAL);
-    Menu3->Append(MenuItem6);
-    HauptMenuBar->Append(Menu3, _("Kommunikation"));
-    Menu2 = new wxMenu();
-    MenuItem2 = new wxMenuItem(Menu2, idMenuAbout, _("Info\tF1"), _("Zeigt Programm Infos"), wxITEM_NORMAL);
-    Menu2->Append(MenuItem2);
-    HauptMenuBar->Append(Menu2, _("Hilfe"));
+    Datei = new wxMenu();
+    MenuItem5 = new wxMenuItem(Datei, idMenuSpeichern, _("Konfiguration Speichern\tAlt-S"), _("Speichern Konfiguration in Datei"), wxITEM_NORMAL);
+    Datei->Append(MenuItem5);
+    MenuItem8 = new wxMenuItem(Datei, idMenuLaden, _("Konfiguration Laden\tAlt-L"), _("Laden Konfiguration aus Datei"), wxITEM_NORMAL);
+    Datei->Append(MenuItem8);
+    Datei->AppendSeparator();
+    MenuItem1 = new wxMenuItem(Datei, idMenuQuit, _("Schließen\tAlt-F4"), _("Programmen beenden"), wxITEM_NORMAL);
+    Datei->Append(MenuItem1);
+    HauptMenuBar->Append(Datei, _("Datei"));
+    Kommunikation = new wxMenu();
+    Komm_VerbModul = new wxMenuItem(Kommunikation, idMenuVerbinden, _("Verbinden Zündmodul"), _("Verbinden Modul"), wxITEM_NORMAL);
+    Kommunikation->Append(Komm_VerbModul);
+    Komm_TennModul = new wxMenuItem(Kommunikation, idMenuTrennen, _("Trennen Zündmodul"), _("Trennen Modul"), wxITEM_NORMAL);
+    Kommunikation->Append(Komm_TennModul);
+    Komm_TennModul->Enable(false);
+    Kommunikation->AppendSeparator();
+    Komm_KonfRueber = new wxMenuItem(Kommunikation, idMenuKonfigLaden, _("Konfig übertragen -> Zündmodul"), _("Konfiguration in Zündmodul laden"), wxITEM_NORMAL);
+    Kommunikation->Append(Komm_KonfRueber);
+    Komm_KonfRueber->Enable(false);
+    Komm_KonfHolen = new wxMenuItem(Kommunikation, ID_MenuidMenuKonfigHolen, _("Konfig holen <- Zündmodul"), _("Konfiguration aus Zündmodul holen"), wxITEM_NORMAL);
+    Kommunikation->Append(Komm_KonfHolen);
+    Komm_KonfHolen->Enable(false);
+    Kommunikation->AppendSeparator();
+    Komm_LogMode = new wxMenuItem(Kommunikation, ID_MenuLogmodus, _("Modul Log-Modus"), _("Im Modul den Log-Modus an/abschalte"), wxITEM_CHECK);
+    Kommunikation->Append(Komm_LogMode);
+    Komm_LogMode->Enable(false);
+    HauptMenuBar->Append(Kommunikation, _("Kommunikation"));
+    Hilfe = new wxMenu();
+    Hilfe_Info = new wxMenuItem(Hilfe, idMenuAbout, _("Info\tF1"), _("Zeigt Programm Infos"), wxITEM_NORMAL);
+    Hilfe->Append(Hilfe_Info);
+    HauptMenuBar->Append(Hilfe, _("Hilfe"));
     SetMenuBar(HauptMenuBar);
     StatusBar1 = new wxStatusBar(this, ID_STATUSBAR1, 0, _T("ID_STATUSBAR1"));
     int __wxStatusBarWidths_1[2] = { -1, -1 };
@@ -886,6 +891,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
     Connect(idMenuTrennen,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnDisconnectUsb);
     Connect(idMenuKonfigLaden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConfigUpload);
     Connect(ID_MenuidMenuKonfigHolen,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConfigDownload);
+    Connect(ID_MenuLogmodus,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnLogModeSet);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnAbout);
     //*)
 
@@ -900,6 +906,16 @@ USBLoader2Frame::~USBLoader2Frame()
     fininish = true;
     if (digiSpark != NULL) delete digiSpark;
 }
+
+void USBLoader2Frame::activateMenuComm(bool val)
+{
+    Komm_TennModul->Enable(val);
+    Komm_KonfRueber->Enable(val);
+    Komm_KonfHolen->Enable(val);
+    Komm_LogMode->Enable(val);
+    Komm_VerbModul->Enable(!val);
+}
+
 
 void USBLoader2Frame::OnQuit(wxCommandEvent& event)
 {
@@ -924,6 +940,7 @@ void USBLoader2Frame::OnDisconnectUsb(wxCommandEvent& event)
     connected = false;
 	s << "Nicht verbunden";
 	this->SetStatusText(s, 1);
+	activateMenuComm(false);
 }
 
 void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
@@ -956,10 +973,14 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
         cout << digiSpark->getLog();
 		connected = false;
 		delete digiSpark;
+		activateMenuComm(false);
 		return; // exit no device connected
 	}
 	this->SetStatusText(s, 1);
 	//int k = 0;
+
+	activateMenuComm(true);
+
 	while (fininish == false) {
 		cout << digiSpark->getLog();
 
@@ -1292,7 +1313,7 @@ void USBLoader2Frame::OnClose(wxCloseEvent& event)
 void USBLoader2Frame::OnConfigUpload(wxCommandEvent& event)
 {
     // Basis
-   
+
     digiSpark->setMode(RadioBoxBasisfunktion->GetSelection());      // Mode M0 - 3
     digiSpark->setStartHelpZZP(SpinCtrlStarthilfe->GetValue());     // Starhilfe Grad
     digiSpark->setStartHelpRPM(SpinCtrlStarthilfeUMDR->GetValue()); // Starhilfe RPM
@@ -1310,4 +1331,8 @@ void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
     int val;
 
     if (digiSpark->getLED(val)) ChoiceLED->SetSelection(val);
+}
+
+void USBLoader2Frame::OnLogModeSet(wxCommandEvent& event)
+{
 }

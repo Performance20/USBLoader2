@@ -28,10 +28,10 @@
 										<object class="wxRadioBox" name="ID_RADIOBOXBasisfunktion" variable="RadioBoxBasisfunktion" member="yes">
 											<label>Basisfunktion</label>
 											<content>
-												<item>Manuell via Geber (M1)</item>
-												<item>Fester Zündzeitpunkt von OT (M2)</item>
-												<item>Fester ZP von OT mit Starthilfe (M3)</item>
-												<item>Dynamisch nach Tabelle (M4)</item>
+												<item>Manuell via Geber (M0)</item>
+												<item>Fester Zündzeitpunkt von OT (M1)</item>
+												<item>Fester ZP von OT mit Starthilfe (M2)</item>
+												<item>Dynamisch nach Tabelle (M3)</item>
 											</content>
 											<default>1</default>
 											<dimension>2</dimension>
@@ -251,14 +251,6 @@
 													<handler function="OnDataChange" entry="EVT_CHOICE" />
 												</object>
 												<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
-												<border>5</border>
-												<option>1</option>
-											</object>
-											<object class="sizeritem">
-												<object class="wxStaticText" name="ID_STATICTEXT66" variable="StaticText66" member="yes">
-													<label>Label</label>
-												</object>
-												<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 												<border>5</border>
 												<option>1</option>
 											</object>
@@ -1848,7 +1840,7 @@
 			</object>
 		</object>
 		<object class="wxMenuBar" variable="HauptMenuBar" member="no">
-			<object class="wxMenu" variable="Menu1" member="no">
+			<object class="wxMenu" variable="Datei" member="no">
 				<label>Datei</label>
 				<object class="wxMenuItem" name="idMenuSpeichern" variable="MenuItem5" member="yes">
 					<label>Konfiguration Speichern</label>
@@ -1870,33 +1862,44 @@
 					<handler function="OnQuit" entry="EVT_MENU" />
 				</object>
 			</object>
-			<object class="wxMenu" variable="Menu3" member="no">
+			<object class="wxMenu" variable="Kommunikation" member="no">
 				<label>Kommunikation</label>
-				<object class="wxMenuItem" name="idMenuVerbinden" variable="MenuItem3" member="yes">
+				<object class="wxMenuItem" name="idMenuVerbinden" variable="Komm_VerbModul" member="yes">
 					<label>Verbinden Zündmodul</label>
 					<help>Verbinden Modul</help>
 					<handler function="OnConnectUsb" entry="EVT_MENU" />
 				</object>
-				<object class="wxMenuItem" name="idMenuTrennen" variable="MenuItem7" member="yes">
+				<object class="wxMenuItem" name="idMenuTrennen" variable="Komm_TennModul" member="yes">
 					<label>Trennen Zündmodul</label>
 					<help>Trennen Modul</help>
+					<enabled>0</enabled>
 					<handler function="OnDisconnectUsb" entry="EVT_MENU" />
 				</object>
 				<object class="separator" />
-				<object class="wxMenuItem" name="idMenuKonfigLaden" variable="MenuItem4" member="yes">
+				<object class="wxMenuItem" name="idMenuKonfigLaden" variable="Komm_KonfRueber" member="yes">
 					<label>Konfig übertragen -&gt; Zündmodul</label>
 					<help>Konfiguration in Zündmodul laden</help>
+					<enabled>0</enabled>
 					<handler function="OnConfigUpload" entry="EVT_MENU" />
 				</object>
-				<object class="wxMenuItem" name="ID_MenuidMenuKonfigHolen" variable="MenuItem6" member="yes">
+				<object class="wxMenuItem" name="ID_MenuidMenuKonfigHolen" variable="Komm_KonfHolen" member="yes">
 					<label>Konfig holen &lt;- Zündmodul</label>
 					<help>Konfiguration aus Zündmodul holen</help>
+					<enabled>0</enabled>
 					<handler function="OnConfigDownload" entry="EVT_MENU" />
 				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="ID_MenuLogmodus" variable="Komm_LogMode" member="yes">
+					<label>Modul Log-Modus</label>
+					<help>Im Modul den Log-Modus an/abschalte</help>
+					<enabled>0</enabled>
+					<handler function="OnLogModeSet" entry="EVT_MENU" />
+					<checkable>1</checkable>
+				</object>
 			</object>
-			<object class="wxMenu" variable="Menu2" member="no">
+			<object class="wxMenu" variable="Hilfe" member="no">
 				<label>Hilfe</label>
-				<object class="wxMenuItem" name="idMenuAbout" variable="MenuItem2" member="no">
+				<object class="wxMenuItem" name="idMenuAbout" variable="Hilfe_Info" member="no">
 					<label>Info</label>
 					<accel>F1</accel>
 					<help>Zeigt Programm Infos</help>
