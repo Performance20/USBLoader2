@@ -261,6 +261,37 @@ class USBLoader2Frame: public wxFrame
         static const long ID_TEXTCTRLEchtModus;
         static const long ID_STATICTEXT5;
         static const long ID_PANELEchtWerte;
+        static const long ID_STATICTEXT78;
+        static const long ID_CHOICE1;
+        static const long ID_STATICTEXT77;
+        static const long ID_STATICTEXT81;
+        static const long ID_STATICTEXT82;
+        static const long ID_STATICTEXT83;
+        static const long ID_STATICTEXT66;
+        static const long ID_SPINCTRLDOUBLE1;
+        static const long ID_STATICTEXT74;
+        static const long ID_STATICTEXT86;
+        static const long ID_STATICTEXT87;
+        static const long ID_STATICTEXT88;
+        static const long ID_STATICTEXT75;
+        static const long ID_SPINCTRLDOUBLE2;
+        static const long ID_STATICTEXT76;
+        static const long ID_STATICTEXT89;
+        static const long ID_STATICTEXT90;
+        static const long ID_STATICTEXT91;
+        static const long ID_STATICTEXT79;
+        static const long ID_SPINCTRLSpinCtrlSatturationF;
+        static const long ID_STATICTEXT80;
+        static const long ID_STATICTEXT92;
+        static const long ID_STATICTEXT93;
+        static const long ID_STATICTEXT94;
+        static const long ID_STATICTEXT84;
+        static const long ID_TEXTCTRLSatTime;
+        static const long ID_STATICTEXT85;
+        static const long ID_STATICTEXT95;
+        static const long ID_TEXTCTRL4;
+        static const long ID_STATICTEXT96;
+        static const long ID_PANEL_ZSpule;
         static const long ID_NOTEBOOK1;
         static const long ID_TEXTCTRLLOG;
         static const long ID_PANEL1;
@@ -277,6 +308,7 @@ class USBLoader2Frame: public wxFrame
         //*)
 
         //(*Declarations(USBLoader2Frame)
+        wxChoice* Choice1;
         wxChoice* ChoiceLED;
         wxChoice* ChoiceTAB;
         wxMenuItem* Komm_KonfHolen;
@@ -293,9 +325,11 @@ class USBLoader2Frame: public wxFrame
         wxPanel* PanelTB1;
         wxPanel* PanelTB2;
         wxPanel* PanelTB3;
+        wxPanel* ZSpule;
         wxRadioBox* RadioBoxBasisfunktion;
         wxSpinCtrl* SpinCtrlFZZP;
         wxSpinCtrl* SpinCtrlSPLoad;
+        wxSpinCtrl* SpinCtrlSatturationF;
         wxSpinCtrl* SpinCtrlSchliessWinkel;
         wxSpinCtrl* SpinCtrlStarthilfe;
         wxSpinCtrl* SpinCtrlStarthilfeUMDR;
@@ -389,6 +423,8 @@ class USBLoader2Frame: public wxFrame
         wxSpinCtrl* SpinCtrlTB3_UM7;
         wxSpinCtrl* SpinCtrlTB3_UM8;
         wxSpinCtrl* SpinCtrlTB3_UM9;
+        wxSpinCtrlDouble* SpinCtrlDouble1;
+        wxSpinCtrlDouble* SpinCtrlDouble2;
         wxStaticText* StaticText10;
         wxStaticText* StaticText11;
         wxStaticText* StaticText12;
@@ -450,6 +486,7 @@ class USBLoader2Frame: public wxFrame
         wxStaticText* StaticText63;
         wxStaticText* StaticText64;
         wxStaticText* StaticText65;
+        wxStaticText* StaticText66;
         wxStaticText* StaticText67;
         wxStaticText* StaticText68;
         wxStaticText* StaticText69;
@@ -458,16 +495,41 @@ class USBLoader2Frame: public wxFrame
         wxStaticText* StaticText71;
         wxStaticText* StaticText72;
         wxStaticText* StaticText73;
+        wxStaticText* StaticText74;
+        wxStaticText* StaticText75;
+        wxStaticText* StaticText76;
+        wxStaticText* StaticText77;
+        wxStaticText* StaticText78;
+        wxStaticText* StaticText79;
         wxStaticText* StaticText7;
+        wxStaticText* StaticText80;
+        wxStaticText* StaticText81;
+        wxStaticText* StaticText82;
+        wxStaticText* StaticText83;
+        wxStaticText* StaticText84;
+        wxStaticText* StaticText85;
+        wxStaticText* StaticText86;
+        wxStaticText* StaticText87;
+        wxStaticText* StaticText88;
+        wxStaticText* StaticText89;
         wxStaticText* StaticText8;
+        wxStaticText* StaticText90;
+        wxStaticText* StaticText91;
+        wxStaticText* StaticText92;
+        wxStaticText* StaticText93;
+        wxStaticText* StaticText94;
+        wxStaticText* StaticText95;
+        wxStaticText* StaticText96;
         wxStaticText* StaticText9;
         wxStatusBar* StatusBar1;
         wxTextCtrl* TextCtrl1;
         wxTextCtrl* TextCtrl2;
         wxTextCtrl* TextCtrl3;
+        wxTextCtrl* TextCtrl4;
         wxTextCtrl* TextCtrlEchtModus;
         wxTextCtrl* TextCtrlLOG;
         wxTextCtrl* TextCtrlRPM;
+        wxTextCtrl* TextCtrlSatTime;
         wxTextCtrl* TextCtrlTPR;
         //*)
 
