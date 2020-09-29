@@ -2,7 +2,7 @@
 <wxsmith>
 	<object class="wxFrame" name="USBLoader2Frame">
 		<title>Zündmodul Konfigurator </title>
-		<size>620,700</size>
+		<size>650,700</size>
 		<minsize>580,600</minsize>
 		<id_arg>0</id_arg>
 		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
