@@ -375,7 +375,7 @@ const char* USBDevice::libusb_error_text(ssize_t err_number)
 
 int USBDevice::reset_device()
 {
-	if (interface_connected == true) {
+	if (isConnected()) {
 		libusb_release_interface(handle, 0);
 		libusb_close(handle);
 		//libusb_exit(NULL);
