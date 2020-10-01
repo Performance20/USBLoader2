@@ -37,7 +37,7 @@
 
     USBDevice::~USBDevice()
     {
- 		if (interface_connected == true) {
+ 		if (isConnected()) {
 			libusb_release_interface(handle, 0);
 			libusb_close(handle);
 		}
@@ -67,7 +67,7 @@
 		int ret;
 		libusb_device_handle* _handle = NULL;
 
-		if (interface_connected == false)
+		if (!isConnected())
 		{
 			_handle = libusb_open_device_with_vid_pid(NULL, vendor_id, product_id);
 			if (_handle == NULL) {  // have not connected my DigiSpark
@@ -89,7 +89,7 @@
 		return;
 	}
 
-	
+
 	void USBDevice::connect_device_with_search()
 	{
 		struct libusb_device** devs;
@@ -99,7 +99,7 @@
 		int ret, i = 0;
 		unsigned int bus, addr;
 
-		if (interface_connected == false)
+		if (!isConnected())
 		{
 			cnt = libusb_get_device_list(NULL, &devs);
 			if (cnt < 0)
@@ -129,7 +129,7 @@
 						libusb_free_device_list(devs, 1);
 						return;
 					}
-					
+
 					ret = libusb_claim_interface(_handle, 0);
 					if (ret < 0)
 					{
@@ -338,7 +338,7 @@ std::string USBDevice::print_device(libusb_device* dev, int level)
 
 
 
-const char* USBDevice::libusb_error_text(ssize_t err_number) 
+const char* USBDevice::libusb_error_text(ssize_t err_number)
 {
 			switch (err_number) {
 			case 0:
@@ -499,7 +499,7 @@ int USBDevice::GetValue(uint8_t cmd,  int& val)  // get data FROM ignition modul
 }
 
 
-std::string USBDevice::getLog() 
+std::string USBDevice::getLog()
 {
 
 	static std::string ss;

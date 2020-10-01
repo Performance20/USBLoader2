@@ -250,13 +250,13 @@ const long USBLoader2Frame::ID_STATICTEXT79 = wxNewId();
 const long USBLoader2Frame::ID_SPINCTRLSpinCtrlSatturationF = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT80 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT92 = wxNewId();
-const long USBLoader2Frame::ID_STATICTEXT93 = wxNewId();
+const long USBLoader2Frame::ID_BUTTONZPBerechnen = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT94 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT84 = wxNewId();
 const long USBLoader2Frame::ID_TEXTCTRLSatTime = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT85 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT95 = wxNewId();
-const long USBLoader2Frame::ID_TEXTCTRL4 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLZPEnergie = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT96 = wxNewId();
 const long USBLoader2Frame::ID_PANEL_ZSpule = wxNewId();
 const long USBLoader2Frame::ID_NOTEBOOK1 = wxNewId();
@@ -812,10 +812,10 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     FlexGridSizer3 = new wxFlexGridSizer(0, 6, 0, 1);
     StaticText78 = new wxStaticText(ZSpule, ID_STATICTEXT78, _("Spulenspannung:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT78"));
     FlexGridSizer3->Add(StaticText78, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    Choice1 = new wxChoice(ZSpule, ID_CHOICE1, wxDefaultPosition, wxSize(80,-1), 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE1"));
-    Choice1->Append(_("6 V"));
-    Choice1->SetSelection( Choice1->Append(_("12 V")) );
-    FlexGridSizer3->Add(Choice1, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    Spannung = new wxChoice(ZSpule, ID_CHOICE1, wxDefaultPosition, wxSize(80,-1), 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE1"));
+    Spannung->Append(_("6 V"));
+    Spannung->SetSelection( Spannung->Append(_("12 V")) );
+    FlexGridSizer3->Add(Spannung, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText77 = new wxStaticText(ZSpule, ID_STATICTEXT77, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT77"));
     FlexGridSizer3->Add(StaticText77, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText81 = new wxStaticText(ZSpule, ID_STATICTEXT81, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT81"));
@@ -826,9 +826,9 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     FlexGridSizer3->Add(StaticText83, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText66 = new wxStaticText(ZSpule, ID_STATICTEXT66, _("Wiedestand Primärwindung:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT66"));
     FlexGridSizer3->Add(StaticText66, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    SpinCtrlDouble1 = new wxSpinCtrlDouble(ZSpule, ID_SPINCTRLDOUBLE1, _T("3"), wxDefaultPosition, wxSize(110,20), wxALIGN_RIGHT, 0, 10, 0, 0.1, _T("ID_SPINCTRLDOUBLE1"));
-    SpinCtrlDouble1->SetValue(_T("3"));
-    FlexGridSizer3->Add(SpinCtrlDouble1, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    WiederstandPrim = new wxSpinCtrlDouble(ZSpule, ID_SPINCTRLDOUBLE1, _T("5"), wxDefaultPosition, wxSize(110,25), wxALIGN_RIGHT, 0, 10, 0, 0.1, _T("ID_SPINCTRLDOUBLE1"));
+    WiederstandPrim->SetValue(_T("5"));
+    FlexGridSizer3->Add(WiederstandPrim, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText74 = new wxStaticText(ZSpule, ID_STATICTEXT74, _("Ohm"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT74"));
     FlexGridSizer3->Add(StaticText74, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText86 = new wxStaticText(ZSpule, ID_STATICTEXT86, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT86"));
@@ -839,9 +839,9 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     FlexGridSizer3->Add(StaticText88, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText75 = new wxStaticText(ZSpule, ID_STATICTEXT75, _("Induktivität Primärwindung:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT75"));
     FlexGridSizer3->Add(StaticText75, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    SpinCtrlDouble2 = new wxSpinCtrlDouble(ZSpule, ID_SPINCTRLDOUBLE2, _T("0"), wxDefaultPosition, wxSize(110,20), wxALIGN_RIGHT, 0, 50, 0, 0.1, _T("ID_SPINCTRLDOUBLE2"));
-    SpinCtrlDouble2->SetValue(_T("0"));
-    FlexGridSizer3->Add(SpinCtrlDouble2, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    InduktPrim = new wxSpinCtrlDouble(ZSpule, ID_SPINCTRLDOUBLE2, _T("10"), wxDefaultPosition, wxSize(110,25), wxALIGN_RIGHT, 0, 50, 0, 0.1, _T("ID_SPINCTRLDOUBLE2"));
+    InduktPrim->SetValue(_T("10"));
+    FlexGridSizer3->Add(InduktPrim, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText76 = new wxStaticText(ZSpule, ID_STATICTEXT76, _("mH"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT76"));
     FlexGridSizer3->Add(StaticText76, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText89 = new wxStaticText(ZSpule, ID_STATICTEXT89, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT89"));
@@ -852,29 +852,29 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     FlexGridSizer3->Add(StaticText91, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText79 = new wxStaticText(ZSpule, ID_STATICTEXT79, _("Sättigungsfaktor:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT79"));
     FlexGridSizer3->Add(StaticText79, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    SpinCtrlSatturationF = new wxSpinCtrl(ZSpule, ID_SPINCTRLSpinCtrlSatturationF, _T("3"), wxDefaultPosition, wxSize(110,20), wxALIGN_RIGHT, 0, 10, 3, _T("ID_SPINCTRLSpinCtrlSatturationF"));
-    SpinCtrlSatturationF->SetValue(_T("3"));
-    FlexGridSizer3->Add(SpinCtrlSatturationF, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    Satturation = new wxSpinCtrl(ZSpule, ID_SPINCTRLSpinCtrlSatturationF, _T("3"), wxDefaultPosition, wxSize(110,25), wxALIGN_RIGHT, 0, 10, 3, _T("ID_SPINCTRLSpinCtrlSatturationF"));
+    Satturation->SetValue(_T("3"));
+    FlexGridSizer3->Add(Satturation, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText80 = new wxStaticText(ZSpule, ID_STATICTEXT80, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT80"));
     FlexGridSizer3->Add(StaticText80, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText92 = new wxStaticText(ZSpule, ID_STATICTEXT92, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT92"));
     FlexGridSizer3->Add(StaticText92, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText93 = new wxStaticText(ZSpule, ID_STATICTEXT93, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT93"));
-    FlexGridSizer3->Add(StaticText93, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    ButtonZPBerechnen = new wxButton(ZSpule, ID_BUTTONZPBerechnen, _("Berechnen"), wxDefaultPosition, wxSize(80,25), 0, wxDefaultValidator, _T("ID_BUTTONZPBerechnen"));
+    FlexGridSizer3->Add(ButtonZPBerechnen, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText94 = new wxStaticText(ZSpule, ID_STATICTEXT94, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT94"));
     FlexGridSizer3->Add(StaticText94, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText84 = new wxStaticText(ZSpule, ID_STATICTEXT84, _("Zeit Sättigung:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT84"));
     FlexGridSizer3->Add(StaticText84, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrlSatTime = new wxTextCtrl(ZSpule, ID_TEXTCTRLSatTime, _("0"), wxDefaultPosition, wxSize(80,20), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLSatTime"));
-    TextCtrlSatTime->SetMaxLength(2);
-    FlexGridSizer3->Add(TextCtrlSatTime, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlSatTime = new wxTextCtrl(ZSpule, ID_TEXTCTRLSatTime, _("0"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLSatTime"));
+    TextCtrlSatTime->SetMaxLength(4);
+    FlexGridSizer3->Add(TextCtrlSatTime, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText85 = new wxStaticText(ZSpule, ID_STATICTEXT85, _("ms"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT85"));
     FlexGridSizer3->Add(StaticText85, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText95 = new wxStaticText(ZSpule, ID_STATICTEXT95, _("Energie:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT95"));
     FlexGridSizer3->Add(StaticText95, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrl4 = new wxTextCtrl(ZSpule, ID_TEXTCTRL4, _("0"), wxDefaultPosition, wxSize(80,20), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRL4"));
-    TextCtrl4->SetMaxLength(3);
-    FlexGridSizer3->Add(TextCtrl4, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlZPEnergie = new wxTextCtrl(ZSpule, ID_TEXTCTRLZPEnergie, _("0"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLZPEnergie"));
+    TextCtrlZPEnergie->SetMaxLength(5);
+    FlexGridSizer3->Add(TextCtrlZPEnergie, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText96 = new wxStaticText(ZSpule, ID_STATICTEXT96, _("mWs"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT96"));
     FlexGridSizer3->Add(StaticText96, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     ZSpule->SetSizer(FlexGridSizer3);
@@ -989,6 +989,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     Connect(ID_SPINCTRLTB3_UM8,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
     Connect(ID_SPINCTRLTB3_UM9,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
     Connect(ID_SPINCTRLTB3_UM10,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&USBLoader2Frame::OnSpinCtrlChange);
+    Connect(ID_BUTTONZPBerechnen,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&USBLoader2Frame::OnButtonZPBerechnenClick);
     Connect(idMenuSpeichern,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnSpeichern);
     Connect(idMenuLaden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnLadenKonfig);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnQuit);
@@ -1440,4 +1441,29 @@ void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
 
 void USBLoader2Frame::OnLogModeSet(wxCommandEvent& event)
 {
+}
+
+
+void USBLoader2Frame::OnButtonZPBerechnenClick(wxCommandEvent& event)
+{
+    double idp, wip, szp, tau, engi, volt, strom;
+    wxString rstr;
+
+    idp = InduktPrim->GetValue();
+    wip = WiederstandPrim->GetValue();
+    szp = Satturation->GetValue();
+    tau = idp * szp / wip;
+    switch(Spannung->GetSelection())
+    {
+        case 0: volt = 7.2; break;
+        case 1: volt = 14; break;
+        default: volt = 0;
+    };
+    rstr = wxString::FromDouble(tau, 1);
+    TextCtrlSatTime->SetValue(rstr);
+
+    strom = volt / wip;
+    engi = 0.5 * strom * strom * idp;
+    rstr = wxString::FromDouble(engi, 1);
+    TextCtrlZPEnergie->SetValue(rstr);
 }

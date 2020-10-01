@@ -21,6 +21,7 @@
 #include <wx/fileconf.h>
 
 //(*Headers(USBLoader2Frame)
+#include <wx/button.h>
 #include <wx/choice.h>
 #include <wx/frame.h>
 #include <wx/menu.h>
@@ -77,6 +78,7 @@ class USBLoader2Frame: public wxFrame
         void OnConfigUpload(wxCommandEvent& event);
         void OnConfigDownload(wxCommandEvent& event);
         void OnLogModeSet(wxCommandEvent& event);
+        void OnButtonZPBerechnenClick(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
@@ -283,13 +285,13 @@ class USBLoader2Frame: public wxFrame
         static const long ID_SPINCTRLSpinCtrlSatturationF;
         static const long ID_STATICTEXT80;
         static const long ID_STATICTEXT92;
-        static const long ID_STATICTEXT93;
+        static const long ID_BUTTONZPBerechnen;
         static const long ID_STATICTEXT94;
         static const long ID_STATICTEXT84;
         static const long ID_TEXTCTRLSatTime;
         static const long ID_STATICTEXT85;
         static const long ID_STATICTEXT95;
-        static const long ID_TEXTCTRL4;
+        static const long ID_TEXTCTRLZPEnergie;
         static const long ID_STATICTEXT96;
         static const long ID_PANEL_ZSpule;
         static const long ID_NOTEBOOK1;
@@ -308,9 +310,10 @@ class USBLoader2Frame: public wxFrame
         //*)
 
         //(*Declarations(USBLoader2Frame)
-        wxChoice* Choice1;
+        wxButton* ButtonZPBerechnen;
         wxChoice* ChoiceLED;
         wxChoice* ChoiceTAB;
+        wxChoice* Spannung;
         wxMenuItem* Komm_KonfHolen;
         wxMenuItem* Komm_KonfRueber;
         wxMenuItem* Komm_LogMode;
@@ -327,9 +330,9 @@ class USBLoader2Frame: public wxFrame
         wxPanel* PanelTB3;
         wxPanel* ZSpule;
         wxRadioBox* RadioBoxBasisfunktion;
+        wxSpinCtrl* Satturation;
         wxSpinCtrl* SpinCtrlFZZP;
         wxSpinCtrl* SpinCtrlSPLoad;
-        wxSpinCtrl* SpinCtrlSatturationF;
         wxSpinCtrl* SpinCtrlSchliessWinkel;
         wxSpinCtrl* SpinCtrlStarthilfe;
         wxSpinCtrl* SpinCtrlStarthilfeUMDR;
@@ -423,8 +426,8 @@ class USBLoader2Frame: public wxFrame
         wxSpinCtrl* SpinCtrlTB3_UM7;
         wxSpinCtrl* SpinCtrlTB3_UM8;
         wxSpinCtrl* SpinCtrlTB3_UM9;
-        wxSpinCtrlDouble* SpinCtrlDouble1;
-        wxSpinCtrlDouble* SpinCtrlDouble2;
+        wxSpinCtrlDouble* InduktPrim;
+        wxSpinCtrlDouble* WiederstandPrim;
         wxStaticText* StaticText10;
         wxStaticText* StaticText11;
         wxStaticText* StaticText12;
@@ -516,7 +519,6 @@ class USBLoader2Frame: public wxFrame
         wxStaticText* StaticText90;
         wxStaticText* StaticText91;
         wxStaticText* StaticText92;
-        wxStaticText* StaticText93;
         wxStaticText* StaticText94;
         wxStaticText* StaticText95;
         wxStaticText* StaticText96;
@@ -525,12 +527,12 @@ class USBLoader2Frame: public wxFrame
         wxTextCtrl* TextCtrl1;
         wxTextCtrl* TextCtrl2;
         wxTextCtrl* TextCtrl3;
-        wxTextCtrl* TextCtrl4;
         wxTextCtrl* TextCtrlEchtModus;
         wxTextCtrl* TextCtrlLOG;
         wxTextCtrl* TextCtrlRPM;
         wxTextCtrl* TextCtrlSatTime;
         wxTextCtrl* TextCtrlTPR;
+        wxTextCtrl* TextCtrlZPEnergie;
         //*)
 
         DECLARE_EVENT_TABLE()

@@ -964,7 +964,7 @@
 
 1585059103 /usr/include/wx-3.0/wx/gtk/app.h
 
-1601396815 /home/helge/Desktop/USBLoader2/USBLoader2Main.h
+1601467523 /home/helge/Desktop/USBLoader2/USBLoader2Main.h
 	<string.h>
 	<iostream>
 	<sstream>
@@ -972,6 +972,7 @@
 	<wx/config.h>
 	<wx/confbase.h>
 	<wx/fileconf.h>
+	<wx/button.h>
 	<wx/choice.h>
 	<wx/frame.h>
 	<wx/menu.h>
@@ -1216,7 +1217,7 @@
 	"wx/bitmap.h"
 	"wx/list.h"
 
-1600852553 source:/home/helge/Desktop/USBLoader2/USBLoader2Main.cpp
+1601468398 source:/home/helge/Desktop/USBLoader2/USBLoader2Main.cpp
 	"USBLoader2Main.h"
 	<wx/msgdlg.h>
 	<wx/filedlg.h>
@@ -1246,7 +1247,7 @@
 
 1585059103 /usr/include/wx-3.0/wx/gtk/msgdlg.h
 
-1601042508 source:/home/helge/Desktop/USBLoader2/USBDevice.cpp
+1601466268 source:/home/helge/Desktop/USBLoader2/USBDevice.cpp
 	"USBDevice.h"
 
 1601042508 /home/helge/Desktop/USBLoader2/USBDevice.h
