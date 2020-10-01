@@ -434,8 +434,9 @@ string USBDevice::readString() // blocking reading
 
 	if (isConnected())
 	{
-		if(status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN, 
-				 REQ_LOGGING, 0, 0, data, DATA_STRING_SIZE_IN_BYTE, TIMEOUT))
+		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
+			REQ_LOGGING, 0, 0, data, DATA_STRING_SIZE_IN_BYTE, TIMEOUT);
+		if(status)
 		{
 			if (status < 0)
 			{

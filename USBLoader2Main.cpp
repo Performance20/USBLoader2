@@ -279,7 +279,7 @@ BEGIN_EVENT_TABLE(USBLoader2Frame,wxFrame)
     //*)
 END_EVENT_TABLE()
 
-USBLoader2Frame::USBLoader2Frame(wxWindow* parent,wxWindowID id)
+USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
 {
     //(*Initialize(USBLoader2Frame)
     wxBoxSizer* BoxSizer1;
