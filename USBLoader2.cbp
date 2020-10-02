@@ -41,6 +41,7 @@
 		</Linker>
 		<Unit filename="About.cpp" />
 		<Unit filename="About.h" />
+		<Unit filename="TextStrings.h" />
 		<Unit filename="USBDevice.cpp" />
 		<Unit filename="USBDevice.h" />
 		<Unit filename="USBLoader2App.cpp" />

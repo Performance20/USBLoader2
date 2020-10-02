@@ -8,7 +8,7 @@
  **************************************************************/
 
 #include "USBDevice.h"
-
+#include "TextStrings.h"
 
 	USBDevice::USBDevice(uint16_t _vendor_id, uint16_t _product_id)
 	{
@@ -71,12 +71,12 @@
 		{
 			_handle = libusb_open_device_with_vid_pid(NULL, vendor_id, product_id);
 			if (_handle == NULL) {  // have not connected my DigiSpark
-				*out << "could not open device via libusb_open_device_with_vid_pid(...." << endl << ends;
+				*out << STR_libusb_open_device_with_vid_pid_ERR << endl << ends;
 				return;
 			}
 			ret = libusb_claim_interface(_handle, 0);
 			if (ret < 0) {
-				*out << "libusb_claim_interface error: " << libusb_error_text(ret) << endl << ends;
+				*out << STR_libusb_claim_interface_ERR << libusb_error_text(ret) << endl << ends;
 				libusb_close(_handle);
 				return;
 			}
@@ -85,7 +85,7 @@
 
 		}
 		else
-			*out << "device is already connected" << endl << ends;
+			*out << STR_USB_DEVICE_ALREADY_CONNECTED << endl << ends;
 		return;
 	}
 
@@ -104,7 +104,7 @@
 			cnt = libusb_get_device_list(NULL, &devs);
 			if (cnt < 0)
 			{
-				*out << libusb_error_text(cnt) << " - call libusb_get_device_list(.." << endl << ends;
+				*out << STR_libusb_get_device_list_ERR << libusb_error_text(cnt) << endl << ends;
 				return;
 			}
 
@@ -115,7 +115,7 @@
 				ret = libusb_get_device_descriptor(dev, &desc);
 				if (ret < 0)
 				{
-					*out << "failed to get device descriptor" << endl << ends;
+					*out << STR_libusb_get_device_descriptor_ERR << endl << ends;
 					libusb_free_device_list(devs, 1);
 					return;
 				}
@@ -124,7 +124,7 @@
 					ret = libusb_open(dev, &_handle);
 					if (ret < 0)
 					{
-						*out << "libusb_open error: " << libusb_error_text(ret) << endl << ends;
+						*out << STR_libusb_open_ERR << libusb_error_text(ret) << endl << ends;
 						_handle = NULL;
 						libusb_free_device_list(devs, 1);
 						return;
@@ -133,14 +133,14 @@
 					ret = libusb_claim_interface(_handle, 0);
 					if (ret < 0)
 					{
-						*out << "libusb_claim_interface error: " << libusb_error_text(ret) << endl << ends;
+						*out << STR_libusb_claim_interface_ERR << libusb_error_text(ret) << endl << ends;
 						libusb_close(_handle);
 						libusb_free_device_list(devs, 1);
 						return;
 					}
 					bus = libusb_get_bus_number(dev);
 					addr = libusb_get_device_address(dev);
-					*out << "Device founded:  bus: " << bus << " device: " << addr << " vendor ID: " << vendor_id << " product ID: " << product_id << "\n" << ends;
+					*out << STR_USB_FOUND << STR_USB_BUS << bus << "   " << STR_USB_DEVICE_ADDRESS << addr << "   " << STR_VENDOR_ID << vendor_id << "   " << STR_PRODUCT_ID << product_id << endl << ends;
 					handle = _handle;
 					interface_connected = true;
 					libusb_free_device_list(devs, 1);
@@ -150,7 +150,7 @@
 			libusb_free_device_list(devs, 1);
 		}
 		else
-				*out <<  "\nDevice is already connected\n" << endl << ends;
+				*out << STR_USB_DEVICE_ALREADY_CONNECTED << endl << ends;
 
 	}
 
@@ -164,7 +164,7 @@
 		{
 			ret = libusb_claim_interface(*handleusb, 0);
 			if (ret < 0) {
-				*out << "libusb_claim_interface error: " << libusb_error_text(ret) << endl << ends;
+				*out << STR_libusb_claim_interface_ERR << libusb_error_text(ret) << endl << ends;
 				libusb_close(*handleusb);
 				*handleusb = NULL;
 				return -1;
@@ -190,7 +190,7 @@
 
 		ret = libusb_get_device_descriptor(dev, &desc);
 		if (ret < 0) {
-			*out << "failed to get device descriptor" << endl << ends;
+			*out << STR_libusb_get_device_descriptor_ERR << endl << ends;
 			sout = "";
 			return -1;
 		}
@@ -236,7 +236,7 @@
 		if ((_vendor_id == vendor_id) && (_product_id == product_id)) {
 			i = libusb_get_bus_number(dev);
 			ii = libusb_get_device_address(dev);
-			m << "Device founded:  " << level * 2 << ".*sDev (bus " << i << ", device " << ii << "): " << m1.str() << ":" << m2.str() << "\n" << ends;
+            m << STR_USB_FOUND << STR_USB_BUS << i << STR_USB_DEVICE_ADDRESS << ii << ": " << m1.str() << ":" << m2.str() << endl << ends;
 			//		out << m.str();
 			*handleusb = _handle;
 			sout = m.str();
@@ -262,7 +262,7 @@ std::string USBDevice::print_device(libusb_device* dev, int level)
 
 	ret = libusb_get_device_descriptor(dev, &desc);
 	if (ret < 0) {
-		*out << "failed to get device descriptor" << endl << ends;
+		*out << STR_libusb_get_device_descriptor_ERR << endl << ends;
 		return "";
 	}
 	ret = libusb_open(dev, &_handle);
@@ -273,40 +273,40 @@ std::string USBDevice::print_device(libusb_device* dev, int level)
 			ret = libusb_get_string_descriptor_ascii(_handle, desc.iManufacturer, strBuffer, sizeof(strBuffer));
 			if (ret > 0) {
 				strBuffer[ret] = 0;
-				m1 << "  idVendor: " << strBuffer;
+				m1 << "   " << STR_VENDOR_ID << strBuffer;
 			}
 			else
-				m1 << "  idVendor: " << desc.idVendor;
+				m1 << "   " << STR_VENDOR_ID << desc.idVendor;
 		}
 		else
-			m1 << "  idVendor: " << desc.idVendor;
+			m1 << "   " << STR_VENDOR_ID << desc.idVendor;
 
 		if (desc.iProduct) {
 			ret = libusb_get_string_descriptor_ascii(_handle, desc.iProduct, strBuffer, sizeof(strBuffer));
 			if (ret > 0) {
 				strBuffer[ret] = 0;
-				m1 << "  idProduct: " << strBuffer;
+				m1 << "   " << STR_PRODUCT_ID << strBuffer;
 			}
 			else
-				m1 << "  idProduct: " << desc.idProduct;
+				m1 << "   " << STR_PRODUCT_ID << desc.idProduct;
 		}
 		else
-			m1 << "  idProduct: " << desc.idProduct;
+			m1 << "   " << STR_PRODUCT_ID << desc.idProduct;
 	}
 	else
 	{
-			m1 << "idVendor: " << desc.idVendor << "  idProduct: " << desc.idProduct;
+			m1 << "   " << STR_VENDOR_ID << desc.idVendor << "   " << STR_PRODUCT_ID << desc.idProduct;
 	}
 
 	i = libusb_get_bus_number(dev);
 	ii = libusb_get_device_address(dev);
 	m1 << ends;
-	mout << level * 2 << ".*sDev (bus " << i << ", device " << ii << "): " << m1.str();
+	mout << STR_USB_BUS << i << ",  " << STR_USB_DEVICE_ADDRESS <<  ii << ":"  <<  m1.str();
 	if (_handle) {
 			if (desc.iSerialNumber) {
 				ret = libusb_get_string_descriptor_ascii(_handle, desc.iSerialNumber, strBuffer, sizeof(strBuffer));
 					if (ret > 0)
-						mout << "  - Serial Number: " << strBuffer << endl;
+						mout << "  - " << STR_USB_DEVICE_SERIAL << strBuffer << endl;
 			}
 
 	}
@@ -386,22 +386,23 @@ int USBDevice::reset_device()
 
 std::string USBDevice::print_deviceList()
 {
-			libusb_device** devs;
-			ssize_t cnt;
-			int i;
-			std::string ss;
+	libusb_device** devs;
+	ssize_t cnt;
+	int i;
+	std::string ss;
 
-			cnt = libusb_get_device_list(NULL, &devs);
-			if (cnt < 0) {
-				*out << libusb_error_text(cnt) << " - call libusb_get_device_list(.." << endl << ends;
-				return "";
-			}
-			else
-				*out << "Number of existing USB devices: " << cnt << endl;
-			for (i = 0; devs[i]; ++i)
-				ss += this->print_device(devs[i], 0);
-			libusb_free_device_list(devs, 1);
-			return ss;
+	cnt = libusb_get_device_list(NULL, &devs);
+	if (cnt < 0)
+    {
+		*out << STR_libusb_get_device_list_ERR << libusb_error_text(cnt) << endl << ends;
+		return "";
+	}
+	else
+		*out << STR_USB_NOMBER_OF_DEVICES << cnt << endl;
+	for (i = 0; devs[i]; ++i)
+	ss += this->print_device(devs[i], 0);
+	libusb_free_device_list(devs, 1);
+	return ss;
 }
 
 std::string USBDevice::print_connectedDevice() {
@@ -414,7 +415,7 @@ std::string USBDevice::print_connectedDevice() {
 
 	cnt = libusb_get_device_list(NULL, &devs);
 	if (cnt < 0) {
-		*out << libusb_error_text(cnt) << " - call libusb_get_device_list(.." << endl << ends;
+		*out << STR_libusb_get_device_list_ERR << libusb_error_text(cnt) << endl << ends;
 		return "";
 	}
 

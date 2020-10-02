@@ -16,6 +16,7 @@
 #include <wx/string.h>
 //*)
 
+#include "TextStrings.h"
 #include "About.h"
 
 
@@ -232,13 +233,13 @@ const long USBLoader2Frame::ID_STATICTEXT78 = wxNewId();
 const long USBLoader2Frame::ID_CHOICE1 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT77 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT81 = wxNewId();
-const long USBLoader2Frame::ID_STATICTEXT82 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLStrom = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT83 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT66 = wxNewId();
 const long USBLoader2Frame::ID_SPINCTRLDOUBLE1 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT74 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT86 = wxNewId();
-const long USBLoader2Frame::ID_STATICTEXT87 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLWatt = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT88 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT75 = wxNewId();
 const long USBLoader2Frame::ID_SPINCTRLDOUBLE2 = wxNewId();
@@ -258,6 +259,72 @@ const long USBLoader2Frame::ID_STATICTEXT85 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT95 = wxNewId();
 const long USBLoader2Frame::ID_TEXTCTRLZPEnergie = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT96 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT101 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT102 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT103 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT104 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT105 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT106 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLRPM1 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLMSU1 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT107 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT108 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLGRADU1 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT109 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLRPM2 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLMSU2 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT110 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT111 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLGRADU2 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT112 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLRPM3 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLMSU3 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT113 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT114 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLGRADU3 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT115 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLRPM4 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLMSU4 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT116 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT117 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLGRADU4 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT118 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLRPM5 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLMSU5 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT119 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT120 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLGRADU5 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT121 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLRPM6 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLMSU6 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT122 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT123 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLGRADU6 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT124 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLRPM7 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLMSU7 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT126 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT127 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLGRADU7 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT128 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLRPM8 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLMSU8 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT93 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT97 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLGRADU8 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT98 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLRPM9 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLMSU9 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT99 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT100 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLGRADU9 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT125 = wxNewId();
+const long USBLoader2Frame::ID_SPINCTRLRPM10 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLMSU10 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT129 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT130 = wxNewId();
+const long USBLoader2Frame::ID_TEXTCTRLGRADU10 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT131 = wxNewId();
 const long USBLoader2Frame::ID_PANEL_ZSpule = wxNewId();
 const long USBLoader2Frame::ID_NOTEBOOK1 = wxNewId();
 const long USBLoader2Frame::ID_TEXTCTRLLOG = wxNewId();
@@ -298,9 +365,9 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     wxMenuItem* MenuItem1;
 
     Create(parent, wxID_ANY, _("Zündmodul Konfigurator "), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
-    SetClientSize(wxSize(650,700));
+    SetClientSize(wxSize(650,750));
     SetMinSize(wxSize(580,600));
-    Panel1 = new wxPanel(this, ID_PANEL1, wxPoint(184,200), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
+    Panel1 = new wxPanel(this, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
     Notebook1 = new wxNotebook(Panel1, ID_NOTEBOOK1, wxDefaultPosition, wxDefaultSize, wxNB_FIXEDWIDTH|wxBORDER_RAISED, _T("ID_NOTEBOOK1"));
     Notebook1->SetFocus();
@@ -765,42 +832,42 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     FlexGridSizer2->Add(StaticText44, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText38 = new wxStaticText(EchtWerte, ID_STATICTEXT38, _("Umdrehungen/Minute:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT38"));
     FlexGridSizer2->Add(StaticText38, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrlRPM = new wxTextCtrl(EchtWerte, ID_TEXTCTRLRPM, _("00000"), wxDefaultPosition, wxDefaultSize, wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLRPM"));
+    TextCtrlRPM = new wxTextCtrl(EchtWerte, ID_TEXTCTRLRPM, _("00000"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLRPM"));
     TextCtrlRPM->SetMaxLength(5);
     FlexGridSizer2->Add(TextCtrlRPM, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText39 = new wxStaticText(EchtWerte, ID_STATICTEXT39, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT39"));
     FlexGridSizer2->Add(StaticText39, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText42 = new wxStaticText(EchtWerte, ID_STATICTEXT42, _("Umdrehungen/Sekunde:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT42"));
     FlexGridSizer2->Add(StaticText42, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrl1 = new wxTextCtrl(EchtWerte, ID_TEXTCTRL1, _("00000"), wxDefaultPosition, wxDefaultSize, wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRL1"));
+    TextCtrl1 = new wxTextCtrl(EchtWerte, ID_TEXTCTRL1, _("00000"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRL1"));
     TextCtrl1->SetMaxLength(5);
     FlexGridSizer2->Add(TextCtrl1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText43 = new wxStaticText(EchtWerte, ID_STATICTEXT43, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT43"));
     FlexGridSizer2->Add(StaticText43, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText40 = new wxStaticText(EchtWerte, ID_STATICTEXT40, _("Zeit pro Umdrehung:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT40"));
     FlexGridSizer2->Add(StaticText40, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrlTPR = new wxTextCtrl(EchtWerte, ID_TEXTCTRLTPR, _("0000"), wxDefaultPosition, wxDefaultSize, wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLTPR"));
+    TextCtrlTPR = new wxTextCtrl(EchtWerte, ID_TEXTCTRLTPR, _("0000"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLTPR"));
     TextCtrlTPR->SetMaxLength(4);
     FlexGridSizer2->Add(TextCtrlTPR, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText41 = new wxStaticText(EchtWerte, ID_STATICTEXT41, _("Millisekunden"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT41"));
     FlexGridSizer2->Add(StaticText41, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText47 = new wxStaticText(EchtWerte, ID_STATICTEXT47, _("Aktueller Zündzeitpunkt:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT47"));
     FlexGridSizer2->Add(StaticText47, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrl2 = new wxTextCtrl(EchtWerte, ID_TEXTCTRL2, _("0"), wxDefaultPosition, wxDefaultSize, wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRL2"));
+    TextCtrl2 = new wxTextCtrl(EchtWerte, ID_TEXTCTRL2, _("0"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRL2"));
     TextCtrl2->SetMaxLength(3);
     FlexGridSizer2->Add(TextCtrl2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText48 = new wxStaticText(EchtWerte, ID_STATICTEXT48, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT48"));
     FlexGridSizer2->Add(StaticText48, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText70 = new wxStaticText(EchtWerte, ID_STATICTEXT70, _("Schließwinkel:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT70"));
     FlexGridSizer2->Add(StaticText70, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrl3 = new wxTextCtrl(EchtWerte, ID_TEXTCTRL3, _("0"), wxDefaultPosition, wxDefaultSize, wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRL3"));
+    TextCtrl3 = new wxTextCtrl(EchtWerte, ID_TEXTCTRL3, _("0"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRL3"));
     TextCtrl3->SetMaxLength(4);
     FlexGridSizer2->Add(TextCtrl3, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText71 = new wxStaticText(EchtWerte, ID_STATICTEXT71, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT71"));
     FlexGridSizer2->Add(StaticText71, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText3 = new wxStaticText(EchtWerte, ID_STATICTEXT3, _("Modus:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT3"));
     FlexGridSizer2->Add(StaticText3, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrlEchtModus = new wxTextCtrl(EchtWerte, ID_TEXTCTRLEchtModus, _("Mx"), wxDefaultPosition, wxDefaultSize, wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLEchtModus"));
+    TextCtrlEchtModus = new wxTextCtrl(EchtWerte, ID_TEXTCTRLEchtModus, _("Mx"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLEchtModus"));
     TextCtrlEchtModus->SetMaxLength(2);
     FlexGridSizer2->Add(TextCtrlEchtModus, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText5 = new wxStaticText(EchtWerte, ID_STATICTEXT5, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT5"));
@@ -809,33 +876,35 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     FlexGridSizer2->Fit(EchtWerte);
     FlexGridSizer2->SetSizeHints(EchtWerte);
     ZSpule = new wxPanel(Notebook1, ID_PANEL_ZSpule, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL_ZSpule"));
-    FlexGridSizer3 = new wxFlexGridSizer(0, 6, 0, 1);
+    FlexGridSizer3 = new wxFlexGridSizer(16, 6, 0, 1);
     StaticText78 = new wxStaticText(ZSpule, ID_STATICTEXT78, _("Spulenspannung:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT78"));
     FlexGridSizer3->Add(StaticText78, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    Spannung = new wxChoice(ZSpule, ID_CHOICE1, wxDefaultPosition, wxSize(80,-1), 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE1"));
+    Spannung = new wxChoice(ZSpule, ID_CHOICE1, wxDefaultPosition, wxSize(80,25), 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE1"));
     Spannung->Append(_("6 V"));
     Spannung->SetSelection( Spannung->Append(_("12 V")) );
     FlexGridSizer3->Add(Spannung, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText77 = new wxStaticText(ZSpule, ID_STATICTEXT77, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT77"));
     FlexGridSizer3->Add(StaticText77, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText81 = new wxStaticText(ZSpule, ID_STATICTEXT81, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT81"));
+    StaticText81 = new wxStaticText(ZSpule, ID_STATICTEXT81, _("Strom:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT81"));
     FlexGridSizer3->Add(StaticText81, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText82 = new wxStaticText(ZSpule, ID_STATICTEXT82, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT82"));
-    FlexGridSizer3->Add(StaticText82, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText83 = new wxStaticText(ZSpule, ID_STATICTEXT83, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT83"));
+    TextCtrlStrom = new wxTextCtrl(ZSpule, ID_TEXTCTRLStrom, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLStrom"));
+    TextCtrlStrom->SetMaxLength(3);
+    FlexGridSizer3->Add(TextCtrlStrom, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText83 = new wxStaticText(ZSpule, ID_STATICTEXT83, _("A"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT83"));
     FlexGridSizer3->Add(StaticText83, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText66 = new wxStaticText(ZSpule, ID_STATICTEXT66, _("Wiedestand Primärwindung:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT66"));
+    StaticText66 = new wxStaticText(ZSpule, ID_STATICTEXT66, _("Wiederstand Primärwindung:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT66"));
     FlexGridSizer3->Add(StaticText66, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     WiederstandPrim = new wxSpinCtrlDouble(ZSpule, ID_SPINCTRLDOUBLE1, _T("5"), wxDefaultPosition, wxSize(110,25), wxALIGN_RIGHT, 0, 10, 0, 0.1, _T("ID_SPINCTRLDOUBLE1"));
     WiederstandPrim->SetValue(_T("5"));
     FlexGridSizer3->Add(WiederstandPrim, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText74 = new wxStaticText(ZSpule, ID_STATICTEXT74, _("Ohm"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT74"));
     FlexGridSizer3->Add(StaticText74, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText86 = new wxStaticText(ZSpule, ID_STATICTEXT86, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT86"));
+    StaticText86 = new wxStaticText(ZSpule, ID_STATICTEXT86, _("Leistg:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT86"));
     FlexGridSizer3->Add(StaticText86, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText87 = new wxStaticText(ZSpule, ID_STATICTEXT87, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT87"));
-    FlexGridSizer3->Add(StaticText87, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText88 = new wxStaticText(ZSpule, ID_STATICTEXT88, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT88"));
+    TextCtrlWatt = new wxTextCtrl(ZSpule, ID_TEXTCTRLWatt, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLWatt"));
+    TextCtrlWatt->SetMaxLength(5);
+    FlexGridSizer3->Add(TextCtrlWatt, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText88 = new wxStaticText(ZSpule, ID_STATICTEXT88, _("W"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT88"));
     FlexGridSizer3->Add(StaticText88, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText75 = new wxStaticText(ZSpule, ID_STATICTEXT75, _("Induktivität Primärwindung:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT75"));
     FlexGridSizer3->Add(StaticText75, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
@@ -859,24 +928,170 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     FlexGridSizer3->Add(StaticText80, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText92 = new wxStaticText(ZSpule, ID_STATICTEXT92, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT92"));
     FlexGridSizer3->Add(StaticText92, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
-    ButtonZPBerechnen = new wxButton(ZSpule, ID_BUTTONZPBerechnen, _("Berechnen"), wxDefaultPosition, wxSize(80,25), 0, wxDefaultValidator, _T("ID_BUTTONZPBerechnen"));
+    ButtonZPBerechnen = new wxButton(ZSpule, ID_BUTTONZPBerechnen, _("Berechnen"), wxDefaultPosition, wxSize(80,30), 0, wxDefaultValidator, _T("ID_BUTTONZPBerechnen"));
     FlexGridSizer3->Add(ButtonZPBerechnen, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText94 = new wxStaticText(ZSpule, ID_STATICTEXT94, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT94"));
     FlexGridSizer3->Add(StaticText94, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText84 = new wxStaticText(ZSpule, ID_STATICTEXT84, _("Zeit Sättigung:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT84"));
     FlexGridSizer3->Add(StaticText84, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrlSatTime = new wxTextCtrl(ZSpule, ID_TEXTCTRLSatTime, _("0"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLSatTime"));
+    TextCtrlSatTime = new wxTextCtrl(ZSpule, ID_TEXTCTRLSatTime, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLSatTime"));
     TextCtrlSatTime->SetMaxLength(4);
     FlexGridSizer3->Add(TextCtrlSatTime, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText85 = new wxStaticText(ZSpule, ID_STATICTEXT85, _("ms"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT85"));
     FlexGridSizer3->Add(StaticText85, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText95 = new wxStaticText(ZSpule, ID_STATICTEXT95, _("Energie:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT95"));
     FlexGridSizer3->Add(StaticText95, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrlZPEnergie = new wxTextCtrl(ZSpule, ID_TEXTCTRLZPEnergie, _("0"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLZPEnergie"));
+    TextCtrlZPEnergie = new wxTextCtrl(ZSpule, ID_TEXTCTRLZPEnergie, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLZPEnergie"));
     TextCtrlZPEnergie->SetMaxLength(5);
     FlexGridSizer3->Add(TextCtrlZPEnergie, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     StaticText96 = new wxStaticText(ZSpule, ID_STATICTEXT96, _("mWs"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT96"));
     FlexGridSizer3->Add(StaticText96, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText101 = new wxStaticText(ZSpule, ID_STATICTEXT101, _("U/min"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT101"));
+    FlexGridSizer3->Add(StaticText101, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText102 = new wxStaticText(ZSpule, ID_STATICTEXT102, _("         ms/U"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT102"));
+    FlexGridSizer3->Add(StaticText102, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText103 = new wxStaticText(ZSpule, ID_STATICTEXT103, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT103"));
+    FlexGridSizer3->Add(StaticText103, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText104 = new wxStaticText(ZSpule, ID_STATICTEXT104, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT104"));
+    FlexGridSizer3->Add(StaticText104, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText105 = new wxStaticText(ZSpule, ID_STATICTEXT105, _("S-Winkel"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT105"));
+    FlexGridSizer3->Add(StaticText105, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText106 = new wxStaticText(ZSpule, ID_STATICTEXT106, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT106"));
+    FlexGridSizer3->Add(StaticText106, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlRPM1 = new wxSpinCtrl(ZSpule, ID_SPINCTRLRPM1, _T("1000"), wxDefaultPosition, wxSize(120,25), 0, 0, 10000, 1000, _T("ID_SPINCTRLRPM1"));
+    SpinCtrlRPM1->SetValue(_T("1000"));
+    FlexGridSizer3->Add(SpinCtrlRPM1, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlMSU1 = new wxTextCtrl(ZSpule, ID_TEXTCTRLMSU1, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLMSU1"));
+    FlexGridSizer3->Add(TextCtrlMSU1, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText107 = new wxStaticText(ZSpule, ID_STATICTEXT107, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT107"));
+    FlexGridSizer3->Add(StaticText107, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText108 = new wxStaticText(ZSpule, ID_STATICTEXT108, _("min."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT108"));
+    FlexGridSizer3->Add(StaticText108, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlGRADU1 = new wxTextCtrl(ZSpule, ID_TEXTCTRLGRADU1, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLGRADU1"));
+    FlexGridSizer3->Add(TextCtrlGRADU1, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText109 = new wxStaticText(ZSpule, ID_STATICTEXT109, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT109"));
+    FlexGridSizer3->Add(StaticText109, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlRPM2 = new wxSpinCtrl(ZSpule, ID_SPINCTRLRPM2, _T("2000"), wxDefaultPosition, wxSize(120,25), 0, 0, 10000, 2000, _T("ID_SPINCTRLRPM2"));
+    SpinCtrlRPM2->SetValue(_T("2000"));
+    FlexGridSizer3->Add(SpinCtrlRPM2, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlMSU2 = new wxTextCtrl(ZSpule, ID_TEXTCTRLMSU2, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLMSU2"));
+    FlexGridSizer3->Add(TextCtrlMSU2, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText110 = new wxStaticText(ZSpule, ID_STATICTEXT110, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT110"));
+    FlexGridSizer3->Add(StaticText110, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText111 = new wxStaticText(ZSpule, ID_STATICTEXT111, _("min."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT111"));
+    FlexGridSizer3->Add(StaticText111, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlGRADU2 = new wxTextCtrl(ZSpule, ID_TEXTCTRLGRADU2, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLGRADU2"));
+    FlexGridSizer3->Add(TextCtrlGRADU2, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText112 = new wxStaticText(ZSpule, ID_STATICTEXT112, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT112"));
+    FlexGridSizer3->Add(StaticText112, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlRPM3 = new wxSpinCtrl(ZSpule, ID_SPINCTRLRPM3, _T("3000"), wxDefaultPosition, wxSize(120,25), 0, 0, 10000, 3000, _T("ID_SPINCTRLRPM3"));
+    SpinCtrlRPM3->SetValue(_T("3000"));
+    FlexGridSizer3->Add(SpinCtrlRPM3, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlMSU3 = new wxTextCtrl(ZSpule, ID_TEXTCTRLMSU3, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLMSU3"));
+    TextCtrlMSU3->SetMaxSize(wxSize(80,25));
+    FlexGridSizer3->Add(TextCtrlMSU3, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText113 = new wxStaticText(ZSpule, ID_STATICTEXT113, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT113"));
+    FlexGridSizer3->Add(StaticText113, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText114 = new wxStaticText(ZSpule, ID_STATICTEXT114, _("min."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT114"));
+    FlexGridSizer3->Add(StaticText114, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlGRADU3 = new wxTextCtrl(ZSpule, ID_TEXTCTRLGRADU3, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLGRADU3"));
+    FlexGridSizer3->Add(TextCtrlGRADU3, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText115 = new wxStaticText(ZSpule, ID_STATICTEXT115, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT115"));
+    FlexGridSizer3->Add(StaticText115, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlRPM4 = new wxSpinCtrl(ZSpule, ID_SPINCTRLRPM4, _T("4000"), wxDefaultPosition, wxSize(120,25), 0, 0, 10000, 4000, _T("ID_SPINCTRLRPM4"));
+    SpinCtrlRPM4->SetValue(_T("4000"));
+    FlexGridSizer3->Add(SpinCtrlRPM4, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlMSU4 = new wxTextCtrl(ZSpule, ID_TEXTCTRLMSU4, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLMSU4"));
+    TextCtrlMSU4->SetMaxSize(wxSize(80,25));
+    FlexGridSizer3->Add(TextCtrlMSU4, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText116 = new wxStaticText(ZSpule, ID_STATICTEXT116, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT116"));
+    FlexGridSizer3->Add(StaticText116, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText117 = new wxStaticText(ZSpule, ID_STATICTEXT117, _("min."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT117"));
+    FlexGridSizer3->Add(StaticText117, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlGRADU4 = new wxTextCtrl(ZSpule, ID_TEXTCTRLGRADU4, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLGRADU4"));
+    FlexGridSizer3->Add(TextCtrlGRADU4, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText118 = new wxStaticText(ZSpule, ID_STATICTEXT118, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT118"));
+    FlexGridSizer3->Add(StaticText118, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlRPM5 = new wxSpinCtrl(ZSpule, ID_SPINCTRLRPM5, _T("5000"), wxDefaultPosition, wxSize(120,25), 0, 0, 10000, 5000, _T("ID_SPINCTRLRPM5"));
+    SpinCtrlRPM5->SetValue(_T("5000"));
+    FlexGridSizer3->Add(SpinCtrlRPM5, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlMSU5 = new wxTextCtrl(ZSpule, ID_TEXTCTRLMSU5, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLMSU5"));
+    TextCtrlMSU5->SetMaxSize(wxSize(80,25));
+    FlexGridSizer3->Add(TextCtrlMSU5, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText119 = new wxStaticText(ZSpule, ID_STATICTEXT119, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT119"));
+    FlexGridSizer3->Add(StaticText119, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText120 = new wxStaticText(ZSpule, ID_STATICTEXT120, _("min."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT120"));
+    FlexGridSizer3->Add(StaticText120, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlGRADU5 = new wxTextCtrl(ZSpule, ID_TEXTCTRLGRADU5, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLGRADU5"));
+    FlexGridSizer3->Add(TextCtrlGRADU5, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText121 = new wxStaticText(ZSpule, ID_STATICTEXT121, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT121"));
+    FlexGridSizer3->Add(StaticText121, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlRPM6 = new wxSpinCtrl(ZSpule, ID_SPINCTRLRPM6, _T("6000"), wxDefaultPosition, wxSize(120,25), 0, 0, 10000, 6000, _T("ID_SPINCTRLRPM6"));
+    SpinCtrlRPM6->SetValue(_T("6000"));
+    FlexGridSizer3->Add(SpinCtrlRPM6, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlMSU6 = new wxTextCtrl(ZSpule, ID_TEXTCTRLMSU6, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLMSU6"));
+    TextCtrlMSU6->SetMaxSize(wxSize(80,25));
+    FlexGridSizer3->Add(TextCtrlMSU6, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText122 = new wxStaticText(ZSpule, ID_STATICTEXT122, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT122"));
+    FlexGridSizer3->Add(StaticText122, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText123 = new wxStaticText(ZSpule, ID_STATICTEXT123, _("min."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT123"));
+    FlexGridSizer3->Add(StaticText123, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlGRADU6 = new wxTextCtrl(ZSpule, ID_TEXTCTRLGRADU6, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLGRADU6"));
+    FlexGridSizer3->Add(TextCtrlGRADU6, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText124 = new wxStaticText(ZSpule, ID_STATICTEXT124, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT124"));
+    FlexGridSizer3->Add(StaticText124, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlRPM7 = new wxSpinCtrl(ZSpule, ID_SPINCTRLRPM7, _T("7000"), wxDefaultPosition, wxSize(120,25), 0, 0, 10000, 7000, _T("ID_SPINCTRLRPM7"));
+    SpinCtrlRPM7->SetValue(_T("7000"));
+    FlexGridSizer3->Add(SpinCtrlRPM7, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlMSU7 = new wxTextCtrl(ZSpule, ID_TEXTCTRLMSU7, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLMSU7"));
+    FlexGridSizer3->Add(TextCtrlMSU7, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText126 = new wxStaticText(ZSpule, ID_STATICTEXT126, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT126"));
+    FlexGridSizer3->Add(StaticText126, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText127 = new wxStaticText(ZSpule, ID_STATICTEXT127, _("min."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT127"));
+    FlexGridSizer3->Add(StaticText127, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlGRADU7 = new wxTextCtrl(ZSpule, ID_TEXTCTRLGRADU7, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLGRADU7"));
+    FlexGridSizer3->Add(TextCtrlGRADU7, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText128 = new wxStaticText(ZSpule, ID_STATICTEXT128, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT128"));
+    FlexGridSizer3->Add(StaticText128, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlRPM8 = new wxSpinCtrl(ZSpule, ID_SPINCTRLRPM8, _T("8000"), wxDefaultPosition, wxSize(120,25), 0, 0, 10000, 8000, _T("ID_SPINCTRLRPM8"));
+    SpinCtrlRPM8->SetValue(_T("8000"));
+    FlexGridSizer3->Add(SpinCtrlRPM8, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlMSU8 = new wxTextCtrl(ZSpule, ID_TEXTCTRLMSU8, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLMSU8"));
+    FlexGridSizer3->Add(TextCtrlMSU8, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText93 = new wxStaticText(ZSpule, ID_STATICTEXT93, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT93"));
+    FlexGridSizer3->Add(StaticText93, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText97 = new wxStaticText(ZSpule, ID_STATICTEXT97, _("min."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT97"));
+    FlexGridSizer3->Add(StaticText97, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlGRADU8 = new wxTextCtrl(ZSpule, ID_TEXTCTRLGRADU8, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLGRADU8"));
+    FlexGridSizer3->Add(TextCtrlGRADU8, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText98 = new wxStaticText(ZSpule, ID_STATICTEXT98, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT98"));
+    FlexGridSizer3->Add(StaticText98, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlRPM9 = new wxSpinCtrl(ZSpule, ID_SPINCTRLRPM9, _T("9000"), wxDefaultPosition, wxSize(120,25), 0, 0, 10000, 9000, _T("ID_SPINCTRLRPM9"));
+    SpinCtrlRPM9->SetValue(_T("9000"));
+    FlexGridSizer3->Add(SpinCtrlRPM9, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlMSU9 = new wxTextCtrl(ZSpule, ID_TEXTCTRLMSU9, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLMSU9"));
+    FlexGridSizer3->Add(TextCtrlMSU9, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText99 = new wxStaticText(ZSpule, ID_STATICTEXT99, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT99"));
+    FlexGridSizer3->Add(StaticText99, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText100 = new wxStaticText(ZSpule, ID_STATICTEXT100, _("min."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT100"));
+    FlexGridSizer3->Add(StaticText100, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlGRADU9 = new wxTextCtrl(ZSpule, ID_TEXTCTRLGRADU9, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLGRADU9"));
+    FlexGridSizer3->Add(TextCtrlGRADU9, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText125 = new wxStaticText(ZSpule, ID_STATICTEXT125, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT125"));
+    FlexGridSizer3->Add(StaticText125, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    SpinCtrlRPM10 = new wxSpinCtrl(ZSpule, ID_SPINCTRLRPM10, _T("10000"), wxDefaultPosition, wxSize(120,25), 0, 0, 10000, 10000, _T("ID_SPINCTRLRPM10"));
+    SpinCtrlRPM10->SetValue(_T("10000"));
+    FlexGridSizer3->Add(SpinCtrlRPM10, 4, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlMSU10 = new wxTextCtrl(ZSpule, ID_TEXTCTRLMSU10, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLMSU10"));
+    FlexGridSizer3->Add(TextCtrlMSU10, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText129 = new wxStaticText(ZSpule, ID_STATICTEXT129, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT129"));
+    FlexGridSizer3->Add(StaticText129, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText130 = new wxStaticText(ZSpule, ID_STATICTEXT130, _("min."), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT130"));
+    FlexGridSizer3->Add(StaticText130, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlGRADU10 = new wxTextCtrl(ZSpule, ID_TEXTCTRLGRADU10, wxEmptyString, wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_TEXTCTRLGRADU10"));
+    FlexGridSizer3->Add(TextCtrlGRADU10, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText131 = new wxStaticText(ZSpule, ID_STATICTEXT131, _("Grad"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT131"));
+    FlexGridSizer3->Add(StaticText131, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     ZSpule->SetSizer(FlexGridSizer3);
     FlexGridSizer3->Fit(ZSpule);
     FlexGridSizer3->SetSizeHints(ZSpule);
@@ -1002,6 +1217,9 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     //*)
 
     resetConfigChange();
+    //* set some default Values
+
+	this->SetStatusText(STR_CONNECTION_STATUS_NOT_CONNECTED, 1);
     digiSpark = NULL;
 }
 
@@ -1055,7 +1273,7 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 
 	if (connected == true) // vendor 5824, product 1503
 	{
-		cout << "Device is already connected!!!" << endl << ends;
+		cout << STR_USB_DEVICE_ALREADY_CONNECTED << endl << ends;
 		return;
 	}
 
@@ -1069,12 +1287,12 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 
 	if (digiSpark->isConnected()) // vendor 5824, product 1503
 	{
-		s << "Verbunden";
+		this->SetStatusText(STR_CONNECTION_STATUS_CONNECTED, 1);
 		connected = true;
 	}
 	else
 	{
-		s << "Nicht Verbunden";
+        this->SetStatusText(STR_CONNECTION_STATUS_NOT_CONNECTED, 1);
 		cout << digiSpark->print_deviceList();
         cout << digiSpark->getLog();
 		connected = false;
@@ -1082,34 +1300,11 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 		activateMenuComm(false);
 		return; // exit no device connected
 	}
-	this->SetStatusText(s, 1);
-	//int k = 0;
-
 	activateMenuComm(true);
 
 	while (fininish == false) {
 		cout << digiSpark->getLog();
 
-	/*	if (digiSpark->isConnected())
-		{
-			if (connected == false)
-			{
-				connected = true;
-				s << "Verbunden";
-				this->SetStatusText(s, 2);
-			}
-
-		}
-		else
-		{
-			if (connected == true)
-			{
-				connected = false;
-				s << "Nicht Verbunden";
-				this->SetStatusText(s, 2);
-			}
-		}
-*/
 		wxYield();
 		//::wxSleep(1);
 	}
@@ -1446,8 +1641,10 @@ void USBLoader2Frame::OnLogModeSet(wxCommandEvent& event)
 
 void USBLoader2Frame::OnButtonZPBerechnenClick(wxCommandEvent& event)
 {
-    double idp, wip, szp, tau, engi, volt, strom;
+    double idp, wip, szp, tau, engi, volt, strom, watt, msu, gradu;
+    unsigned int rpm;
     wxString rstr;
+#define CALC6F  60000.0F
 
     idp = InduktPrim->GetValue();
     wip = WiederstandPrim->GetValue();
@@ -1455,15 +1652,101 @@ void USBLoader2Frame::OnButtonZPBerechnenClick(wxCommandEvent& event)
     tau = idp * szp / wip;
     switch(Spannung->GetSelection())
     {
-        case 0: volt = 7.2; break;
-        case 1: volt = 14; break;
-        default: volt = 0;
+        case 0: volt = 7.2F; break;
+        case 1: volt = 14.0F; break;
+        default: volt = 0.0F;
     };
     rstr = wxString::FromDouble(tau, 1);
     TextCtrlSatTime->SetValue(rstr);
 
     strom = volt / wip;
-    engi = 0.5 * strom * strom * idp;
+    rstr = wxString::FromDouble(strom, 1);
+    TextCtrlStrom->SetValue(rstr);
+    watt = volt * strom;
+    rstr = wxString::FromDouble(watt, 1);
+    TextCtrlWatt->SetValue(rstr);
+
+    engi = 0.5F * strom * strom * idp;
     rstr = wxString::FromDouble(engi, 1);
     TextCtrlZPEnergie->SetValue(rstr);
+
+    rpm = SpinCtrlRPM1->GetValue();
+    msu = CALC6F / (double) rpm;
+    gradu = tau * 360 / msu;
+    rstr = wxString::FromDouble(msu, 0);
+    TextCtrlMSU1->SetValue(rstr);
+    rstr = wxString::FromDouble(gradu, 0);
+    TextCtrlGRADU1->SetValue(rstr);
+
+    rpm = SpinCtrlRPM2->GetValue();
+    msu = CALC6F / rpm;
+    gradu = tau * 360 / msu;
+    rstr = wxString::FromDouble(msu, 0);
+    TextCtrlMSU2->SetValue(rstr);
+    rstr = wxString::FromDouble(gradu, 0);
+    TextCtrlGRADU2->SetValue(rstr);
+
+    rpm = SpinCtrlRPM3->GetValue();
+    msu = CALC6F / rpm;
+    gradu = tau * 360 / msu;
+    rstr = wxString::FromDouble(msu, 0);
+    TextCtrlMSU3->SetValue(rstr);
+    rstr = wxString::FromDouble(gradu, 0);
+    TextCtrlGRADU3->SetValue(rstr);
+
+    rpm = SpinCtrlRPM4->GetValue();
+    msu = CALC6F / rpm;
+    gradu = tau * 360 / msu;
+    rstr = wxString::FromDouble(msu, 0);
+    TextCtrlMSU4->SetValue(rstr);
+    rstr = wxString::FromDouble(gradu, 0);
+    TextCtrlGRADU4->SetValue(rstr);
+
+    rpm = SpinCtrlRPM5->GetValue();
+    msu = CALC6F / rpm;
+    gradu = tau * 360 / msu;
+    rstr = wxString::FromDouble(msu, 0);
+    TextCtrlMSU5->SetValue(rstr);
+    rstr = wxString::FromDouble(gradu, 0);
+    TextCtrlGRADU5->SetValue(rstr);
+
+    rpm = SpinCtrlRPM6->GetValue();
+    msu = CALC6F / rpm;
+    gradu = tau * 360 / msu;
+    rstr = wxString::FromDouble(msu, 0);
+    TextCtrlMSU6->SetValue(rstr);
+    rstr = wxString::FromDouble(gradu, 0);
+    TextCtrlGRADU6->SetValue(rstr);
+
+    rpm = SpinCtrlRPM7->GetValue();
+    msu = CALC6F / rpm;
+    gradu = tau * 360 / msu;
+    rstr = wxString::FromDouble(msu, 0);
+    TextCtrlMSU7->SetValue(rstr);
+    rstr = wxString::FromDouble(gradu, 0);
+    TextCtrlGRADU7->SetValue(rstr);
+
+    rpm = SpinCtrlRPM8->GetValue();
+    msu = CALC6F / rpm;
+    gradu = tau * 360 / msu;
+    rstr = wxString::FromDouble(msu, 0);
+    TextCtrlMSU8->SetValue(rstr);
+    rstr = wxString::FromDouble(gradu, 0);
+    TextCtrlGRADU8->SetValue(rstr);
+
+    rpm = SpinCtrlRPM9->GetValue();
+    msu = CALC6F / rpm;
+    gradu = tau * 360 / msu;
+    rstr = wxString::FromDouble(msu, 0);
+    TextCtrlMSU9->SetValue(rstr);
+    rstr = wxString::FromDouble(gradu, 0);
+    TextCtrlGRADU9->SetValue(rstr);
+
+    rpm = SpinCtrlRPM10->GetValue();
+    msu = CALC6F / rpm;
+    gradu = tau * 360 / msu;
+    rstr = wxString::FromDouble(msu, 0);
+    TextCtrlMSU10->SetValue(rstr);
+    rstr = wxString::FromDouble(gradu, 0);
+    TextCtrlGRADU10->SetValue(rstr);
 }
