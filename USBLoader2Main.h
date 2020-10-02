@@ -61,6 +61,7 @@ class USBLoader2Frame: public wxFrame
         void ConfigChange(void);
         bool isConfigChanged(void);
         void resetConfigChange(void);
+        void writeLog(wxString str);
 
         void activateMenuComm(bool val);
 
@@ -684,6 +685,5 @@ inline void USBLoader2Frame::resetConfigChange(void)
 {
     cfgchange = false;
 }
-
 
 #endif // USBLoader2MAIN_H

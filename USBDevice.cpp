@@ -10,6 +10,8 @@
 #include "USBDevice.h"
 #include "TextStrings.h"
 
+using namespace std;
+
 	USBDevice::USBDevice(uint16_t _vendor_id, uint16_t _product_id)
 	{
 		vendor_id = _vendor_id;
@@ -300,8 +302,9 @@ std::string USBDevice::print_device(libusb_device* dev, int level)
 
 	i = libusb_get_bus_number(dev);
 	ii = libusb_get_device_address(dev);
-	m1 << ends;
-	mout << STR_USB_BUS << i << ",  " << STR_USB_DEVICE_ADDRESS <<  ii << ":"  <<  m1.str();
+	//m1 << ends;
+	//mout << STR_USB_BUS << i << ",  " << "ä" <<  ii << ":"  <<  m1.str();
+    mout << STR_USB_BUS << i << ",  " << STR_USB_DEVICE_ADDRESS <<  ii << ":"  <<  m1.str();
 	if (_handle) {
 			if (desc.iSerialNumber) {
 				ret = libusb_get_string_descriptor_ascii(_handle, desc.iSerialNumber, strBuffer, sizeof(strBuffer));
@@ -332,7 +335,7 @@ std::string USBDevice::print_device(libusb_device* dev, int level)
 
 	if (_handle)
 			libusb_close(_handle);
-	mout << ends;
+	//mout << ends;
 	return mout.str();
 }
 

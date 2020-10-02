@@ -7,6 +7,8 @@
  * License:
  **************************************************************/
 
+using namespace std;
+
 #include "USBLoader2Main.h"
 #include <wx/msgdlg.h>
 #include <wx/filedlg.h>
@@ -19,7 +21,7 @@
 #include "TextStrings.h"
 #include "About.h"
 
-
+//locale ger("de_DE.UTF-8");
 
 //helper functions
 enum wxbuildinfoformat {
@@ -1218,6 +1220,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
 
     resetConfigChange();
     //* set some default Values
+    wxStreamToTextRedirector redirect(TextCtrlLOG);
 
 	this->SetStatusText(STR_CONNECTION_STATUS_NOT_CONNECTED, 1);
     digiSpark = NULL;
@@ -1240,6 +1243,11 @@ void USBLoader2Frame::activateMenuComm(bool val)
     Komm_VerbModul->Enable(!val);
 }
 
+void USBLoader2Frame::writeLog(wxString str)
+{
+    if (str.size() > 0) TextCtrlLOG->AppendText(str);
+}
+
 
 void USBLoader2Frame::OnQuit(wxCommandEvent& event)
 {
@@ -1256,14 +1264,11 @@ void USBLoader2Frame::OnAbout(wxCommandEvent& event)
 
 void USBLoader2Frame::OnDisconnectUsb(wxCommandEvent& event)
 {
-    wxString s;
-
     fininish = true;
     if (digiSpark != NULL) delete digiSpark;
     digiSpark = NULL;
     connected = false;
-	s << "Nicht verbunden";
-	this->SetStatusText(s, 1);
+	this->SetStatusText(STR_CONNECTION_STATUS_NOT_CONNECTED, 1);
 	activateMenuComm(false);
 }
 
@@ -1271,13 +1276,13 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 {
     wxString m, s;
 
-	if (connected == true) // vendor 5824, product 1503
+    if (connected == true) // vendor 5824, product 1503
 	{
-		cout << STR_USB_DEVICE_ALREADY_CONNECTED << endl << ends;
+        writeLog(STR_USB_DEVICE_ALREADY_CONNECTED + '\n');
 		return;
 	}
 
-	wxStreamToTextRedirector redirect(TextCtrlLOG);
+	//wxStreamToTextRedirector redirect(TextCtrlLOG);
 
 	fininish = false;
 	digiSpark = new USBDevice();
@@ -1287,14 +1292,16 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 
 	if (digiSpark->isConnected()) // vendor 5824, product 1503
 	{
+	    writeLog(digiSpark->getLog());
 		this->SetStatusText(STR_CONNECTION_STATUS_CONNECTED, 1);
 		connected = true;
 	}
 	else
 	{
         this->SetStatusText(STR_CONNECTION_STATUS_NOT_CONNECTED, 1);
-		cout << digiSpark->print_deviceList();
-        cout << digiSpark->getLog();
+        writeLog(STR_USB_NOT_FOUND + '\n');
+        writeLog(digiSpark->print_deviceList());
+        writeLog(digiSpark->getLog());
 		connected = false;
 		delete digiSpark;
 		activateMenuComm(false);
@@ -1303,7 +1310,7 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 	activateMenuComm(true);
 
 	while (fininish == false) {
-		cout << digiSpark->getLog();
+		writeLog(digiSpark->getLog());
 
 		wxYield();
 		//::wxSleep(1);
@@ -1445,9 +1452,12 @@ void USBLoader2Frame::OnSpeichern(wxCommandEvent& event)
 
 void USBLoader2Frame::OnRadioBoxBasisfunktionSelect(wxCommandEvent& event)
 {
-    //config.basisFunktion.clear();
-    //config.basisFunktion << RadioBoxBasisfunktion->GetSelection();
-    *TextCtrlLOG << RadioBoxBasisfunktion->GetSelection() << "\n";
+    wxString s;
+
+    s << RadioBoxBasisfunktion->GetSelection() << '\n';
+    writeLog(s);
+
+
 }
 
 
@@ -1642,9 +1652,9 @@ void USBLoader2Frame::OnLogModeSet(wxCommandEvent& event)
 void USBLoader2Frame::OnButtonZPBerechnenClick(wxCommandEvent& event)
 {
     double idp, wip, szp, tau, engi, volt, strom, watt, msu, gradu;
+    const double CALC6F = 60000.0F;
     unsigned int rpm;
     wxString rstr;
-#define CALC6F  60000.0F
 
     idp = InduktPrim->GetValue();
     wip = WiederstandPrim->GetValue();
