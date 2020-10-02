@@ -1,4 +1,4 @@
-/***************************************************************
+﻿/***************************************************************
  * Name:      USBDevice.h
  * Purpose:   Defines USB Access Class usinf libusb.lib
  * Author:    Helge ()
