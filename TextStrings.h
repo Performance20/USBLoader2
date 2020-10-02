@@ -1,4 +1,4 @@
-/***************************************************************
+Ôªø/***************************************************************
  * Name:      TextStrings.h
  * Purpose:   Defines Text Strings
  * Author:    Helge ()
@@ -11,19 +11,19 @@
 
 #define STR_CONNECTION_STATUS_CONNECTED                    _("Verbunden")
 #define STR_CONNECTION_STATUS_NOT_CONNECTED                _("Nicht Verbunden")
-#define STR_USB_DEVICE_ALREADY_CONNECTED                   _("Z¸ndung ist bereits verbunden!!!")
-#define STR_libusb_open_device_with_vid_pid_ERR            _("Kann USB Ger‰t nicht ˆffnen via libusb_open_device_with_vid_pid(....)")
+#define STR_USB_DEVICE_ALREADY_CONNECTED                   _("Z√ºndung ist bereits verbunden!!!")
+#define STR_libusb_open_device_with_vid_pid_ERR            _("Kann USB Ger√§t nicht √∂ffnen via libusb_open_device_with_vid_pid(....)")
 #define STR_libusb_claim_interface_ERR                     _("Kann auf USB Interface nicht zugreifen via libusb_claim_interface: ")
-#define STR_libusb_get_device_list_ERR                     _("Kann USB Ger‰teliste nicht abrufen via libusb_get_device_list: ")
+#define STR_libusb_get_device_list_ERR                     _("Kann USB Ger√§teliste nicht abrufen via libusb_get_device_list: ")
 #define STR_libusb_get_device_descriptor_ERR               _("Bekomme USB Decriptor nicht via libusb_get_device_descriptor")
-#define STR_libusb_open_ERR                                _("Fehler beim ÷ffnen des USB Ger‰tes via libusb_open: ")
-#define STR_USB_FOUND                                      _("USB Ger‰t gefunden - ")
+#define STR_libusb_open_ERR                                _("Fehler beim √ñffnen des USB Ger√§tes via libusb_open: ")
+#define STR_USB_FOUND                                      _("USB Ger√§t gefunden - ")
 #define STR_USB_BUS                                        _("Bus: ")
-#define STR_USB_DEVICE_ADDRESS                             _("Ger‰t: ")
+#define STR_USB_DEVICE_ADDRESS                             _("Ger√§t: ")
 #define STR_VENDOR_ID                                      _("Vendor ID: ")
 #define STR_PRODUCT_ID                                     _("Produkt ID: ")
 #define STR_USB_DEVICE_SERIAL                              _("Seriennummer: ")
-#define STR_USB_NOMBER_OF_DEVICES                          _("Anzahl der verbundenen USB Ger‰te: ")
+#define STR_USB_NOMBER_OF_DEVICES                          _("Anzahl der verbundenen USB Ger√§te: ")
 
 
 /*

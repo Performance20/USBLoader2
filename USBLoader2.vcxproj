@@ -37,6 +37,7 @@
   <ItemGroup>
     <ClInclude Include="About.h" />
     <ClInclude Include="protocol.h" />
+    <ClInclude Include="TextStrings.h" />
     <ClInclude Include="USBDevice.h" />
     <ClInclude Include="USBLoader2App.h" />
     <ClInclude Include="USBLoader2Main.h" />
