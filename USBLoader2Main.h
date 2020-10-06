@@ -80,6 +80,7 @@ class USBLoader2Frame: public wxFrame
         void OnConfigDownload(wxCommandEvent& event);
         void OnLogModeSet(wxCommandEvent& event);
         void OnButtonZPBerechnenClick(wxCommandEvent& event);
+        void OnMenuItemLogLeerenSelected(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
@@ -101,9 +102,6 @@ class USBLoader2Frame: public wxFrame
         static const long ID_STATICTEXT31;
         static const long ID_CHOICETAB;
         static const long ID_STATICTEXT32;
-        static const long ID_STATICTEXT64;
-        static const long ID_SPINCTRLSPLoad;
-        static const long ID_STATICTEXT65;
         static const long ID_STATICTEXT33;
         static const long ID_CHOICELED;
         static const long ID_PANELBasis;
@@ -366,6 +364,7 @@ class USBLoader2Frame: public wxFrame
         static const long ID_PANEL1;
         static const long idMenuSpeichern;
         static const long idMenuLaden;
+        static const long idMenuLogLeeren;
         static const long idMenuQuit;
         static const long idMenuVerbinden;
         static const long idMenuTrennen;
@@ -386,6 +385,7 @@ class USBLoader2Frame: public wxFrame
         wxMenuItem* Komm_LogMode;
         wxMenuItem* Komm_TennModul;
         wxMenuItem* Komm_VerbModul;
+        wxMenuItem* MenuItem2;
         wxMenuItem* MenuItem5;
         wxMenuItem* MenuItem8;
         wxNotebook* Notebook1;
@@ -409,7 +409,6 @@ class USBLoader2Frame: public wxFrame
         wxSpinCtrl* SpinCtrlRPM7;
         wxSpinCtrl* SpinCtrlRPM8;
         wxSpinCtrl* SpinCtrlRPM9;
-        wxSpinCtrl* SpinCtrlSPLoad;
         wxSpinCtrl* SpinCtrlSchliessWinkel;
         wxSpinCtrl* SpinCtrlStarthilfe;
         wxSpinCtrl* SpinCtrlStarthilfeUMDR;
@@ -596,8 +595,6 @@ class USBLoader2Frame: public wxFrame
         wxStaticText* StaticText61;
         wxStaticText* StaticText62;
         wxStaticText* StaticText63;
-        wxStaticText* StaticText64;
-        wxStaticText* StaticText65;
         wxStaticText* StaticText66;
         wxStaticText* StaticText67;
         wxStaticText* StaticText68;
