@@ -87,9 +87,9 @@ static int8_t ignition_fix_startpoint = DEF_ignition_fix_startpoint;  //degree: 
 // Dwell angle
 #define REQ_Dwell_Angle_GET					REQ_ignition_fix_startpoint_SET + 1
 #define REQ_Dwell_Angle_SET					REQ_Dwell_Angle_GET + 1
-#define MAX_dwell_angle_fix					(-140)
-#define MIN_dwell_angle_fix					(-240)
-#define DEF_dwell_angle_fix					(-180)
+#define MAX_dwell_angle_fix					(140)
+#define MIN_dwell_angle_fix					(240)
+#define DEF_dwell_angle_fix					(180)
 static int16_t dwell_angle_fix = DEF_dwell_angle_fix;  //degree: -30 to 20  
 
 // which table is active

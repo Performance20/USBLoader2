@@ -1620,7 +1620,7 @@ void USBLoader2Frame::OnConfigUpload(wxCommandEvent& event)
     digiSpark->setStartHelpZZP(SpinCtrlStarthilfe->GetValue());     // Starhilfe Grad
     digiSpark->setStartHelpRPM(SpinCtrlStarthilfeUMDR->GetValue()); // Starhilfe RPM
     digiSpark->setFixZZP(SpinCtrlFZZP->GetValue());                 // fester ZZP von OT
-    digiSpark->setDwellAngle(SpinCtrlSchliessWinkel->GetValue());   // Schliesswinkel
+    digiSpark->setDwellAngle(SpinCtrlSchliessWinkel->GetValue() * -1);   // Schliesswinkel - tansfer positive values
     digiSpark->setIPTable(ChoiceTAB->GetSelection());               // Zündtabelle
     digiSpark->setLED(ChoiceLED->GetSelection());                   //LED
 }
@@ -1628,13 +1628,15 @@ void USBLoader2Frame::OnConfigUpload(wxCommandEvent& event)
 void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
 {
     int val;
-
+    /*
     if (digiSpark->getMode(val)) RadioBoxBasisfunktion->SetSelection(val);
     if (digiSpark->getStartHelpZZP(val)) SpinCtrlStarthilfe->SetValue(val);
     if (digiSpark->getStartHelpRPM(val)) SpinCtrlStarthilfeUMDR->SetValue(val);
     if (digiSpark->getFixZZP(val)) SpinCtrlFZZP->SetValue(val);
-    if (digiSpark->getDwellAngle(val)) SpinCtrlSchliessWinkel->SetValue(val);
-    if (digiSpark->getIPTable(val)) ChoiceTAB->SetSelection(val);
+    */
+//    if (digiSpark->getDwellAngle(val)) SpinCtrlSchliessWinkel->SetValue(val * -1);
+//    if (digiSpark->getIPTable(val)) ChoiceTAB->SetSelection(val);
+    
     if (digiSpark->getLED(val)) ChoiceLED->SetSelection(val);
 }
 

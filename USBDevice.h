@@ -71,7 +71,7 @@ private:
 	void init();
 	int reset_device();
 	int SetValue(uint8_t cmd, uint16_t val1, uint16_t val2 = 0);
-	int GetValue(uint8_t cmd, int& val);
+	int GetValue(uint8_t cmd, long& val);
 	string readString();
 
 protected:

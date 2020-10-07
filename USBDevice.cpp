@@ -479,9 +479,10 @@ int USBDevice::SetValue(uint8_t cmd, uint16_t val1, uint16_t val2) // send data 
 }
 
 
-int USBDevice::GetValue(uint8_t cmd,  int& val)  // get data FROM ignition module
+int USBDevice::GetValue(uint8_t cmd,  long& val)  // get data FROM ignition module
 {
-	int status, ret = 0;
+	int status;
+	long ret = 0;
 	unsigned char data[DATA_NUMBER_SIZE_IN_BYTE];
 
 	if (isConnected()) {
@@ -494,8 +495,12 @@ int USBDevice::GetValue(uint8_t cmd,  int& val)  // get data FROM ignition modul
 		}
 		else
 		{
-			ret = ret + data[0];
-			val = ret;
+			while (status--)
+			{
+				ret <<= 8;
+				ret = ret + data[status] ;
+				val = ret;
+			}
 			return 1;
 		}
 	}
@@ -517,7 +522,7 @@ std::string USBDevice::getLog()
 
 bool USBDevice::getMode(int& val)
 {
-	int mode;
+	long mode;
 
 	if (GetValue(REQ_ignition_mode_GET, mode) == -1) return false;
 	val = mode;
@@ -532,7 +537,7 @@ bool USBDevice::setMode(uint8_t mode)
 
 bool USBDevice::getStartHelpZZP(int& val)
 {
-	int v1;
+	long v1;
 
 	if (GetValue(REQ_ONBOARD_LED_GET, v1) == -1)	return false;
 	val = v1;
@@ -547,7 +552,7 @@ bool USBDevice::setStartHelpZZP(int8_t val)
 
 bool USBDevice::getStartHelpRPM(int& val)
 {
-	int v1;
+	long v1;
 
 		if (GetValue(REQ_starthelp_RPM_GET, v1) == -1)	return false;
 	val = v1;
@@ -562,7 +567,7 @@ bool USBDevice::setStartHelpRPM(int16_t val)
 
 bool USBDevice::getFixZZP(int& val)
 {
-	int vv;
+	long vv;
 
 	if (GetValue(REQ_ignition_fix_startpoint_GET, vv) == -1)	return false;
 	val = vv;
@@ -577,7 +582,7 @@ bool USBDevice::setFixZZP(int8_t val)
 
 bool USBDevice::getDwellAngle(int& val)
 {
-	int vv;
+	long vv;
 
 	if (GetValue(REQ_Dwell_Angle_GET, vv) == -1)	return false;
 	val = vv;
@@ -592,7 +597,7 @@ bool USBDevice::setDwellAngle(int16_t val)
 
 bool USBDevice::getIPTable(int& val)
 {
-	int vv;
+	long vv;
 
 	if (GetValue(REQ_ip_tbl_GET, vv) == -1)	return false;
 	val = vv;
@@ -608,7 +613,7 @@ bool USBDevice::setIPTable(uint8_t val)
 
 bool USBDevice::getLED(int& led)
 {
-	int val;
+	long val;
 
 	if (GetValue(REQ_ONBOARD_LED_GET, val) == -1) return false;
 	led = val;
