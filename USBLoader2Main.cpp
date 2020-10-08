@@ -1285,7 +1285,7 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 
 	if (digiSpark->isConnected()) // vendor 5824, product 1503
 	{
-	    writeLog(digiSpark->getLog());
+	    //writeLog(digiSpark->getLog());
 		this->SetStatusText(STR_CONNECTION_STATUS_CONNECTED, 1);
 		connected = true;
 	}
@@ -1300,7 +1300,8 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 		activateMenuComm(false);
 		return; // exit no device connected
 	}
-	activateMenuComm(true);
+    CheckLOGMode();
+    activateMenuComm(true);
 
 	while (fininish == false) {
 		writeLog(digiSpark->getLog());
@@ -1640,8 +1641,41 @@ void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
     if (digiSpark->getLED(val)) ChoiceLED->SetSelection(val);
 }
 
+void USBLoader2Frame::CheckLOGMode(void)
+{
+    int mode = 0;
+    if (connected == true)
+    {
+        if (digiSpark->getLOGMode(mode))
+        {
+            if (mode == VAL_LOG_ON)
+                Komm_LogMode->Check(true);
+            else
+                if (mode == VAL_LOG_OFF)
+                    Komm_LogMode->Check(false);
+                else
+                    Komm_LogMode->Check(false);
+        }
+    }
+    else
+    {
+        Komm_LogMode->Check(false);
+    }
+}
+
+
 void USBLoader2Frame::OnLogModeSet(wxCommandEvent& event)
 {
+    if (Komm_LogMode->IsChecked())
+    {
+        if (connected == true)
+            digiSpark->setLOGMode(VAL_LOG_ON);
+    }
+    else
+    {
+        if (connected == true)
+            digiSpark->setLOGMode(VAL_LOG_OFF);
+    }
 }
 
 

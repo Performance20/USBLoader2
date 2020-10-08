@@ -201,8 +201,8 @@ volatile static uint32_t operationTime = 0;
 
 #define REQ_firmware_version_GET		REQ_operation_sec_SET + 1  //manf
 
-#define DATA_NUMBER_SIZE_IN_BYTE			0x04						// size in Byte of maximum Number = 4 Byte = uint32_t
-#define DATA_STRING_SIZE_IN_BYTE			0x10						// size in Byte of one transfered String = 10 Byte
-#define DATA_TABLE_SIZE_IN_BYTE				(sizeof(ignition_point_t)*ignition_point_tbl_SIZE)  // size in Byte of one transfered table
+#define DATA_NUMBER_SIZE_IN_BYTE			4						// size in Byte of maximum Number = 4 Byte = uint32_t
+#define DATA_STRING_SIZE_IN_BYTE			15						// size in Byte of one transfered String = 10 Byte
+#define DATA_TABLE_SIZE_IN_BYTE				(sizeof(ignition_point_t) * ignition_point_tbl_SIZE)  // size in Byte of one transfered table
 
 #endif /* PROTOCOL_H_ */

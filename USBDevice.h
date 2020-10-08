@@ -89,7 +89,10 @@ public:
 	string print_connectedDevice();
 
 	string getLog();
-	
+
+	bool setLOGMode(uint8_t mode);
+	bool getLOGMode(int& mode);
+
 	bool setMode(uint8_t mode);
 	bool getMode(int& mode);
 

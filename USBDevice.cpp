@@ -499,8 +499,8 @@ int USBDevice::GetValue(uint8_t cmd,  long& val)  // get data FROM ignition modu
 			{
 				ret <<= 8;
 				ret = ret + data[status] ;
-				val = ret;
 			}
+			val = ret;
 			return 1;
 		}
 	}
@@ -519,6 +519,23 @@ std::string USBDevice::getLog()
 	out->clear();
 	return ss;
 }
+
+
+bool USBDevice::getLOGMode(int& val)
+{
+	long mode;
+
+	if (GetValue(REQ_LOGGING_GET, mode) == -1) return false;
+	val = mode;
+	return true;
+}
+
+bool USBDevice::setLOGMode(uint8_t mode)
+{
+	if (SetValue(REQ_LOGGING_SET, mode) < 0) return false;
+	return true;
+}
+
 
 bool USBDevice::getMode(int& val)
 {
