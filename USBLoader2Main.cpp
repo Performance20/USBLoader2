@@ -1615,35 +1615,49 @@ void USBLoader2Frame::OnClose(wxCloseEvent& event)
 
 void USBLoader2Frame::OnConfigUpload(wxCommandEvent& event)
 {
-    // Basis
-
-    digiSpark->setMode(RadioBoxBasisfunktion->GetSelection());      // Mode M0 - 3
+    digiSpark->setIgnMode(RadioBoxBasisfunktion->GetSelection());      // Mode M0 - 3
+    writeLog(digiSpark->getLog());
     digiSpark->setStartHelpZZP(SpinCtrlStarthilfe->GetValue());     // Starhilfe Grad
+    writeLog(digiSpark->getLog());
     digiSpark->setStartHelpRPM(SpinCtrlStarthilfeUMDR->GetValue()); // Starhilfe RPM
+    writeLog(digiSpark->getLog());
     digiSpark->setFixZZP(SpinCtrlFZZP->GetValue());                 // fester ZZP von OT
-    digiSpark->setDwellAngle(SpinCtrlSchliessWinkel->GetValue() * -1);   // Schliesswinkel - tansfer positive values
+    writeLog(digiSpark->getLog());
+    digiSpark->setDwellAngle(SpinCtrlSchliessWinkel->GetValue());   // Schliesswinkel 
+    writeLog(digiSpark->getLog());
     digiSpark->setIPTable(ChoiceTAB->GetSelection());               // Zündtabelle
+    writeLog(digiSpark->getLog());
     digiSpark->setLED(ChoiceLED->GetSelection());                   //LED
+    writeLog(digiSpark->getLog());
 }
 
 void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
 {
-    int val;
-    /*
-    if (digiSpark->getMode(val)) RadioBoxBasisfunktion->SetSelection(val);
-    if (digiSpark->getStartHelpZZP(val)) SpinCtrlStarthilfe->SetValue(val);
-    if (digiSpark->getStartHelpRPM(val)) SpinCtrlStarthilfeUMDR->SetValue(val);
-    if (digiSpark->getFixZZP(val)) SpinCtrlFZZP->SetValue(val);
-    */
-//    if (digiSpark->getDwellAngle(val)) SpinCtrlSchliessWinkel->SetValue(val * -1);
-//    if (digiSpark->getIPTable(val)) ChoiceTAB->SetSelection(val);
+    int8_t  valByte = 0;
+    uint8_t uvalByte = 0;
+    int16_t valWord = 0;
+    uint16_t uvalWord = 0;
+    ///uint32_t uvalDWord = 0;
     
-    if (digiSpark->getLED(val)) ChoiceLED->SetSelection(val);
+    if (digiSpark->getIgnMode(uvalByte)) RadioBoxBasisfunktion->SetSelection(uvalByte);
+    writeLog(digiSpark->getLog());
+    if (digiSpark->getStartHelpZZP(valByte)) SpinCtrlStarthilfe->SetValue(valByte);
+    writeLog(digiSpark->getLog());
+    if (digiSpark->getStartHelpRPM(uvalWord)) SpinCtrlStarthilfeUMDR->SetValue(uvalWord);
+    writeLog(digiSpark->getLog());
+    if (digiSpark->getFixZZP(valByte)) SpinCtrlFZZP->SetValue(valByte);
+    writeLog(digiSpark->getLog());
+    if (digiSpark->getDwellAngle(valWord)) SpinCtrlSchliessWinkel->SetValue(valWord);
+    writeLog(digiSpark->getLog());
+    if (digiSpark->getIPTable(uvalByte)) ChoiceTAB->SetSelection(uvalByte);
+    writeLog(digiSpark->getLog());
+    if (digiSpark->getLED(uvalByte)) ChoiceLED->SetSelection(uvalByte);
+    writeLog(digiSpark->getLog());
 }
 
 void USBLoader2Frame::CheckLOGMode(void)
 {
-    int mode = 0;
+    uint8_t mode = 0;
     if (connected == true)
     {
         if (digiSpark->getLOGMode(mode))

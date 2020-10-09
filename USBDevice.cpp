@@ -479,10 +479,11 @@ int USBDevice::SetValue(uint8_t cmd, uint16_t val1, uint16_t val2) // send data 
 }
 
 
-int USBDevice::GetValue(uint8_t cmd,  long& val)  // get data FROM ignition module
+int USBDevice::GetValue(uint8_t cmd, uint32_t& val)  // get data FROM ignition module
 {
 	int status;
 	long ret = 0;
+
 	unsigned char data[DATA_NUMBER_SIZE_IN_BYTE];
 
 	if (isConnected()) {
@@ -521,9 +522,9 @@ std::string USBDevice::getLog()
 }
 
 
-bool USBDevice::getLOGMode(int& val)
+bool USBDevice::getLOGMode(uint8_t& val)
 {
-	long mode;
+	uint32_t mode;
 
 	if (GetValue(REQ_LOGGING_GET, mode) == -1) return false;
 	val = mode;
@@ -537,26 +538,26 @@ bool USBDevice::setLOGMode(uint8_t mode)
 }
 
 
-bool USBDevice::getMode(int& val)
+bool USBDevice::getIgnMode(uint8_t& val)
 {
-	long mode;
+	uint32_t mode;
 
 	if (GetValue(REQ_ignition_mode_GET, mode) == -1) return false;
 	val = mode;
 	return true;
 }
 
-bool USBDevice::setMode(uint8_t mode)
+bool USBDevice::setIgnMode(uint8_t mode)
 {
 	if (SetValue(REQ_ignition_mode_SET, mode) < 0) return false;
 	return true;
 }
 
-bool USBDevice::getStartHelpZZP(int& val)
+bool USBDevice::getStartHelpZZP(int8_t& val)
 {
-	long v1;
+	uint32_t v1;
 
-	if (GetValue(REQ_ONBOARD_LED_GET, v1) == -1)	return false;
+	if (GetValue(REQ_ITH_startpoint_GET, v1) == -1)	return false;
 	val = v1;
 	return true;
 }
@@ -567,24 +568,24 @@ bool USBDevice::setStartHelpZZP(int8_t val)
 	return true;
 }
 
-bool USBDevice::getStartHelpRPM(int& val)
+bool USBDevice::getStartHelpRPM(uint16_t& val)
 {
-	long v1;
+	uint32_t v1;
 
 		if (GetValue(REQ_starthelp_RPM_GET, v1) == -1)	return false;
 	val = v1;
 	return true;
 }
 
-bool USBDevice::setStartHelpRPM(int16_t val)
+bool USBDevice::setStartHelpRPM(uint16_t val)
 {
 	if (SetValue(REQ_starthelp_RPM_SET, val) < 0) return false;
 	return true;
 }
 
-bool USBDevice::getFixZZP(int& val)
+bool USBDevice::getFixZZP(int8_t& val)
 {
-	long vv;
+	uint32_t vv;
 
 	if (GetValue(REQ_ignition_fix_startpoint_GET, vv) == -1)	return false;
 	val = vv;
@@ -597,9 +598,9 @@ bool USBDevice::setFixZZP(int8_t val)
 	return true;
 }
 
-bool USBDevice::getDwellAngle(int& val)
+bool USBDevice::getDwellAngle(int16_t& val)
 {
-	long vv;
+	uint32_t vv;
 
 	if (GetValue(REQ_Dwell_Angle_GET, vv) == -1)	return false;
 	val = vv;
@@ -612,9 +613,9 @@ bool USBDevice::setDwellAngle(int16_t val)
 	return true;
 }
 
-bool USBDevice::getIPTable(int& val)
+bool USBDevice::getIPTable(uint8_t& val)
 {
-	long vv;
+	uint32_t vv;
 
 	if (GetValue(REQ_ip_tbl_GET, vv) == -1)	return false;
 	val = vv;
@@ -628,9 +629,9 @@ bool USBDevice::setIPTable(uint8_t val)
 }
 
 
-bool USBDevice::getLED(int& led)
+bool USBDevice::getLED(uint8_t& led)
 {
-	long val;
+	uint32_t val;
 
 	if (GetValue(REQ_ONBOARD_LED_GET, val) == -1) return false;
 	led = val;

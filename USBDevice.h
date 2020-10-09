@@ -71,7 +71,7 @@ private:
 	void init();
 	int reset_device();
 	int SetValue(uint8_t cmd, uint16_t val1, uint16_t val2 = 0);
-	int GetValue(uint8_t cmd, long& val);
+	int GetValue(uint8_t cmd, uint32_t& val);
 	string readString();
 
 protected:
@@ -91,27 +91,28 @@ public:
 	string getLog();
 
 	bool setLOGMode(uint8_t mode);
-	bool getLOGMode(int& mode);
+	bool getLOGMode(uint8_t& mode);
 
-	bool setMode(uint8_t mode);
-	bool getMode(int& mode);
+	bool setIgnMode(uint8_t mode);
+	bool getIgnMode(uint8_t& mode);
 
 	bool setStartHelpZZP(int8_t val);
-	bool getStartHelpZZP(int& val);
+	bool getStartHelpZZP(int8_t& val);
 
-	bool setStartHelpRPM(int16_t val);
-	bool getStartHelpRPM(int& val);
+	bool setStartHelpRPM(uint16_t val);
+	bool getStartHelpRPM(uint16_t& val);
 	
-	bool getFixZZP(int& val);
 	bool setFixZZP(int8_t val);
+	bool getFixZZP(int8_t& val);
+	
 
-	bool getDwellAngle(int& val);
+	bool getDwellAngle(int16_t& val);
 	bool setDwellAngle(int16_t val);
 	
-	bool getIPTable(int& val);
+	bool getIPTable(uint8_t& val);
 	bool setIPTable(uint8_t val);
 	
-	bool getLED(int& val);
+	bool getLED(uint8_t& val);
 	bool setLED(uint8_t val);
 	bool setLED_on();
 	bool setLED_off();
