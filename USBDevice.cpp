@@ -644,5 +644,26 @@ bool USBDevice::setLED(uint8_t val)
 	return true;
 }
 
+bool USBDevice::write_EEpromParameter()
+{
+	if (SetValue(REQ_eeprom_SET, REQ_eeprom_parameter_SET) < 0) return false;
+	return true;
+}
+	
+bool USBDevice::write_EEpromTable1()
+{
+	if (SetValue(REQ_eeprom_SET, REQ_eeprom_table1_SET) < 0) return false;
+	return true;
+}
 
+bool USBDevice::write_EEpromTable2()
+{
+	if (SetValue(REQ_eeprom_SET, REQ_eeprom_table2_SET) < 0) return false;
+	return true;
+}
 
+bool USBDevice::write_EEpromTable3()
+{
+	if (SetValue(REQ_eeprom_SET, REQ_eeprom_table3_SET) < 0) return false;
+	return true;
+}

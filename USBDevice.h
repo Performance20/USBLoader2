@@ -117,6 +117,11 @@ public:
 	bool setLED_on();
 	bool setLED_off();
 
+	bool write_EEpromParameter();
+	bool write_EEpromTable1();
+	bool write_EEpromTable2();
+	bool write_EEpromTable3();
+
 	bool isConnected();
 };
 

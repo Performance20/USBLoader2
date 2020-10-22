@@ -1629,6 +1629,7 @@ void USBLoader2Frame::OnConfigUpload(wxCommandEvent& event)
     writeLog(digiSpark->getLog());
     digiSpark->setLED(ChoiceLED->GetSelection());                   //LED
     writeLog(digiSpark->getLog());
+    digiSpark->write_EEpromParameter();                                     // Save paramter in the eeprom
 }
 
 void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
