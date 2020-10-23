@@ -486,11 +486,16 @@ int USBDevice::GetValue(uint8_t cmd, uint32_t& val)  // get data FROM ignition m
 
 	unsigned char data[DATA_NUMBER_SIZE_IN_BYTE];
 
-	if (isConnected()) {
+	if (isConnected())
+    {
+        status = 1;
+        status = 1;
+        status = 1;
 		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
 			cmd, 0, 0, data, DATA_NUMBER_SIZE_IN_BYTE, TIMEOUT);
 
-		if (status < 0) {
+		if (status < 0)
+        {
 			*out << endl << libusb_error_name(status) << endl << ends;
 			this->reset_device();
 		}
