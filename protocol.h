@@ -47,7 +47,7 @@
 #define DEF_LED_state					VAL_LED_STATE_INPUT
 
 // define mode of operation
-#define REQ_ignition_mode_GET				REQ_ONBOARD_LED_GET + 1  
+#define REQ_ignition_mode_GET				REQ_ONBOARD_LED_GET + 1
 #define REQ_ignition_mode_SET				REQ_ignition_mode_GET + 1
 #define VAL_ignition_mode_M0				0  // manuell
 #define VAL_ignition_mode_M1				1  // fix
@@ -57,19 +57,19 @@
 #define MIN_ignition_mode					VAL_ignition_mode_M0
 #define DEF_ignition_mode					VAL_ignition_mode_M2
 
-// On mode M2, define the ignition timing (IT) point as start support, in round per minutes 
-#define REQ_ITH_startpoint_GET				REQ_ignition_mode_SET + 1 
+// On mode M2, define the ignition timing (IT) point as start support, in round per minutes
+#define REQ_ITH_startpoint_GET				REQ_ignition_mode_SET + 1
 #define REQ_ITH_startpoint_SET				REQ_ITH_startpoint_GET + 1
 #define MAX_ithelper_startpoint				20
 #define MIN_ithelper_startpoint				(-30)
-#define DEF_ithelper_startpoint				0 
+#define DEF_ithelper_startpoint				0
 
 // On mode M2, define the max RPM for support starter help
-#define REQ_starthelp_RPM_GET				REQ_ITH_startpoint_SET + 1 
+#define REQ_starthelp_RPM_GET				REQ_ITH_startpoint_SET + 1
 #define REQ_starthelp_RPM_SET				REQ_starthelp_RPM_GET + 1
 #define MAX_ithelper_RPM					2000
 #define MIN_ithelper_RPM					0
-#define DEF_ithelper_RPM					500 
+#define DEF_ithelper_RPM					500
 
 // On fixed config = mode M1 + M2, define the shift from TDC
 #define REQ_ignition_fix_startpoint_GET		REQ_starthelp_RPM_SET + 1
@@ -83,32 +83,33 @@
 #define REQ_Dwell_Angle_SET					REQ_Dwell_Angle_GET + 1
 #define MAX_dwell_angle_fix					(-140)
 #define MIN_dwell_angle_fix					(-240)
-#define DEF_dwell_angle_fix					(-180)  
+#define DEF_dwell_angle_fix					(-180)
 
 // which table is active
-#define REQ_active_ip_tbl_GET						REQ_Dwell_Angle_SET + 1 
+#define REQ_active_ip_tbl_GET						REQ_Dwell_Angle_SET + 1
 #define REQ_active_ip_tbl_SET						REQ_active_ip_tbl_GET + 1
-#define VAL_active_ip_table_1						0  // 
-#define VAL_active_ip_table_2						1  // 
-#define VAL_active_ip_table_3						2  // 
+#define VAL_active_ip_table_1						1  //
+#define VAL_active_ip_table_2						2  //
+#define VAL_active_ip_table_3						3  //
 #define MAX_active_ip_tbl					VAL_active_ip_table_3
 #define MIN_active_ip_tbl					VAL_active_ip_table_1
 #define DEF_active_ip_tbl					VAL_active_ip_table_1
 
-// set get a value in the tablex, 
-// Format: 
-// tbl number (0-2) - Byte (wValue.bytes[0]) Host -> Client  
+// set get a value in the tablex,
+// Format:
+// tbl number (0-2) - Byte (wValue.bytes[0]) Host -> Client
 // tbl position (0 - size) - Byte (wValue.bytes[1]) Host -> Client
 // ignition_point rpm (0 - 20000) - 2 Bytes (wIndex.bytes[0+1] Host -> Client
 // ignition_point degree (+/- 35) - 1 Byte, use etra data byte Host -> Client
-// Client -> Host use serial bytes (5 bytes) 
-#define ignition_point_tbl_SIZE			10	
+// Client -> Host use serial bytes (5 bytes)
 
-#define REQ_ip_tbl_GET					REQ_active_ip_tbl_SET + 1  
+
+#define ignition_point_tbl_SIZE			10
+#define REQ_ip_tbl_GET					REQ_active_ip_tbl_SET + 1
 #define REQ_ip_tbl_SET					REQ_ip_tbl_GET + 1
-#define VAL_ip_table_1					0  //
-#define VAL_ip_table_2					1  //
-#define VAL_ip_table_3					2  //
+#define VAL_ip_table_1					1  //
+#define VAL_ip_table_2					2  //
+#define VAL_ip_table_3					3  //
 #define MAX_ip_tbl					    VAL_ip_table_3
 #define MIN_ip_tbl						VAL_ip_table_1
 #define DEF_ip_tbl						VAL_ip_table_1
@@ -123,10 +124,10 @@ typedef struct ignition_point {
 	int16_t 	dwa;     // dwell angle -240/-140
 } ignition_point_t;
 
-#define DEF_tbl_rpm					0  
-#define DEF_tbl_degree				(-22) 
-#define DEF_tbl_dwa					(-180)  
-	
+#define DEF_tbl_rpm					0
+#define DEF_tbl_degree				(-22)
+#define DEF_tbl_dwa					(-180)
+
 /*
 volatile static const ignition_point_t ignition_point_tbl1[] = { //define rpm an assign ign point shift in degree
 	{ 0, 0, 0 },              // rpm <  = x degree shift
@@ -167,7 +168,7 @@ volatile static const ignition_point_t ignition_point_tbl3[] = { //define rpm an
 	{ 0, 0, 0 }
 };
 
-// to address the active table 
+// to address the active table
 volatile static const ignition_point_t* ignition_point_tbls[3] = {
 	ignition_point_tbl1,
 	ignition_point_tbl2,
@@ -179,7 +180,7 @@ volatile static const ignition_point_t* ignition_point_tbls[3] = {
 // actual measured rpm
 
 // actual measured rpm
-#define REQ_rpm_GET								REQ_ip_tbl_SET + 1 
+#define REQ_rpm_GET								REQ_ip_tbl_SET + 1
 #define REQ_rps_GET								REQ_rpm_GET + 1
 #define REQ_act_IP_GET							REQ_rps_GET + 1
 #define REQ_act_DWA_GET							REQ_act_IP_GET + 1
@@ -190,7 +191,7 @@ volatile static const ignition_point_t* ignition_point_tbls[3] = {
 #define REQ_operation_sec_GET		REQ_next_ip_time_in_ms_GET + 1  // running in seconds or better minutes?
 #define REQ_operation_sec_SET		REQ_operation_sec_GET + 1  //
 
-#define	REQ_firmware_version_GET	REQ_operation_sec_SET + 1 
+#define	REQ_firmware_version_GET	REQ_operation_sec_SET + 1
 
 #define REQ_eeprom_SET		REQ_firmware_version_GET + 1  //store all parameter values in the eeprom. Could be initiate by the host to avoid to much writing to the eeprom
 #define REQ_eeprom_parameter_SET			0

@@ -675,7 +675,7 @@ bool USBDevice::write_EEpromParameter()
 	if (SetValue(REQ_eeprom_SET, REQ_eeprom_parameter_SET) < 0) return false;
 	return true;
 }
-	
+
 bool USBDevice::write_EEpromTable1()
 {
 	if (SetValue(REQ_eeprom_SET, REQ_eeprom_table1_SET) < 0) return false;
@@ -696,39 +696,19 @@ bool USBDevice::write_EEpromTable3()
 
 bool USBDevice::write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size)
 {
-	
-	//uint8_t data[DATA_TABLE_SIZE_IN_BYTE];
-	//ignition_point_t table[ignition_point_tbl_SIZE];
-	uint8_t data[sizeof(ignition_point_t) * 3];
-	ignition_point_t table[3];
-	uint8_t* d;
+
+	uint8_t data[DATA_TABLE_SIZE_IN_BYTE]; // 1th byte is the tabe number
+
 
 	switch (tbnr)
 	{
 	case VAL_ip_table_1:
-		table[0].pos = 1;
-
-		table[0].rpm = 1;
-		table[0].degree = 2;
-		table[0].dwa = 3;
-		
-		//SpinCtrlTB1_UM1->get
-		
-		table[1].rpm = 4;
-		table[1].degree = 5;
-		table[1].dwa = 6;
-		table[1].pos = 0;
-		table[2].rpm = 7;
-		table[2].degree = 8;
-		table[2].dwa = 9;
-
-		d = (uint8_t * ) &table[0];
-		memcpy(&data[0], d, DATA_TABLE_SIZE_IN_BYTE);
-		//if (SetValueBlock(REQ_ip_tbl_SET, VAL_ip_table_1, 0, (uint8_t*) &table[0], DATA_TABLE_SIZE_IN_BYTE) < 0) return false;
+		memcpy(data, tbl, DATA_TABLE_SIZE_IN_BYTE);
+		if (SetValueBlock(REQ_ip_tbl_SET, VAL_ip_table_1, 0, data, DATA_TABLE_SIZE_IN_BYTE) < 0) return false;
 		break;
 	case VAL_ip_table_2:
 
-		if (SetValueBlock(REQ_ip_tbl_SET, VAL_ip_table_1, 0, (uint8_t*)&table[0], DATA_TABLE_SIZE_IN_BYTE) < 0) return false;
+//		if (SetValueBlock(REQ_ip_tbl_SET, VAL_ip_table_1, 0, (uint8_t*)&table[0], DATA_TABLE_SIZE_IN_BYTE) < 0) return false;
 		break;
 	case VAL_ip_table_3:
 		break;

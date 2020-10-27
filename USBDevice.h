@@ -43,7 +43,7 @@ using namespace std;
 #define DIGISPARK_PRODUCT_ID		0x05df;
 #define PACKET_CTRL_LEN 			1
 #define TIMEOUT						1000 /* timeout in ms */
-#define TRANSBUFFERSIZE				5  // max. bytes to transfer per ctrl message = 4 Bytes & 0 
+#define TRANSBUFFERSIZE				5  // max. bytes to transfer per ctrl message = 4 Bytes & 0
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -67,7 +67,7 @@ private:
 	int find_device(libusb_device* dev, int level, libusb_device_handle** handleusb, std::string& sout);
 	int claim_device(libusb_device* dev, int level, libusb_device_handle** handleusb);
 	const char* libusb_error_text(ssize_t err_number);
-	
+
 	void init();
 	int reset_device();
 	int SetValue(uint8_t cmd, uint16_t val1, uint16_t val2 = 0);
@@ -104,17 +104,17 @@ public:
 
 	bool setStartHelpRPM(uint16_t val);
 	bool getStartHelpRPM(uint16_t& val);
-	
+
 	bool setFixZZP(int8_t val);
 	bool getFixZZP(int8_t& val);
-	
+
 
 	bool getDwellAngle(int16_t& val);
 	bool setDwellAngle(int16_t val);
-	
+
 	bool getIPTable(uint8_t& val);
 	bool setIPTable(uint8_t val);
-	
+
 	bool getLED(uint8_t& val);
 	bool setLED(uint8_t val);
 	bool setLED_on();
@@ -124,7 +124,7 @@ public:
 	bool write_EEpromTable1();
 	bool write_EEpromTable2();
 	bool write_EEpromTable3();
-	bool USBDevice::write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size);
+	bool write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size);
 
 	bool isConnected();
 };
