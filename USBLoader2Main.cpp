@@ -2014,4 +2014,18 @@ void USBLoader2Frame::OnKomm_EEpromSaveSelected(wxCommandEvent& event)
 {
     OnConfigUpload(event);
     digiSpark->write_EEpromParameter();                                     // Save paramter in the eeprom
+    //digiSpark->write_TableToEEprom(VAL_ip_table_1);
+}
+
+
+void USBLoader2Frame::writeTab1()
+{
+    int16_t valWord = 0;
+    uint16_t uvalWord = 0;
+    ///uint32_t uvalDWord = 0;
+
+    
+    //SpinCtrlTB1_UM1->GetValue()
+
+    
 }

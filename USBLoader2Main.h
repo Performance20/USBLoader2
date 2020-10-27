@@ -63,6 +63,7 @@ class USBLoader2Frame: public wxFrame
         void resetConfigChange(void);
         void writeLog(wxString str);
         void CheckLOGMode(void);
+        void writeTab1(void);
 
         void activateMenuComm(bool val);
 

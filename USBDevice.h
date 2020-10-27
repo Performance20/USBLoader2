@@ -72,6 +72,9 @@ private:
 	int reset_device();
 	int SetValue(uint8_t cmd, uint16_t val1, uint16_t val2 = 0);
 	int GetValue(uint8_t cmd, uint32_t& val);
+
+	int SetValueBlock(uint8_t cmd, uint16_t val1, uint16_t val2, uint8_t* data, uint16_t size);
+
 	string readString();
 
 protected:
@@ -121,6 +124,7 @@ public:
 	bool write_EEpromTable1();
 	bool write_EEpromTable2();
 	bool write_EEpromTable3();
+	bool USBDevice::write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size);
 
 	bool isConnected();
 };
