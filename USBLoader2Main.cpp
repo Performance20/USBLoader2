@@ -360,6 +360,7 @@ const long USBLoader2Frame::idMenuTrennen = wxNewId();
 const long USBLoader2Frame::idMenuKonfigLaden = wxNewId();
 const long USBLoader2Frame::idMenuKonfigESpeichern = wxNewId();
 const long USBLoader2Frame::idMenuidMenuKonfigHolen = wxNewId();
+const long USBLoader2Frame::idMenuResetModulEEprom = wxNewId();
 const long USBLoader2Frame::idMenuLogmodus = wxNewId();
 const long USBLoader2Frame::idMenuAbout = wxNewId();
 const long USBLoader2Frame::ID_STATUSBAR1 = wxNewId();
@@ -1201,6 +1202,9 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     Kommunikation->Append(Komm_KonfHolen);
     Komm_KonfHolen->Enable(false);
     Kommunikation->AppendSeparator();
+    Komm_ResetModulEEprom = new wxMenuItem(Kommunikation, idMenuResetModulEEprom, _("Reset Modul EEprom"), _("EEprom auf Defaultwerte setzen"), wxITEM_NORMAL);
+    Kommunikation->Append(Komm_ResetModulEEprom);
+    Komm_ResetModulEEprom->Enable(false);
     Komm_LogMode = new wxMenuItem(Kommunikation, idMenuLogmodus, _("Modul Log-Modus"), _("Im Modul den Log-Modus an/abschalte"), wxITEM_CHECK);
     Kommunikation->Append(Komm_LogMode);
     Komm_LogMode->Enable(false);
@@ -1283,6 +1287,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     Connect(idMenuKonfigLaden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConfigUpload);
     Connect(idMenuKonfigESpeichern,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnKomm_EEpromSaveSelected);
     Connect(idMenuidMenuKonfigHolen,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConfigDownload);
+    Connect(idMenuResetModulEEprom,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnResetModulEEpromSelected);
     Connect(idMenuLogmodus,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnLogModeSet);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnAbout);
     //*)
@@ -1311,6 +1316,7 @@ void USBLoader2Frame::activateMenuComm(bool val)
     Komm_LogMode->Enable(val);
     Komm_VerbModul->Enable(!val);
     Komm_EEpromSave->Enable(val);
+    Komm_ResetModulEEprom->Enable(val);
 }
 
 void USBLoader2Frame::writeLog(wxString str)
@@ -2088,9 +2094,14 @@ void USBLoader2Frame::loadTab1()  // needs possible a sorting against the RPM va
     ///uint32_t uvalDWord = 0;
 
     digiSpark->get_TableFromEEprom(VAL_ip_table_1, tb, ignition_point_tbl_SIZE);
-    
+    writeLog(digiSpark->getLog());
+
     SpinCtrlTB1_UM1->SetValue(tb[1].rpm);
     SpinCtrlTB1_GR1->SetValue(tb[1].degree);
     SpinCtrlTB1_SW1->SetValue(tb[1].dwa);
 
+}
+void USBLoader2Frame::OnResetModulEEpromSelected(wxCommandEvent& event)
+{
+    digiSpark->reset_EEprom();
 }

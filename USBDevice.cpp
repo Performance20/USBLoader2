@@ -711,6 +711,13 @@ bool USBDevice::write_EEpromTable3()
 	return true;
 }
 
+bool USBDevice::reset_EEprom()
+{
+	if (SetValue(REQ_eeprom_SET, REQ_eeprom_INIT_SET) < 0) return false;
+	return true;
+}
+
+
 bool USBDevice::write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size)
 {
 	uint8_t data[DATA_TABLE_SIZE_IN_BYTE]; // 1th byte is the tabe number
@@ -733,7 +740,7 @@ bool USBDevice::write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, u
 
 bool USBDevice::get_TableFromEEprom(unsigned char tbnr, ignition_point_t *tbl, uint8_t size)
 {
-	uint8_t data[DATA_TABLE_SIZE_IN_BYTE]; 
+	uint8_t data[DATA_TABLE_SIZE_IN_BYTE];
 	int rtcnt;
 
 	rtcnt = GetValueBlock(REQ_ip_tbl_GET, tbnr, 0, data, DATA_TABLE_SIZE_IN_BYTE);

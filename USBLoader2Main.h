@@ -85,6 +85,7 @@ class USBLoader2Frame: public wxFrame
         void OnButtonZPBerechnenClick(wxCommandEvent& event);
         void OnMenuItemLogLeerenSelected(wxCommandEvent& event);
         void OnKomm_EEpromSaveSelected(wxCommandEvent& event);
+        void OnResetModulEEpromSelected(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
@@ -398,6 +399,7 @@ class USBLoader2Frame: public wxFrame
         static const long idMenuKonfigLaden;
         static const long idMenuKonfigESpeichern;
         static const long idMenuidMenuKonfigHolen;
+        static const long idMenuResetModulEEprom;
         static const long idMenuLogmodus;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
@@ -412,6 +414,7 @@ class USBLoader2Frame: public wxFrame
         wxMenuItem* Komm_KonfHolen;
         wxMenuItem* Komm_KonfRueber;
         wxMenuItem* Komm_LogMode;
+        wxMenuItem* Komm_ResetModulEEprom;
         wxMenuItem* Komm_TennModul;
         wxMenuItem* Komm_VerbModul;
         wxMenuItem* MenuItem2;

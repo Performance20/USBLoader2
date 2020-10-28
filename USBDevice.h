@@ -125,6 +125,7 @@ public:
 	bool write_EEpromTable1();
 	bool write_EEpromTable2();
 	bool write_EEpromTable3();
+	bool reset_EEprom();
 	bool write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size);
 	bool get_TableFromEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size);
 	bool isConnected();

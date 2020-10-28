@@ -2933,6 +2933,12 @@
 					<handler function="OnConfigDownload" entry="EVT_MENU" />
 				</object>
 				<object class="separator" />
+				<object class="wxMenuItem" name="idMenuResetModulEEprom" variable="Komm_ResetModulEEprom" member="yes">
+					<label>Reset Modul EEprom</label>
+					<help>EEprom auf Defaultwerte setzen</help>
+					<enabled>0</enabled>
+					<handler function="OnResetModulEEpromSelected" entry="EVT_MENU" />
+				</object>
 				<object class="wxMenuItem" name="idMenuLogmodus" variable="Komm_LogMode" member="yes">
 					<label>Modul Log-Modus</label>
 					<help>Im Modul den Log-Modus an/abschalte</help>
