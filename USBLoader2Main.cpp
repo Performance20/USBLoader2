@@ -1762,6 +1762,8 @@ void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
     writeLog(digiSpark->getLog());
     if (digiSpark->getLED(uvalByte)) ChoiceLED->SetSelection(uvalByte);
     writeLog(digiSpark->getLog());
+
+    loadTab1();
 }
 
 void USBLoader2Frame::CheckLOGMode(void)
@@ -2074,4 +2076,21 @@ void USBLoader2Frame::writeTab1()
     tb[9].degree = SpinCtrlTB1_GR10->GetValue();
     tb[9].dwa = SpinCtrlTB1_SW10->GetValue();
     digiSpark->write_TableToEEprom(VAL_ip_table_1, tb, ignition_point_tbl_SIZE);
+}
+
+void USBLoader2Frame::loadTab1()  // needs possible a sorting against the RPM value low to high
+{
+    ignition_point_t tb[ignition_point_tbl_SIZE];
+    int8_t  valByte = 0;
+    uint8_t uvalByte = 0;
+    int16_t valWord = 0;
+    uint16_t uvalWord = 0;
+    ///uint32_t uvalDWord = 0;
+
+    digiSpark->get_TableFromEEprom(VAL_ip_table_1, tb, ignition_point_tbl_SIZE);
+    
+    SpinCtrlTB1_UM1->SetValue(tb[1].rpm);
+    SpinCtrlTB1_GR1->SetValue(tb[1].degree);
+    SpinCtrlTB1_SW1->SetValue(tb[1].dwa);
+
 }

@@ -488,10 +488,7 @@ int USBDevice::GetValue(uint8_t cmd, uint32_t& val)  // get data FROM ignition m
 
 	if (isConnected())
     {
-        status = 1;
-        status = 1;
-        status = 1;
-		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
+      	status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
 			cmd, 0, 0, data, DATA_NUMBER_SIZE_IN_BYTE, TIMEOUT);
 
 		if (status < 0)
@@ -533,7 +530,27 @@ int USBDevice::SetValueBlock(uint8_t cmd, uint16_t val1, uint16_t val2, uint8_t 
 	return -1;
 }
 
+int USBDevice::GetValueBlock(uint8_t cmd, uint16_t val1, uint16_t val2, uint8_t *data, uint16_t size)  // get data FROM ignition module
+{
+	int status;
 
+	if (isConnected())
+	{
+		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
+			cmd, val1, val2, data, size, TIMEOUT);
+
+		if (status < 0)
+		{
+			*out << endl << libusb_error_name(status) << endl << ends;
+			this->reset_device();
+		}
+		else
+		{
+			return status;
+		}
+	}
+	return -1;
+}
 
 std::string USBDevice::getLog()
 {
@@ -696,9 +713,7 @@ bool USBDevice::write_EEpromTable3()
 
 bool USBDevice::write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size)
 {
-
 	uint8_t data[DATA_TABLE_SIZE_IN_BYTE]; // 1th byte is the tabe number
-
 
 	switch (tbnr)
 	{
@@ -713,5 +728,16 @@ bool USBDevice::write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, u
 	case VAL_ip_table_3:
 		break;
 	};
+	return true;
+}
+
+bool USBDevice::get_TableFromEEprom(unsigned char tbnr, ignition_point_t *tbl, uint8_t size)
+{
+	uint8_t data[DATA_TABLE_SIZE_IN_BYTE]; 
+	int rtcnt;
+
+	rtcnt = GetValueBlock(REQ_ip_tbl_GET, tbnr, 0, data, DATA_TABLE_SIZE_IN_BYTE);
+	if (rtcnt == -1) return false;
+	memcpy(tbl, data, rtcnt);
 	return true;
 }

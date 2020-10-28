@@ -127,6 +127,7 @@ typedef struct ignition_point {
 #define DEF_tbl_rpm					0
 #define DEF_tbl_degree				(-22)
 #define DEF_tbl_dwa					(-180)
+#define DEF_tbl_pos					0
 
 /*
 volatile static const ignition_point_t ignition_point_tbl1[] = { //define rpm an assign ign point shift in degree

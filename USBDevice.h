@@ -74,6 +74,7 @@ private:
 	int GetValue(uint8_t cmd, uint32_t& val);
 
 	int SetValueBlock(uint8_t cmd, uint16_t val1, uint16_t val2, uint8_t* data, uint16_t size);
+	int GetValueBlock(uint8_t cmd, uint16_t val1, uint16_t val2, uint8_t* data, uint16_t size);
 
 	string readString();
 
@@ -125,7 +126,7 @@ public:
 	bool write_EEpromTable2();
 	bool write_EEpromTable3();
 	bool write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size);
-
+	bool get_TableFromEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size);
 	bool isConnected();
 };
 
