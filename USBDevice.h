@@ -121,6 +121,9 @@ public:
 	bool setLED_on();
 	bool setLED_off();
 
+	bool set_OPcounter(uint32_t val) ;
+	bool get_OPcounter(uint32_t& val);
+
 	bool write_EEpromParameter();
 	bool write_EEpromTable1();
 	bool write_EEpromTable2();

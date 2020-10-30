@@ -482,7 +482,7 @@ int USBDevice::SetValue(uint8_t cmd, uint16_t val1, uint16_t val2) // send data 
 int USBDevice::GetValue(uint8_t cmd, uint32_t& val)  // get data FROM ignition module
 {
 	int status;
-	long ret = 0;
+	uint32_t ret = 0;
 
 	unsigned char data[DATA_NUMBER_SIZE_IN_BYTE];
 
@@ -498,10 +498,11 @@ int USBDevice::GetValue(uint8_t cmd, uint32_t& val)  // get data FROM ignition m
 		}
 		else
 		{
+			if (status > sizeof(uint32_t)) status = sizeof(uint32_t);
 			while (status--)
 			{
 				ret <<= 8;
-				ret = ret + data[status] ;
+				ret = ret + data[status];
 			}
 			val = ret;
 			return 1;
@@ -711,28 +712,46 @@ bool USBDevice::write_EEpromTable3()
 	return true;
 }
 
-bool USBDevice::reset_EEprom()
+bool USBDevice::reset_EEprom() // set to default all without operation counter
 {
 	if (SetValue(REQ_eeprom_SET, REQ_eeprom_INIT_SET) < 0) return false;
 	return true;
 }
 
+bool USBDevice::set_OPcounter(uint32_t val) // 
+{
+	uint16_t v1, v2;
+
+	v1 = val >> 16;
+	v2 = val;
+
+	if (SetValue(REQ_operation_sec_SET, v1, v2) < 0) return false;
+	return true;
+}
+
+bool USBDevice::get_OPcounter(uint32_t &val) // 
+{
+	if (GetValue(REQ_operation_sec_GET, val) < 0) return false;
+	return true;
+}
 
 bool USBDevice::write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size)
 {
 	uint8_t data[DATA_TABLE_SIZE_IN_BYTE]; // 1th byte is the tabe number
 
+	memcpy(data, tbl, DATA_TABLE_SIZE_IN_BYTE);
 	switch (tbnr)
 	{
 	case VAL_ip_table_1:
-		memcpy(data, tbl, DATA_TABLE_SIZE_IN_BYTE);
 		if (SetValueBlock(REQ_ip_tbl_SET, VAL_ip_table_1, 0, data, DATA_TABLE_SIZE_IN_BYTE) < 0) return false;
 		break;
-	case VAL_ip_table_2:
 
-//		if (SetValueBlock(REQ_ip_tbl_SET, VAL_ip_table_1, 0, (uint8_t*)&table[0], DATA_TABLE_SIZE_IN_BYTE) < 0) return false;
+	case VAL_ip_table_2:
+		if (SetValueBlock(REQ_ip_tbl_SET, VAL_ip_table_2, 0, data, DATA_TABLE_SIZE_IN_BYTE) < 0) return false;
 		break;
+
 	case VAL_ip_table_3:
+		if (SetValueBlock(REQ_ip_tbl_SET, VAL_ip_table_3, 0, data, DATA_TABLE_SIZE_IN_BYTE) < 0) return false;
 		break;
 	};
 	return true;

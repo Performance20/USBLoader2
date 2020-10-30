@@ -1744,6 +1744,14 @@ void USBLoader2Frame::OnConfigUpload(wxCommandEvent& event)
     writeLog(digiSpark->getLog());
     digiSpark->setLED(ChoiceLED->GetSelection());                   //LED
     writeLog(digiSpark->getLog());
+
+    writeTab1();
+    writeLog(digiSpark->getLog());
+    //writeTab2();
+    //writeLog(digiSpark->getLog());
+    //writeTab3();
+    //writeLog(digiSpark->getLog());
+
 }
 
 void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
@@ -1768,8 +1776,12 @@ void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
     writeLog(digiSpark->getLog());
     if (digiSpark->getLED(uvalByte)) ChoiceLED->SetSelection(uvalByte);
     writeLog(digiSpark->getLog());
-
     loadTab1();
+    writeLog(digiSpark->getLog());
+    //loadTab2();
+    //writeLog(digiSpark->getLog());
+    //loadTab3();
+    //writeLog(digiSpark->getLog());
 }
 
 void USBLoader2Frame::CheckLOGMode(void)
@@ -2020,10 +2032,13 @@ void USBLoader2Frame::OnMenuItemLogLeerenSelected(wxCommandEvent& event)
 
 void USBLoader2Frame::OnKomm_EEpromSaveSelected(wxCommandEvent& event)
 {
-    OnConfigUpload(event);
+    //OnConfigUpload(event);
     //digiSpark->write_EEpromParameter();                                     // Save paramter in the eeprom
-    //digiSpark->write_TableToEEprom(VAL_ip_table_1);
+    //writeLog(digiSpark->getLog());
     writeTab1();
+    writeLog(digiSpark->getLog());
+    //writeTab2();
+    //writeTab3();
 }
 
 
@@ -2084,24 +2099,268 @@ void USBLoader2Frame::writeTab1()
     digiSpark->write_TableToEEprom(VAL_ip_table_1, tb, ignition_point_tbl_SIZE);
 }
 
+void USBLoader2Frame::writeTab2()
+{
+    ignition_point_t tb[ignition_point_tbl_SIZE];
+
+    tb[0].pos = 1;
+    tb[0].rpm = SpinCtrlTB2_UM1->GetValue();
+    tb[0].degree = SpinCtrlTB2_GR1->GetValue();
+    tb[0].dwa = SpinCtrlTB2_SW1->GetValue();
+
+    tb[1].pos = 2;
+    tb[1].rpm = SpinCtrlTB2_UM2->GetValue();
+    tb[1].degree = SpinCtrlTB2_GR2->GetValue();
+    tb[1].dwa = SpinCtrlTB2_SW2->GetValue();
+
+    tb[2].pos = 3;
+    tb[2].rpm = SpinCtrlTB2_UM3->GetValue();
+    tb[2].degree = SpinCtrlTB2_GR3->GetValue();
+    tb[2].dwa = SpinCtrlTB2_SW3->GetValue();
+
+    tb[3].pos = 4;
+    tb[3].rpm = SpinCtrlTB2_UM4->GetValue();
+    tb[3].degree = SpinCtrlTB2_GR4->GetValue();
+    tb[3].dwa = SpinCtrlTB2_SW4->GetValue();
+
+    tb[4].pos = 5;
+    tb[4].rpm = SpinCtrlTB2_UM5->GetValue();
+    tb[4].degree = SpinCtrlTB2_GR5->GetValue();
+    tb[4].dwa = SpinCtrlTB2_SW5->GetValue();
+
+    tb[5].pos = 6;
+    tb[5].rpm = SpinCtrlTB2_UM6->GetValue();
+    tb[5].degree = SpinCtrlTB2_GR6->GetValue();
+    tb[5].dwa = SpinCtrlTB2_SW6->GetValue();
+
+    tb[6].pos = 7;
+    tb[6].rpm = SpinCtrlTB2_UM7->GetValue();
+    tb[6].degree = SpinCtrlTB2_GR7->GetValue();
+    tb[6].dwa = SpinCtrlTB2_SW7->GetValue();
+
+    tb[7].pos = 8;
+    tb[7].rpm = SpinCtrlTB2_UM8->GetValue();
+    tb[7].degree = SpinCtrlTB2_GR8->GetValue();
+    tb[7].dwa = SpinCtrlTB2_SW8->GetValue();
+
+    tb[8].pos = 9;
+    tb[8].rpm = SpinCtrlTB2_UM9->GetValue();
+    tb[8].degree = SpinCtrlTB2_GR9->GetValue();
+    tb[8].dwa = SpinCtrlTB2_SW9->GetValue();
+
+    tb[9].pos = 10;
+    tb[9].rpm = SpinCtrlTB2_UM10->GetValue();
+    tb[9].degree = SpinCtrlTB2_GR10->GetValue();
+    tb[9].dwa = SpinCtrlTB2_SW10->GetValue();
+    digiSpark->write_TableToEEprom(VAL_ip_table_2, tb, ignition_point_tbl_SIZE);
+}
+
+void USBLoader2Frame::writeTab3()
+{
+
+    ignition_point_t tb[ignition_point_tbl_SIZE];
+
+    tb[0].pos = 1;
+    tb[0].rpm = SpinCtrlTB3_UM1->GetValue();
+    tb[0].degree = SpinCtrlTB3_GR1->GetValue();
+    tb[0].dwa = SpinCtrlTB3_SW1->GetValue();
+
+    tb[1].pos = 2;
+    tb[1].rpm = SpinCtrlTB3_UM2->GetValue();
+    tb[1].degree = SpinCtrlTB3_GR2->GetValue();
+    tb[1].dwa = SpinCtrlTB3_SW2->GetValue();
+
+    tb[2].pos = 3;
+    tb[2].rpm = SpinCtrlTB3_UM3->GetValue();
+    tb[2].degree = SpinCtrlTB3_GR3->GetValue();
+    tb[2].dwa = SpinCtrlTB3_SW3->GetValue();
+
+    tb[3].pos = 4;
+    tb[3].rpm = SpinCtrlTB3_UM4->GetValue();
+    tb[3].degree = SpinCtrlTB3_GR4->GetValue();
+    tb[3].dwa = SpinCtrlTB3_SW4->GetValue();
+
+    tb[4].pos = 5;
+    tb[4].rpm = SpinCtrlTB3_UM5->GetValue();
+    tb[4].degree = SpinCtrlTB3_GR5->GetValue();
+    tb[4].dwa = SpinCtrlTB3_SW5->GetValue();
+
+    tb[5].pos = 6;
+    tb[5].rpm = SpinCtrlTB3_UM6->GetValue();
+    tb[5].degree = SpinCtrlTB3_GR6->GetValue();
+    tb[5].dwa = SpinCtrlTB3_SW6->GetValue();
+
+    tb[6].pos = 7;
+    tb[6].rpm = SpinCtrlTB3_UM7->GetValue();
+    tb[6].degree = SpinCtrlTB3_GR7->GetValue();
+    tb[6].dwa = SpinCtrlTB3_SW7->GetValue();
+
+    tb[7].pos = 8;
+    tb[7].rpm = SpinCtrlTB3_UM8->GetValue();
+    tb[7].degree = SpinCtrlTB3_GR8->GetValue();
+    tb[7].dwa = SpinCtrlTB3_SW8->GetValue();
+
+    tb[8].pos = 9;
+    tb[8].rpm = SpinCtrlTB3_UM9->GetValue();
+    tb[8].degree = SpinCtrlTB3_GR9->GetValue();
+    tb[8].dwa = SpinCtrlTB3_SW9->GetValue();
+
+    tb[9].pos = 10;
+    tb[9].rpm = SpinCtrlTB3_UM10->GetValue();
+    tb[9].degree = SpinCtrlTB3_GR10->GetValue();
+    tb[9].dwa = SpinCtrlTB3_SW10->GetValue();
+    digiSpark->write_TableToEEprom(VAL_ip_table_3, tb, ignition_point_tbl_SIZE);
+}
+
 void USBLoader2Frame::loadTab1()  // needs possible a sorting against the RPM value low to high
 {
     ignition_point_t tb[ignition_point_tbl_SIZE];
-    int8_t  valByte = 0;
-    uint8_t uvalByte = 0;
-    int16_t valWord = 0;
-    uint16_t uvalWord = 0;
-    ///uint32_t uvalDWord = 0;
-
+   
     digiSpark->get_TableFromEEprom(VAL_ip_table_1, tb, ignition_point_tbl_SIZE);
     writeLog(digiSpark->getLog());
 
-    SpinCtrlTB1_UM1->SetValue(tb[1].rpm);
-    SpinCtrlTB1_GR1->SetValue(tb[1].degree);
-    SpinCtrlTB1_SW1->SetValue(tb[1].dwa);
+    SpinCtrlTB1_UM1->SetValue(tb[0].rpm);
+    SpinCtrlTB1_GR1->SetValue(tb[0].degree);
+    SpinCtrlTB1_SW1->SetValue(tb[0].dwa);
+
+    SpinCtrlTB1_UM2->SetValue(tb[1].rpm);
+    SpinCtrlTB1_GR2->SetValue(tb[1].degree);
+    SpinCtrlTB1_SW2->SetValue(tb[1].dwa);
+
+    SpinCtrlTB1_UM3->SetValue(tb[2].rpm);
+    SpinCtrlTB1_GR3->SetValue(tb[2].degree);
+    SpinCtrlTB1_SW3->SetValue(tb[2].dwa);
+
+    SpinCtrlTB1_UM4->SetValue(tb[3].rpm);
+    SpinCtrlTB1_GR4->SetValue(tb[3].degree);
+    SpinCtrlTB1_SW4->SetValue(tb[3].dwa);
+
+    SpinCtrlTB1_UM5->SetValue(tb[4].rpm);
+    SpinCtrlTB1_GR5->SetValue(tb[4].degree);
+    SpinCtrlTB1_SW5->SetValue(tb[4].dwa);
+
+    SpinCtrlTB1_UM6->SetValue(tb[5].rpm);
+    SpinCtrlTB1_GR6->SetValue(tb[5].degree);
+    SpinCtrlTB1_SW6->SetValue(tb[5].dwa);
+
+    SpinCtrlTB1_UM7->SetValue(tb[6].rpm);
+    SpinCtrlTB1_GR7->SetValue(tb[6].degree);
+    SpinCtrlTB1_SW7->SetValue(tb[6].dwa);
+
+    SpinCtrlTB1_UM8->SetValue(tb[7].rpm);
+    SpinCtrlTB1_GR8->SetValue(tb[7].degree);
+    SpinCtrlTB1_SW8->SetValue(tb[7].dwa);
+
+    SpinCtrlTB1_UM9->SetValue(tb[8].rpm);
+    SpinCtrlTB1_GR9->SetValue(tb[8].degree);
+    SpinCtrlTB1_SW9->SetValue(tb[8].dwa);
+
+    SpinCtrlTB1_UM10->SetValue(tb[9].rpm);
+    SpinCtrlTB1_GR10->SetValue(tb[9].degree);
+    SpinCtrlTB1_SW10->SetValue(tb[9].dwa);
 
 }
+
+void USBLoader2Frame::loadTab2()  // needs possible a sorting against the RPM value low to high
+{
+    ignition_point_t tb[ignition_point_tbl_SIZE];
+
+    digiSpark->get_TableFromEEprom(VAL_ip_table_2, tb, ignition_point_tbl_SIZE);
+    writeLog(digiSpark->getLog());
+
+    SpinCtrlTB2_UM1->SetValue(tb[0].rpm);
+    SpinCtrlTB2_GR1->SetValue(tb[0].degree);
+    SpinCtrlTB2_SW1->SetValue(tb[0].dwa);
+
+    SpinCtrlTB2_UM2->SetValue(tb[1].rpm);
+    SpinCtrlTB2_GR2->SetValue(tb[1].degree);
+    SpinCtrlTB2_SW2->SetValue(tb[1].dwa);
+
+    SpinCtrlTB2_UM3->SetValue(tb[2].rpm);
+    SpinCtrlTB2_GR3->SetValue(tb[2].degree);
+    SpinCtrlTB2_SW3->SetValue(tb[2].dwa);
+
+    SpinCtrlTB2_UM4->SetValue(tb[3].rpm);
+    SpinCtrlTB2_GR4->SetValue(tb[3].degree);
+    SpinCtrlTB2_SW4->SetValue(tb[3].dwa);
+
+    SpinCtrlTB2_UM5->SetValue(tb[4].rpm);
+    SpinCtrlTB2_GR5->SetValue(tb[4].degree);
+    SpinCtrlTB2_SW5->SetValue(tb[4].dwa);
+
+    SpinCtrlTB2_UM6->SetValue(tb[5].rpm);
+    SpinCtrlTB2_GR6->SetValue(tb[5].degree);
+    SpinCtrlTB2_SW6->SetValue(tb[5].dwa);
+
+    SpinCtrlTB2_UM7->SetValue(tb[6].rpm);
+    SpinCtrlTB2_GR7->SetValue(tb[6].degree);
+    SpinCtrlTB2_SW7->SetValue(tb[6].dwa);
+
+    SpinCtrlTB2_UM8->SetValue(tb[7].rpm);
+    SpinCtrlTB2_GR8->SetValue(tb[7].degree);
+    SpinCtrlTB2_SW8->SetValue(tb[7].dwa);
+
+    SpinCtrlTB2_UM9->SetValue(tb[8].rpm);
+    SpinCtrlTB2_GR9->SetValue(tb[8].degree);
+    SpinCtrlTB2_SW9->SetValue(tb[8].dwa);
+
+    SpinCtrlTB2_UM10->SetValue(tb[9].rpm);
+    SpinCtrlTB2_GR10->SetValue(tb[9].degree);
+    SpinCtrlTB2_SW10->SetValue(tb[9].dwa);
+
+}
+
+void USBLoader2Frame::loadTab3()  // needs possible a sorting against the RPM value low to high
+{
+    ignition_point_t tb[ignition_point_tbl_SIZE];
+
+    digiSpark->get_TableFromEEprom(VAL_ip_table_3, tb, ignition_point_tbl_SIZE);
+    writeLog(digiSpark->getLog());
+
+    SpinCtrlTB3_UM1->SetValue(tb[0].rpm);
+    SpinCtrlTB3_GR1->SetValue(tb[0].degree);
+    SpinCtrlTB3_SW1->SetValue(tb[0].dwa);
+
+    SpinCtrlTB3_UM2->SetValue(tb[1].rpm);
+    SpinCtrlTB3_GR2->SetValue(tb[1].degree);
+    SpinCtrlTB3_SW2->SetValue(tb[1].dwa);
+
+    SpinCtrlTB3_UM3->SetValue(tb[2].rpm);
+    SpinCtrlTB3_GR3->SetValue(tb[2].degree);
+    SpinCtrlTB3_SW3->SetValue(tb[2].dwa);
+
+    SpinCtrlTB3_UM4->SetValue(tb[3].rpm);
+    SpinCtrlTB3_GR4->SetValue(tb[3].degree);
+    SpinCtrlTB3_SW4->SetValue(tb[3].dwa);
+
+    SpinCtrlTB3_UM5->SetValue(tb[4].rpm);
+    SpinCtrlTB3_GR5->SetValue(tb[4].degree);
+    SpinCtrlTB3_SW5->SetValue(tb[4].dwa);
+
+    SpinCtrlTB3_UM6->SetValue(tb[5].rpm);
+    SpinCtrlTB3_GR6->SetValue(tb[5].degree);
+    SpinCtrlTB3_SW6->SetValue(tb[5].dwa);
+
+    SpinCtrlTB3_UM7->SetValue(tb[6].rpm);
+    SpinCtrlTB3_GR7->SetValue(tb[6].degree);
+    SpinCtrlTB3_SW7->SetValue(tb[6].dwa);
+
+    SpinCtrlTB3_UM8->SetValue(tb[7].rpm);
+    SpinCtrlTB3_GR8->SetValue(tb[7].degree);
+    SpinCtrlTB3_SW8->SetValue(tb[7].dwa);
+
+    SpinCtrlTB3_UM9->SetValue(tb[8].rpm);
+    SpinCtrlTB3_GR9->SetValue(tb[8].degree);
+    SpinCtrlTB3_SW9->SetValue(tb[8].dwa);
+
+    SpinCtrlTB3_UM10->SetValue(tb[9].rpm);
+    SpinCtrlTB3_GR10->SetValue(tb[9].degree);
+    SpinCtrlTB3_SW10->SetValue(tb[9].dwa);
+
+}
+
 void USBLoader2Frame::OnResetModulEEpromSelected(wxCommandEvent& event)
 {
     digiSpark->reset_EEprom();
+    OnDisconnectUsb(event);
 }
