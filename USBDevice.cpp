@@ -498,7 +498,7 @@ int USBDevice::GetValue(uint8_t cmd, uint32_t& val)  // get data FROM ignition m
 		}
 		else
 		{
-			if (status > sizeof(uint32_t)) status = sizeof(uint32_t);
+			if (status > ((int) sizeof(uint32_t))) status = sizeof(uint32_t);
 			while (status--)
 			{
 				ret <<= 8;
@@ -718,18 +718,17 @@ bool USBDevice::reset_EEprom() // set to default all without operation counter
 	return true;
 }
 
-bool USBDevice::set_OPcounter(uint32_t val) // 
+bool USBDevice::set_OPcounter(uint32_t val) //
 {
 	uint16_t v1, v2;
 
 	v1 = val >> 16;
 	v2 = val;
-
 	if (SetValue(REQ_operation_sec_SET, v1, v2) < 0) return false;
 	return true;
 }
 
-bool USBDevice::get_OPcounter(uint32_t &val) // 
+bool USBDevice::get_OPcounter(uint32_t &val) //
 {
 	if (GetValue(REQ_operation_sec_GET, val) < 0) return false;
 	return true;
@@ -765,5 +764,11 @@ bool USBDevice::get_TableFromEEprom(unsigned char tbnr, ignition_point_t *tbl, u
 	rtcnt = GetValueBlock(REQ_ip_tbl_GET, tbnr, 0, data, DATA_TABLE_SIZE_IN_BYTE);
 	if (rtcnt == -1) return false;
 	memcpy(tbl, data, rtcnt);
+	return true;
+}
+
+bool USBDevice::boot() // boot the modul
+{
+	if (SetValue(REQ_modul_BOOT, 0) < 0) return false;
 	return true;
 }

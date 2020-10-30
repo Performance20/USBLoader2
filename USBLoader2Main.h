@@ -70,6 +70,7 @@ class USBLoader2Frame: public wxFrame
         void loadTab2(void);
         void loadTab3(void);
         void activateMenuComm(bool val);
+        void uploadRealTimeValue(void);
 
         //(*Handlers(USBLoader2Frame)
         void OnQuit(wxCommandEvent& event);
@@ -89,6 +90,8 @@ class USBLoader2Frame: public wxFrame
         void OnMenuItemLogLeerenSelected(wxCommandEvent& event);
         void OnKomm_EEpromSaveSelected(wxCommandEvent& event);
         void OnResetModulEEpromSelected(wxCommandEvent& event);
+        void OnKomm_ResetOPcntrSelected(wxCommandEvent& event);
+        void OnKomm_BootenSelected(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
@@ -276,6 +279,26 @@ class USBLoader2Frame: public wxFrame
         static const long ID_STATICTEXT3;
         static const long ID_TEXTCTRLEchtModus;
         static const long ID_STATICTEXT5;
+        static const long ID_STATICTEXT128;
+        static const long ID_STATICTEXT131;
+        static const long ID_STATICTEXT132;
+        static const long ID_STATICTEXT133;
+        static const long ID_STATICTEXT134;
+        static const long ID_STATICTEXT135;
+        static const long ID_OPtimeSek;
+        static const long ID_STATICTEXT136;
+        static const long ID_STATICTEXT137;
+        static const long ID_STATICTEXT138;
+        static const long ID_OPtimeMin;
+        static const long ID_STATICTEXT139;
+        static const long ID_STATICTEXT140;
+        static const long ID_STATICTEXT141;
+        static const long ID_OPtimeStd;
+        static const long ID_STATICTEXT142;
+        static const long ID_STATICTEXT143;
+        static const long ID_STATICTEXT144;
+        static const long ID_OPtimeTag;
+        static const long ID_STATICTEXT145;
         static const long ID_PANELEchtWerte;
         static const long ID_STATICTEXT78;
         static const long ID_CHOICE1;
@@ -402,8 +425,10 @@ class USBLoader2Frame: public wxFrame
         static const long idMenuKonfigLaden;
         static const long idMenuKonfigESpeichern;
         static const long idMenuidMenuKonfigHolen;
+        static const long idMenuLogMode;
         static const long idMenuResetModulEEprom;
-        static const long idMenuLogmodus;
+        static const long idMenuResetOPcnt;
+        static const long idMenuBootModul;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
@@ -413,11 +438,13 @@ class USBLoader2Frame: public wxFrame
         wxChoice* ChoiceLED;
         wxChoice* ChoiceTAB;
         wxChoice* Spannung;
+        wxMenuItem* Komm_Booten;
         wxMenuItem* Komm_EEpromSave;
         wxMenuItem* Komm_KonfHolen;
         wxMenuItem* Komm_KonfRueber;
         wxMenuItem* Komm_LogMode;
         wxMenuItem* Komm_ResetModulEEprom;
+        wxMenuItem* Komm_ResetOPcntr;
         wxMenuItem* Komm_TennModul;
         wxMenuItem* Komm_VerbModul;
         wxMenuItem* MenuItem2;
@@ -570,10 +597,26 @@ class USBLoader2Frame: public wxFrame
         wxStaticText* StaticText125;
         wxStaticText* StaticText126;
         wxStaticText* StaticText127;
+        wxStaticText* StaticText128;
         wxStaticText* StaticText129;
         wxStaticText* StaticText12;
         wxStaticText* StaticText130;
+        wxStaticText* StaticText131;
+        wxStaticText* StaticText132;
+        wxStaticText* StaticText133;
+        wxStaticText* StaticText134;
+        wxStaticText* StaticText135;
+        wxStaticText* StaticText136;
+        wxStaticText* StaticText137;
+        wxStaticText* StaticText138;
+        wxStaticText* StaticText139;
         wxStaticText* StaticText13;
+        wxStaticText* StaticText140;
+        wxStaticText* StaticText141;
+        wxStaticText* StaticText142;
+        wxStaticText* StaticText143;
+        wxStaticText* StaticText144;
+        wxStaticText* StaticText145;
         wxStaticText* StaticText14;
         wxStaticText* StaticText15;
         wxStaticText* StaticText16;
@@ -670,6 +713,10 @@ class USBLoader2Frame: public wxFrame
         wxStaticText* StaticText99;
         wxStaticText* StaticText9;
         wxStatusBar* StatusBar1;
+        wxTextCtrl* OPtimeMin;
+        wxTextCtrl* OPtimeSek;
+        wxTextCtrl* OPtimeStd;
+        wxTextCtrl* OPtimeTag;
         wxTextCtrl* TextCtrl1;
         wxTextCtrl* TextCtrl2;
         wxTextCtrl* TextCtrl3;

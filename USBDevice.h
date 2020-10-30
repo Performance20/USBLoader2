@@ -132,6 +132,8 @@ public:
 	bool write_TableToEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size);
 	bool get_TableFromEEprom(unsigned char tbnr, ignition_point_t* tbl, uint8_t size);
 	bool isConnected();
+
+	bool boot(void); // boot the modul
 };
 
 inline bool USBDevice::isConnected()

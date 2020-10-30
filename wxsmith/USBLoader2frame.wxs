@@ -2,7 +2,7 @@
 <wxsmith>
 	<object class="wxFrame" name="USBLoader2Frame">
 		<title>Zündmodul Konfigurator </title>
-		<size>820,700</size>
+		<size>820,800</size>
 		<minsize>820,700</minsize>
 		<id_arg>0</id_arg>
 		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
@@ -1608,7 +1608,7 @@
 							<object class="wxPanel" name="ID_PANELEchtWerte" variable="EchtWerte" member="yes">
 								<object class="wxFlexGridSizer" variable="FlexGridSizer2" member="no">
 									<cols>4</cols>
-									<rows>7</rows>
+									<rows>12</rows>
 									<vgap>10</vgap>
 									<object class="sizeritem">
 										<object class="wxStaticText" name="ID_STATICTEXT46" variable="StaticText46" member="yes">
@@ -1852,6 +1852,174 @@
 										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT128" variable="StaticText128" member="yes">
+											<label></label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT131" variable="StaticText131" member="yes">
+											<label></label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT132" variable="StaticText132" member="yes">
+											<label></label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT133" variable="StaticText133" member="yes">
+											<label></label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT134" variable="StaticText134" member="yes">
+											<label></label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT135" variable="StaticText135" member="yes">
+											<label>Betriebszeit:</label>
+										</object>
+										<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="ID_OPtimeSek" variable="OPtimeSek" member="yes">
+											<value>0</value>
+											<size>80,25</size>
+											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT136" variable="StaticText136" member="yes">
+											<label>Sekunden</label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT137" variable="StaticText137" member="yes">
+											<label></label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT138" variable="StaticText138" member="yes">
+											<label></label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="ID_OPtimeMin" variable="OPtimeMin" member="yes">
+											<value>0</value>
+											<size>80,25</size>
+											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT139" variable="StaticText139" member="yes">
+											<label>Minuten</label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT140" variable="StaticText140" member="yes">
+											<label></label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT141" variable="StaticText141" member="yes">
+											<label></label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="ID_OPtimeStd" variable="OPtimeStd" member="yes">
+											<value>0</value>
+											<size>80,25</size>
+											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT142" variable="StaticText142" member="yes">
+											<label>Stunden</label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT143" variable="StaticText143" member="yes">
+											<label></label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT144" variable="StaticText144" member="yes">
+											<label></label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="ID_OPtimeTag" variable="OPtimeTag" member="yes">
+											<value>0</value>
+											<size>80,25</size>
+											<style>wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT</style>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT145" variable="StaticText145" member="yes">
+											<label>Tage</label>
+										</object>
+										<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>4</option>
 									</object>
 								</object>
 							</object>
@@ -2932,19 +3100,32 @@
 					<enabled>0</enabled>
 					<handler function="OnConfigDownload" entry="EVT_MENU" />
 				</object>
-				<object class="separator" />
-				<object class="wxMenuItem" name="idMenuResetModulEEprom" variable="Komm_ResetModulEEprom" member="yes">
-					<label>Reset Modul EEprom</label>
-					<help>EEprom auf Defaultwerte setzen</help>
-					<enabled>0</enabled>
-					<handler function="OnResetModulEEpromSelected" entry="EVT_MENU" />
-				</object>
-				<object class="wxMenuItem" name="idMenuLogmodus" variable="Komm_LogMode" member="yes">
-					<label>Modul Log-Modus</label>
-					<help>Im Modul den Log-Modus an/abschalte</help>
+				<object class="wxMenuItem" name="idMenuLogMode" variable="Komm_LogMode" member="yes">
+					<label>Log Mode</label>
+					<help>Modul Log Mode stellen</help>
 					<enabled>0</enabled>
 					<handler function="OnLogModeSet" entry="EVT_MENU" />
 					<checkable>1</checkable>
+				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="idMenuResetModulEEprom" variable="Komm_ResetModulEEprom" member="yes">
+					<label>Reset Modul EEprom</label>
+					<help>Komplette Werte auf Werkeinstellung zurücksetzen</help>
+					<enabled>0</enabled>
+					<handler function="OnResetModulEEpromSelected" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="idMenuResetOPcnt" variable="Komm_ResetOPcntr" member="yes">
+					<label>Reset Betriebszähler</label>
+					<help>Betriebzähler auf Null zurücksetzen</help>
+					<enabled>0</enabled>
+					<handler function="OnKomm_ResetOPcntrSelected" entry="EVT_MENU" />
+				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="idMenuBootModul" variable="Komm_Booten" member="yes">
+					<label>Modul Booten</label>
+					<help>Modul neu starten</help>
+					<enabled>0</enabled>
+					<handler function="OnKomm_BootenSelected" entry="EVT_MENU" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="Hilfe" member="no">

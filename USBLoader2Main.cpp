@@ -234,6 +234,26 @@ const long USBLoader2Frame::ID_STATICTEXT125 = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT3 = wxNewId();
 const long USBLoader2Frame::ID_TEXTCTRLEchtModus = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT5 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT128 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT131 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT132 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT133 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT134 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT135 = wxNewId();
+const long USBLoader2Frame::ID_OPtimeSek = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT136 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT137 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT138 = wxNewId();
+const long USBLoader2Frame::ID_OPtimeMin = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT139 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT140 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT141 = wxNewId();
+const long USBLoader2Frame::ID_OPtimeStd = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT142 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT143 = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT144 = wxNewId();
+const long USBLoader2Frame::ID_OPtimeTag = wxNewId();
+const long USBLoader2Frame::ID_STATICTEXT145 = wxNewId();
 const long USBLoader2Frame::ID_PANELEchtWerte = wxNewId();
 const long USBLoader2Frame::ID_STATICTEXT78 = wxNewId();
 const long USBLoader2Frame::ID_CHOICE1 = wxNewId();
@@ -360,8 +380,10 @@ const long USBLoader2Frame::idMenuTrennen = wxNewId();
 const long USBLoader2Frame::idMenuKonfigLaden = wxNewId();
 const long USBLoader2Frame::idMenuKonfigESpeichern = wxNewId();
 const long USBLoader2Frame::idMenuidMenuKonfigHolen = wxNewId();
+const long USBLoader2Frame::idMenuLogMode = wxNewId();
 const long USBLoader2Frame::idMenuResetModulEEprom = wxNewId();
-const long USBLoader2Frame::idMenuLogmodus = wxNewId();
+const long USBLoader2Frame::idMenuResetOPcnt = wxNewId();
+const long USBLoader2Frame::idMenuBootModul = wxNewId();
 const long USBLoader2Frame::idMenuAbout = wxNewId();
 const long USBLoader2Frame::ID_STATUSBAR1 = wxNewId();
 //*)
@@ -390,7 +412,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     wxMenuItem* MenuItem1;
 
     Create(parent, wxID_ANY, _("Zündmodul Konfigurator "), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
-    SetClientSize(wxSize(820,700));
+    SetClientSize(wxSize(820,800));
     SetMinSize(wxSize(820,700));
     Panel1 = new wxPanel(this, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
@@ -840,7 +862,7 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     GridSizer3->Fit(PanelTB3);
     GridSizer3->SetSizeHints(PanelTB3);
     EchtWerte = new wxPanel(Notebook1, ID_PANELEchtWerte, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELEchtWerte"));
-    FlexGridSizer2 = new wxFlexGridSizer(7, 4, 10, 0);
+    FlexGridSizer2 = new wxFlexGridSizer(12, 4, 10, 0);
     StaticText46 = new wxStaticText(EchtWerte, ID_STATICTEXT46, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT46"));
     FlexGridSizer2->Add(StaticText46, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText45 = new wxStaticText(EchtWerte, ID_STATICTEXT45, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT45"));
@@ -903,6 +925,46 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     FlexGridSizer2->Add(TextCtrlEchtModus, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText5 = new wxStaticText(EchtWerte, ID_STATICTEXT5, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT5"));
     FlexGridSizer2->Add(StaticText5, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText128 = new wxStaticText(EchtWerte, ID_STATICTEXT128, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT128"));
+    FlexGridSizer2->Add(StaticText128, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText131 = new wxStaticText(EchtWerte, ID_STATICTEXT131, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT131"));
+    FlexGridSizer2->Add(StaticText131, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText132 = new wxStaticText(EchtWerte, ID_STATICTEXT132, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT132"));
+    FlexGridSizer2->Add(StaticText132, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText133 = new wxStaticText(EchtWerte, ID_STATICTEXT133, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT133"));
+    FlexGridSizer2->Add(StaticText133, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText134 = new wxStaticText(EchtWerte, ID_STATICTEXT134, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT134"));
+    FlexGridSizer2->Add(StaticText134, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText135 = new wxStaticText(EchtWerte, ID_STATICTEXT135, _("Betriebszeit:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT135"));
+    FlexGridSizer2->Add(StaticText135, 4, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    OPtimeSek = new wxTextCtrl(EchtWerte, ID_OPtimeSek, _("0"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_OPtimeSek"));
+    FlexGridSizer2->Add(OPtimeSek, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText136 = new wxStaticText(EchtWerte, ID_STATICTEXT136, _("Sekunden"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT136"));
+    FlexGridSizer2->Add(StaticText136, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText137 = new wxStaticText(EchtWerte, ID_STATICTEXT137, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT137"));
+    FlexGridSizer2->Add(StaticText137, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText138 = new wxStaticText(EchtWerte, ID_STATICTEXT138, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT138"));
+    FlexGridSizer2->Add(StaticText138, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    OPtimeMin = new wxTextCtrl(EchtWerte, ID_OPtimeMin, _("0"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_OPtimeMin"));
+    FlexGridSizer2->Add(OPtimeMin, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText139 = new wxStaticText(EchtWerte, ID_STATICTEXT139, _("Minuten"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT139"));
+    FlexGridSizer2->Add(StaticText139, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText140 = new wxStaticText(EchtWerte, ID_STATICTEXT140, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT140"));
+    FlexGridSizer2->Add(StaticText140, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText141 = new wxStaticText(EchtWerte, ID_STATICTEXT141, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT141"));
+    FlexGridSizer2->Add(StaticText141, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    OPtimeStd = new wxTextCtrl(EchtWerte, ID_OPtimeStd, _("0"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_OPtimeStd"));
+    FlexGridSizer2->Add(OPtimeStd, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText142 = new wxStaticText(EchtWerte, ID_STATICTEXT142, _("Stunden"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT142"));
+    FlexGridSizer2->Add(StaticText142, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText143 = new wxStaticText(EchtWerte, ID_STATICTEXT143, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT143"));
+    FlexGridSizer2->Add(StaticText143, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText144 = new wxStaticText(EchtWerte, ID_STATICTEXT144, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT144"));
+    FlexGridSizer2->Add(StaticText144, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    OPtimeTag = new wxTextCtrl(EchtWerte, ID_OPtimeTag, _("0"), wxDefaultPosition, wxSize(80,25), wxTE_NO_VSCROLL|wxTE_READONLY|wxTE_RIGHT, wxDefaultValidator, _T("ID_OPtimeTag"));
+    FlexGridSizer2->Add(OPtimeTag, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText145 = new wxStaticText(EchtWerte, ID_STATICTEXT145, _("Tage"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT145"));
+    FlexGridSizer2->Add(StaticText145, 4, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
     EchtWerte->SetSizer(FlexGridSizer2);
     FlexGridSizer2->Fit(EchtWerte);
     FlexGridSizer2->SetSizeHints(EchtWerte);
@@ -1201,13 +1263,20 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     Komm_KonfHolen = new wxMenuItem(Kommunikation, idMenuidMenuKonfigHolen, _("Konfig holen <- Zündmodul"), _("Konfiguration aus Zündmodul holen"), wxITEM_NORMAL);
     Kommunikation->Append(Komm_KonfHolen);
     Komm_KonfHolen->Enable(false);
-    Kommunikation->AppendSeparator();
-    Komm_ResetModulEEprom = new wxMenuItem(Kommunikation, idMenuResetModulEEprom, _("Reset Modul EEprom"), _("EEprom auf Defaultwerte setzen"), wxITEM_NORMAL);
-    Kommunikation->Append(Komm_ResetModulEEprom);
-    Komm_ResetModulEEprom->Enable(false);
-    Komm_LogMode = new wxMenuItem(Kommunikation, idMenuLogmodus, _("Modul Log-Modus"), _("Im Modul den Log-Modus an/abschalte"), wxITEM_CHECK);
+    Komm_LogMode = new wxMenuItem(Kommunikation, idMenuLogMode, _("Log Mode"), _("Modul Log Mode stellen"), wxITEM_CHECK);
     Kommunikation->Append(Komm_LogMode);
     Komm_LogMode->Enable(false);
+    Kommunikation->AppendSeparator();
+    Komm_ResetModulEEprom = new wxMenuItem(Kommunikation, idMenuResetModulEEprom, _("Reset Modul EEprom"), _("Komplette Werte auf Werkeinstellung zurücksetzen"), wxITEM_NORMAL);
+    Kommunikation->Append(Komm_ResetModulEEprom);
+    Komm_ResetModulEEprom->Enable(false);
+    Komm_ResetOPcntr = new wxMenuItem(Kommunikation, idMenuResetOPcnt, _("Reset Betriebszähler"), _("Betriebzähler auf Null zurücksetzen"), wxITEM_NORMAL);
+    Kommunikation->Append(Komm_ResetOPcntr);
+    Komm_ResetOPcntr->Enable(false);
+    Kommunikation->AppendSeparator();
+    Komm_Booten = new wxMenuItem(Kommunikation, idMenuBootModul, _("Modul Booten"), _("Modul neu starten"), wxITEM_NORMAL);
+    Kommunikation->Append(Komm_Booten);
+    Komm_Booten->Enable(false);
     HauptMenuBar->Append(Kommunikation, _("Kommunikation"));
     Hilfe = new wxMenu();
     Hilfe_Info = new wxMenuItem(Hilfe, idMenuAbout, _("Info\tF1"), _("Zeigt Programm Infos"), wxITEM_NORMAL);
@@ -1287,8 +1356,10 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     Connect(idMenuKonfigLaden,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConfigUpload);
     Connect(idMenuKonfigESpeichern,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnKomm_EEpromSaveSelected);
     Connect(idMenuidMenuKonfigHolen,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnConfigDownload);
+    Connect(idMenuLogMode,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnLogModeSet);
     Connect(idMenuResetModulEEprom,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnResetModulEEpromSelected);
-    Connect(idMenuLogmodus,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnLogModeSet);
+    Connect(idMenuResetOPcnt,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnKomm_ResetOPcntrSelected);
+    Connect(idMenuBootModul,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnKomm_BootenSelected);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnAbout);
     //*)
 
@@ -1317,11 +1388,51 @@ void USBLoader2Frame::activateMenuComm(bool val)
     Komm_VerbModul->Enable(!val);
     Komm_EEpromSave->Enable(val);
     Komm_ResetModulEEprom->Enable(val);
+    Komm_ResetOPcntr->Enable(val);
+    Komm_Booten->Enable(val);
 }
 
 void USBLoader2Frame::writeLog(wxString str)
 {
     if (str.size() > 0) TextCtrlLOG->AppendText(str);
+}
+
+void USBLoader2Frame::uploadRealTimeValue()
+{
+//    int8_t  valByte = 0;
+//    uint8_t uvalByte = 0;
+//    int16_t valWord = 0;
+//    uint16_t uvalWord = 0;
+    uint32_t uvalDWord = 0;
+    uint16_t calc;
+
+    wxString rstr;
+
+    if (digiSpark->get_OPcounter(uvalDWord))
+    {
+        calc = uvalDWord % 86400;  // days
+        uvalDWord -= calc;
+        rstr << (uvalDWord) / 86400;
+        OPtimeTag->SetValue(rstr);
+        uvalDWord = calc;
+
+        calc = uvalDWord % 3600;  // hours
+        uvalDWord -= calc;
+        rstr.clear();
+        rstr << (uvalDWord / 3600);
+        OPtimeStd->SetValue(rstr);
+        uvalDWord = calc;
+
+        calc = uvalDWord % 60;  // minutes
+        uvalDWord -= calc;
+        rstr.clear();
+        rstr << (uvalDWord / 60);
+        OPtimeMin->SetValue(rstr);
+
+        rstr.clear();
+        rstr << (calc);
+        OPtimeSek->SetValue(rstr);
+    }
 }
 
 
@@ -1388,6 +1499,9 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 
 	while (fininish == false) {
 		writeLog(digiSpark->getLog());
+        uploadRealTimeValue();
+        writeLog(digiSpark->getLog());
+
 
 		wxYield();
 		//::wxSleep(1);
@@ -1551,8 +1665,6 @@ void USBLoader2Frame::OnRadioBoxBasisfunktionSelect(wxCommandEvent& event)
 
 
 }
-
-
 
 void USBLoader2Frame::OnLadenKonfig(wxCommandEvent& event)
 {
@@ -1778,11 +1890,12 @@ void USBLoader2Frame::OnConfigDownload(wxCommandEvent& event)
     writeLog(digiSpark->getLog());
     loadTab1();
     writeLog(digiSpark->getLog());
-    //loadTab2();
-    //writeLog(digiSpark->getLog());
-    //loadTab3();
-    //writeLog(digiSpark->getLog());
+    loadTab2();
+    writeLog(digiSpark->getLog());
+    loadTab3();
+    writeLog(digiSpark->getLog());
 }
+
 
 void USBLoader2Frame::CheckLOGMode(void)
 {
@@ -2032,13 +2145,15 @@ void USBLoader2Frame::OnMenuItemLogLeerenSelected(wxCommandEvent& event)
 
 void USBLoader2Frame::OnKomm_EEpromSaveSelected(wxCommandEvent& event)
 {
-    //OnConfigUpload(event);
-    //digiSpark->write_EEpromParameter();                                     // Save paramter in the eeprom
-    //writeLog(digiSpark->getLog());
+    OnConfigUpload(event);
+    digiSpark->write_EEpromParameter();                                     // Save paramter in the eeprom
+    writeLog(digiSpark->getLog());
     writeTab1();
     writeLog(digiSpark->getLog());
-    //writeTab2();
-    //writeTab3();
+    writeTab2();
+    writeLog(digiSpark->getLog());
+    writeTab3();
+    writeLog(digiSpark->getLog());
 }
 
 
@@ -2215,7 +2330,7 @@ void USBLoader2Frame::writeTab3()
 void USBLoader2Frame::loadTab1()  // needs possible a sorting against the RPM value low to high
 {
     ignition_point_t tb[ignition_point_tbl_SIZE];
-   
+
     digiSpark->get_TableFromEEprom(VAL_ip_table_1, tb, ignition_point_tbl_SIZE);
     writeLog(digiSpark->getLog());
 
@@ -2362,5 +2477,16 @@ void USBLoader2Frame::loadTab3()  // needs possible a sorting against the RPM va
 void USBLoader2Frame::OnResetModulEEpromSelected(wxCommandEvent& event)
 {
     digiSpark->reset_EEprom();
+    OnDisconnectUsb(event);
+}
+
+void USBLoader2Frame::OnKomm_ResetOPcntrSelected(wxCommandEvent& event)
+{
+    digiSpark->set_OPcounter(0);
+}
+
+void USBLoader2Frame::OnKomm_BootenSelected(wxCommandEvent& event)
+{
+    digiSpark->boot();
     OnDisconnectUsb(event);
 }
