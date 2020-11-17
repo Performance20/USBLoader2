@@ -438,8 +438,10 @@ string USBDevice::readString() // blocking reading
 
 	if (isConnected())
 	{
-		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
-			REQ_LOGGING, 0, 0, data, DATA_STRING_SIZE_IN_BYTE, TIMEOUT);
+//		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
+//			REQ_LOGGING, 0, 0, data, DATA_STRING_SIZE_IN_BYTE, TIMEOUT);
+		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_ENDPOINT | LIBUSB_ENDPOINT_IN,
+			REQ_LOGGING, 0, 0, data, DATA_STRING_SIZE_IN_BYTE, 1000);
 		if(status)
 		{
 			if (status < 0)
@@ -488,8 +490,11 @@ int USBDevice::GetValue(uint8_t cmd, uint32_t& val)  // get data FROM ignition m
 
 	if (isConnected())
     {
-      	status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
-			cmd, 0, 0, data, DATA_NUMBER_SIZE_IN_BYTE, TIMEOUT);
+//      	status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_DEVICE | LIBUSB_ENDPOINT_IN,
+//			cmd, 0, 0, data, DATA_NUMBER_SIZE_IN_BYTE, TIMEOUT);
+
+		status = libusb_control_transfer(handle, LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_ENDPOINT | LIBUSB_ENDPOINT_IN,
+			cmd, 0, 0, data, DATA_NUMBER_SIZE_IN_BYTE, 1000);
 
 		if (status < 0)
         {

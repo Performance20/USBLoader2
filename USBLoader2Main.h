@@ -36,7 +36,7 @@
 //*)
 
 #include "USBDevice.h"
-
+#include "SerialDevice.h"
 
 using namespace std;
 
@@ -51,6 +51,7 @@ class USBLoader2Frame: public wxFrame
     private:
 
         USBDevice* digiSpark;
+        SerialDevice* leonardo;
         bool fininish;
         bool connected;
 
@@ -71,6 +72,7 @@ class USBLoader2Frame: public wxFrame
         void loadTab3(void);
         void activateMenuComm(bool val);
         void uploadRealTimeValue(void);
+        bool isDigiSparkConnected(void);
 
         //(*Handlers(USBLoader2Frame)
         void OnQuit(wxCommandEvent& event);
@@ -786,6 +788,15 @@ inline bool USBLoader2Frame::isConfigChanged(void)
 inline void USBLoader2Frame::resetConfigChange(void)
 {
     cfgchange = false;
+}
+
+
+inline bool USBLoader2Frame::isDigiSparkConnected(void)
+{
+    if (digiSpark != NULL)
+        return digiSpark->isConnected();
+    else
+        return false;
 }
 
 #endif // USBLoader2MAIN_H

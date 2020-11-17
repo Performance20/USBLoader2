@@ -24,8 +24,19 @@
 //#define VAL_STATE_OFF						0
 //#define VAL_STATE_ON						1
 
+//caused bay performance problems, USB and real time handling in parallel
+#define REQ_USB_MODE						0  // wants to have the current log
+#define VAL_Mode_OFF						0
+#define VAL_Mode_ON							1
+#define VAL_Mode_REAL						2  // working mode + real time data
+#define VAL_Mode_CONFIG						3  // no working mode, only configuration
+#define MAX_Mode_state					VAL_Mode_ON
+#define MIN_Mode_state					VAL_Mode_OFF
+#define DEF_Mode_state					VAL_Mode_CONFIG
+
+
  // logging to host handling
-#define REQ_LOGGING							0  // wants to have the current log
+#define REQ_LOGGING							REQ_USB_MODE + 1  // wants to have the current log
 #define REQ_LOGGING_SET						REQ_LOGGING + 1  // start logging
 #define REQ_LOGGING_GET						REQ_LOGGING_SET + 1  // stopp logging
 #define VAL_LOG_OFF							0

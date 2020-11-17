@@ -12,6 +12,7 @@ using namespace std;
 #include "USBLoader2Main.h"
 #include <wx/msgdlg.h>
 #include <wx/filedlg.h>
+#include <wx/utils.h> 
 
 //(*InternalHeaders(USBLoader2Frame)
 #include <wx/intl.h>
@@ -1463,7 +1464,7 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 {
     wxString m, s;
 
-    if (connected == true) // vendor 5824, product 1503
+    if (isDigiSparkConnected()) // vendor 5824, product 1503
 	{
         writeLog(STR_USB_DEVICE_ALREADY_CONNECTED + '\n');
 		return;
@@ -1477,7 +1478,7 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 	//digiSpark->connect_device();
 	digiSpark->connect_device_with_search();
 
-	if (digiSpark->isConnected()) // vendor 5824, product 1503
+	if (isDigiSparkConnected()) // vendor 5824, product 1503
 	{
 	    //writeLog(digiSpark->getLog());
 		this->SetStatusText(STR_CONNECTION_STATUS_CONNECTED, 1);
@@ -1491,6 +1492,7 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
         writeLog(digiSpark->getLog());
 		connected = false;
 		delete digiSpark;
+        digiSpark = NULL;
 		activateMenuComm(false);
 		return; // exit no device connected
 	}
@@ -1498,13 +1500,17 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
     activateMenuComm(true);
 
 	while (fininish == false) {
-		writeLog(digiSpark->getLog());
-        uploadRealTimeValue();
-        writeLog(digiSpark->getLog());
-
-
-		wxYield();
-		//::wxSleep(1);
+        if (isDigiSparkConnected()) writeLog(digiSpark->getLog());
+        else OnDisconnectUsb(event);
+        wxYield();
+        if (isDigiSparkConnected()) uploadRealTimeValue();
+        else OnDisconnectUsb(event);
+        wxYield();
+        if (isDigiSparkConnected()) writeLog(digiSpark->getLog());
+        else OnDisconnectUsb(event);
+        wxYield();
+		//wxSleep(1);
+        wxMilliSleep(500);
 	}
 	return;
 }
