@@ -917,7 +917,7 @@
 
 1585059103 /usr/include/wx-3.0/wx/gtk/textctrl.h
 
-1600850429 source:/home/helge/Desktop/USBLoader2/USBLoader2App.cpp
+1605714867 source:/home/helge/Desktop/USBLoader2/USBLoader2App.cpp
 	"USBLoader2App.h"
 	"USBLoader2Main.h"
 	<wx/image.h>
@@ -964,7 +964,7 @@
 
 1585059103 /usr/include/wx-3.0/wx/gtk/app.h
 
-1604068843 /home/helge/Desktop/USBLoader2/USBLoader2Main.h
+1605719382 /home/helge/Desktop/USBLoader2/USBLoader2Main.h
 	<string.h>
 	<iostream>
 	<sstream>
@@ -985,6 +985,7 @@
 	<wx/statusbr.h>
 	<wx/textctrl.h>
 	"USBDevice.h"
+	"SerialDevice.h"
 
 1585059103 /usr/include/wx-3.0/wx/frame.h
 	"wx/toplevel.h"
@@ -1217,10 +1218,11 @@
 	"wx/bitmap.h"
 	"wx/list.h"
 
-1604066673 source:/home/helge/Desktop/USBLoader2/USBLoader2Main.cpp
+1605716726 source:/home/helge/Desktop/USBLoader2/USBLoader2Main.cpp
 	"USBLoader2Main.h"
 	<wx/msgdlg.h>
 	<wx/filedlg.h>
+	<wx/utils.h>
 	<wx/intl.h>
 	<wx/string.h>
 	"TextStrings.h"
@@ -1248,7 +1250,7 @@
 
 1585059103 /usr/include/wx-3.0/wx/gtk/msgdlg.h
 
-1604068575 source:/home/helge/Desktop/USBLoader2/USBDevice.cpp
+1605712709 source:/home/helge/Desktop/USBLoader2/USBDevice.cpp
 	"USBDevice.h"
 	"TextStrings.h"
 
@@ -1260,7 +1262,7 @@
 	"libusb/libusb.h"
 	"protocol.h"
 
-1604068575 /home/helge/Desktop/USBLoader2/protocol.h
+1605712709 /home/helge/Desktop/USBLoader2/protocol.h
 
 1599663241 /home/helge/Desktop/USBLoader2/ConfigData.h
 	<wx/stdpaths.h>
@@ -1831,4 +1833,18 @@
 
 1585059103 /usr/include/wx-3.0/wx/gtk/mdi.h
 	"wx/frame.h"
+
+1605712709 source:/home/helge/Desktop/USBLoader2/SerialDevice.cpp
+	"SerialDevice.h"
+	"TextStrings.h"
+
+1605712709 /home/helge/Desktop/USBLoader2/SerialDevice.h
+	<string.h>
+	<iostream>
+	<sstream>
+	<cstdio>
+	<unistd.h>
+	<windows.h>
+	"serial/serial.h"
+	"protocol.h"
 

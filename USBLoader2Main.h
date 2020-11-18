@@ -51,7 +51,7 @@ class USBLoader2Frame: public wxFrame
     private:
 
         USBDevice* digiSpark;
-        SerialDevice* leonardo;
+        SerialDevice* Leonardo;
         bool fininish;
         bool connected;
 
@@ -94,6 +94,8 @@ class USBLoader2Frame: public wxFrame
         void OnResetModulEEpromSelected(wxCommandEvent& event);
         void OnKomm_ResetOPcntrSelected(wxCommandEvent& event);
         void OnKomm_BootenSelected(wxCommandEvent& event);
+        void OnTest_TestSelected(wxCommandEvent& event);
+        void OnTest_VerbindenSeriellSelected(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(USBLoader2Frame)
@@ -431,6 +433,8 @@ class USBLoader2Frame: public wxFrame
         static const long idMenuResetModulEEprom;
         static const long idMenuResetOPcnt;
         static const long idMenuBootModul;
+        static const long idMenuVerbindenSeriell;
+        static const long idMenuTest;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
@@ -440,6 +444,7 @@ class USBLoader2Frame: public wxFrame
         wxChoice* ChoiceLED;
         wxChoice* ChoiceTAB;
         wxChoice* Spannung;
+        wxMenu* Menu1;
         wxMenuItem* Komm_Booten;
         wxMenuItem* Komm_EEpromSave;
         wxMenuItem* Komm_KonfHolen;
@@ -452,6 +457,8 @@ class USBLoader2Frame: public wxFrame
         wxMenuItem* MenuItem2;
         wxMenuItem* MenuItem5;
         wxMenuItem* MenuItem8;
+        wxMenuItem* Test_Test;
+        wxMenuItem* Test_VerbindenSeriell;
         wxNotebook* Notebook1;
         wxPanel* EchtWerte;
         wxPanel* Panel1;

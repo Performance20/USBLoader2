@@ -3128,6 +3128,17 @@
 					<handler function="OnKomm_BootenSelected" entry="EVT_MENU" />
 				</object>
 			</object>
+			<object class="wxMenu" variable="Menu1" member="yes">
+				<label>Test</label>
+				<object class="wxMenuItem" name="idMenuVerbindenSeriell" variable="Test_VerbindenSeriell" member="yes">
+					<label>Verbinden Seriell</label>
+					<handler function="OnTest_VerbindenSeriellSelected" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="idMenuTest" variable="Test_Test" member="yes">
+					<label>Test</label>
+					<handler function="OnTest_TestSelected" entry="EVT_MENU" />
+				</object>
+			</object>
 			<object class="wxMenu" variable="Hilfe" member="no">
 				<label>Hilfe</label>
 				<object class="wxMenuItem" name="idMenuAbout" variable="Hilfe_Info" member="no">
