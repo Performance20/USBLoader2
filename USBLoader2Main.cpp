@@ -12,7 +12,7 @@ using namespace std;
 #include "USBLoader2Main.h"
 #include <wx/msgdlg.h>
 #include <wx/filedlg.h>
-#include <wx/utils.h> 
+#include <wx/utils.h>
 
 //(*InternalHeaders(USBLoader2Frame)
 #include <wx/intl.h>
@@ -385,6 +385,8 @@ const long USBLoader2Frame::idMenuLogMode = wxNewId();
 const long USBLoader2Frame::idMenuResetModulEEprom = wxNewId();
 const long USBLoader2Frame::idMenuResetOPcnt = wxNewId();
 const long USBLoader2Frame::idMenuBootModul = wxNewId();
+const long USBLoader2Frame::idMenuVerbindenSeriell = wxNewId();
+const long USBLoader2Frame::idMenuTest = wxNewId();
 const long USBLoader2Frame::idMenuAbout = wxNewId();
 const long USBLoader2Frame::ID_STATUSBAR1 = wxNewId();
 //*)
@@ -1279,6 +1281,12 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     Kommunikation->Append(Komm_Booten);
     Komm_Booten->Enable(false);
     HauptMenuBar->Append(Kommunikation, _("Kommunikation"));
+    Menu1 = new wxMenu();
+    Test_VerbindenSeriell = new wxMenuItem(Menu1, idMenuVerbindenSeriell, _("Verbinden Seriell"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(Test_VerbindenSeriell);
+    Test_Test = new wxMenuItem(Menu1, idMenuTest, _("Test"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(Test_Test);
+    HauptMenuBar->Append(Menu1, _("Test"));
     Hilfe = new wxMenu();
     Hilfe_Info = new wxMenuItem(Hilfe, idMenuAbout, _("Info\tF1"), _("Zeigt Programm Infos"), wxITEM_NORMAL);
     Hilfe->Append(Hilfe_Info);
@@ -1361,6 +1369,8 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
     Connect(idMenuResetModulEEprom,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnResetModulEEpromSelected);
     Connect(idMenuResetOPcnt,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnKomm_ResetOPcntrSelected);
     Connect(idMenuBootModul,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnKomm_BootenSelected);
+    Connect(idMenuVerbindenSeriell,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnTest_VerbindenSeriellSelected);
+    Connect(idMenuTest,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnTest_TestSelected);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&USBLoader2Frame::OnAbout);
     //*)
 
@@ -2496,4 +2506,12 @@ void USBLoader2Frame::OnKomm_BootenSelected(wxCommandEvent& event)
 {
     digiSpark->boot();
     OnDisconnectUsb(event);
+}
+
+void USBLoader2Frame::OnTest_TestSelected(wxCommandEvent& event)
+{
+}
+
+void USBLoader2Frame::OnTest_VerbindenSeriellSelected(wxCommandEvent& event)
+{
 }
