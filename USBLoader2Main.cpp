@@ -1768,6 +1768,7 @@ void USBLoader2Frame::OnLadenKonfig(wxCommandEvent& event)
     SpinCtrlTB2_GR10->SetValue(ConfigINI->Read("Grad10", "0"));
     SpinCtrlTB2_SW10->SetValue(ConfigINI->Read("SlWi10", "-180"));
 
+
     ConfigINI->SetPath("/Tabelle3");
     SpinCtrlTB3_UM1->SetValue(ConfigINI->Read("UPM1", "0"));
     SpinCtrlTB3_GR1->SetValue(ConfigINI->Read("Grad1", "0"));
