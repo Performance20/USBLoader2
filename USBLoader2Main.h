@@ -51,7 +51,7 @@ class USBLoader2Frame: public wxFrame
     private:
 
         USBDevice* digiSpark;
-        SerialDevice* leonardo;
+        SerialDevice* Leonardo;
         bool fininish;
         bool connected;
 
