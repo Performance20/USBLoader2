@@ -2514,4 +2514,9 @@ void USBLoader2Frame::OnTest_TestSelected(wxCommandEvent& event)
 
 void USBLoader2Frame::OnTest_VerbindenSeriellSelected(wxCommandEvent& event)
 {
+    wxString ss;
+
+    Leonardo = new SerialDevice;
+    ss = Leonardo->ListDevicesString();
+    writeLog(ss);
 }
