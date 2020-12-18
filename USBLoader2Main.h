@@ -38,6 +38,9 @@
 #include "USBDevice.h"
 #include "SerialDevice.h"
 
+#define  DIGISPARK  1
+#define  IGSPARK    2
+
 using namespace std;
 
 class USBLoader2Frame: public wxFrame
@@ -51,10 +54,10 @@ class USBLoader2Frame: public wxFrame
     private:
 
         USBDevice* digiSpark;
-        SerialDevice* Leonardo;
+        SerialDevice* igSpark;
         bool fininish;
         bool connected;
-
+        int source;
         bool cfgchange;
 
       //  ConfigData config;
@@ -73,6 +76,10 @@ class USBLoader2Frame: public wxFrame
         void activateMenuComm(bool val);
         void uploadRealTimeValue(void);
         bool isDigiSparkConnected(void);
+        
+        void connectIgSpark();
+        void disconnectIgSpark();
+        bool isIgSparkConnected(void);
 
         //(*Handlers(USBLoader2Frame)
         void OnQuit(wxCommandEvent& event);
@@ -802,6 +809,14 @@ inline bool USBLoader2Frame::isDigiSparkConnected(void)
 {
     if (digiSpark != NULL)
         return digiSpark->isConnected();
+    else
+        return false;
+}
+
+inline bool USBLoader2Frame::isIgSparkConnected(void)
+{
+    if (igSpark != NULL)
+        return igSpark->isConnected();
     else
         return false;
 }

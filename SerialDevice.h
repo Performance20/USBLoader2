@@ -22,10 +22,19 @@
 #endif
 
 #include "serial/serial.h"
+#include "s/SimpleSerial.h"
+
 #include "protocol.h"
 
 using namespace std;
 using namespace serial;
+
+
+//#define CDC_VENDOR_ID		"1A86";
+//#define CDC_PRODUCT_ID		"7523";
+#define CDC_VENDOR_ID		"10C4";
+#define CDC_PRODUCT_ID		"EA60";
+
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Class Serial Connection via CDC USB serial port
@@ -33,13 +42,24 @@ using namespace serial;
 class SerialDevice : public Serial
 {
 private:
-	
+	string vendor_id;
+	string product_id;
+
+	int receiveLoop(uint8_t& cmd, uint8_t& sz, uint8_t* data);
+	int GetValue(uint8_t cmd, uint32_t& val);  // get data FROM ignition module
+
+
 protected:
 
 public:
+	SerialDevice(uint16_t _vendor_id, uint16_t _product_id);
 	SerialDevice(void);
-	string ListDevicesString(void);
+	string print_deviceList(void);
+	void connect_device();
+	~SerialDevice();
+	bool isConnected();
 
+	bool get_OPcounter(uint32_t& val);
 };
 
 

@@ -35,6 +35,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\serial\include\serial\serial.h" />
     <ClInclude Include="About.h" />
     <ClInclude Include="protocol.h" />
     <ClInclude Include="TextStrings.h" />
@@ -387,6 +388,12 @@
       <OutputFile>$(OutDir)$(TargetName).bsc</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Bscmake>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "C:\Users\Helge\source\repos\libusb-master\x64\Debug\dll\libusb-1.0.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>libusb.dll holen</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
@@ -429,7 +436,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Bscmake>
     <PostBuildEvent>
-      <Command>xcopy /y /d "C:\Users\Helge\source\repos\libusb\x64\Release\dll\libusb-1.0.dll" "$(OutDir)"</Command>
+      <Command>xcopy /y /d "C:\Users\Helge\source\repos\libusb-master\x64\Release\dll\libusb-1.0.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>LIBUSB DLL holen</Message>

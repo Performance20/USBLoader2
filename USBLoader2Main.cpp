@@ -7,7 +7,8 @@
  * License:
  **************************************************************/
 
-using namespace std;
+
+#include <stdexcept>
 
 #include "USBLoader2Main.h"
 #include <wx/msgdlg.h>
@@ -21,6 +22,9 @@ using namespace std;
 
 #include "TextStrings.h"
 #include "About.h"
+#include "s/SimpleSerial.h"
+
+using namespace std;
 
 //locale ger("de_DE.UTF-8");
 
@@ -1380,6 +1384,8 @@ USBLoader2Frame::USBLoader2Frame(wxWindow* parent, wxWindowID id)
 
 	this->SetStatusText(STR_CONNECTION_STATUS_NOT_CONNECTED, 1);
     digiSpark = NULL;
+    igSpark = NULL;
+    source = 0;
 }
 
 USBLoader2Frame::~USBLoader2Frame()
@@ -1388,6 +1394,7 @@ USBLoader2Frame::~USBLoader2Frame()
     //*)
     fininish = true;
     if (digiSpark != NULL) delete digiSpark;
+    disconnectIgSpark();
 }
 
 void USBLoader2Frame::activateMenuComm(bool val)
@@ -1416,10 +1423,17 @@ void USBLoader2Frame::uploadRealTimeValue()
 //    uint16_t uvalWord = 0;
     uint32_t uvalDWord = 0;
     uint16_t calc;
+     wxString rstr;
+     bool ret;
 
-    wxString rstr;
-
-    if (digiSpark->get_OPcounter(uvalDWord))
+     if (source == DIGISPARK)
+         ret = digiSpark->get_OPcounter(uvalDWord);
+     else
+         if (source == IGSPARK)
+             ret = igSpark->get_OPcounter(uvalDWord);
+                 
+        
+    if (ret)
     {
         calc = uvalDWord % 86400;  // days
         uvalDWord -= calc;
@@ -1442,7 +1456,7 @@ void USBLoader2Frame::uploadRealTimeValue()
 
         rstr.clear();
         rstr << (calc);
-        OPtimeSek->SetValue(rstr);
+         OPtimeSek->SetValue(rstr);
     }
 }
 
@@ -1512,10 +1526,8 @@ void USBLoader2Frame::OnConnectUsb(wxCommandEvent& event)
 	while (fininish == false) {
         if (isDigiSparkConnected()) writeLog(digiSpark->getLog());
         else OnDisconnectUsb(event);
-        wxYield();
         if (isDigiSparkConnected()) uploadRealTimeValue();
         else OnDisconnectUsb(event);
-        wxYield();
         if (isDigiSparkConnected()) writeLog(digiSpark->getLog());
         else OnDisconnectUsb(event);
         wxYield();
@@ -2510,13 +2522,211 @@ void USBLoader2Frame::OnKomm_BootenSelected(wxCommandEvent& event)
 
 void USBLoader2Frame::OnTest_TestSelected(wxCommandEvent& event)
 {
+    uint32_t bytes_wrote;
+    wxString ss;
+    const string  test = "Hello World";
+
+    try
+    {
+        bytes_wrote = igSpark->write(test);
+        if (igSpark->available())
+        {
+            ss = igSpark->read(bytes_wrote);
+            writeLog(ss + '\n');
+        }
+    }
+    catch (const exception& e)
+    {
+        disconnectIgSpark();
+    }
 }
+#define BUFF_SIZE  25
 
 void USBLoader2Frame::OnTest_VerbindenSeriellSelected(wxCommandEvent& event)
 {
-    wxString ss;
+    wxString ss,s ; 
+    size_t bytes_wrote, back;
+    char  *test = "Hello World\n";
+    wxString incoming;
+    uint8_t cnt;
+    uint8_t state;
+    uint8_t buffer[BUFF_SIZE];
+    uint8_t bufferS[BUFF_SIZE];
+    uint8_t lt[2];
+    uint8_t cmd;
+    uint8_t sz;
+    uint32_t val;
+   
+    fininish = false;
+    try
+    {
+        connectIgSpark();
+        if (isIgSparkConnected())
+        {
+            while (fininish == false)
+            {
+                state = 0;
+                cnt = 0;
+                lt[1] = 0;
+                while (igSpark->available())
+                {
+                    igSpark->read(lt, 1);
+                    incoming += lt;
+                    if (lt[0] == SERIAL_FRAME_START) 
+                        state = 1;  //found frame begin char 
+                    else
+                    {
+                        if (state == 1) //command byte
+                        {
+                            cmd = lt[0];
+                            state = 2;
+                        }
+                        else
+                            if (state == 2) // data size byte
+                            {
+                                if (lt[0] != SERIAL_FRAME_DELIM)
+                                {
+                                    sz = lt[0];
+                                    state = 3;
+                                }
+                            }
+                            else
+                                if (state == 3) // data size byte
+                                {
+                                    if (lt[0] == SERIAL_FRAME_STOP) break;
+                                    else
+                                    {
+                                        if (lt[0] != SERIAL_FRAME_DELIM)
+                                        {
+                                            buffer[cnt] = lt[0];
+                                            cnt++;
+                                        }
+                                    }
+                                }
+                    }
+                }
+                if (incoming.size())
+                {
+                    incoming += "\n";
+                    writeLog(incoming);
+                    incoming.clear();
+                }
+                bufferS[0] = SERIAL_FRAME_START;
+                bufferS[1] = REQ_LOGGING;
+                bufferS[2] = SERIAL_FRAME_DELIM;
+                bufferS[3] = 20;
+                bufferS[4] = SERIAL_FRAME_DELIM;
+                bufferS[5] = 70;
+                bufferS[6] = 70;
+                bufferS[7] = 70;
+                bufferS[8] = 70;
+                bufferS[9] = 70;
+                bufferS[10] = 70;
+                bufferS[11] = 70;
+                bufferS[12] = 70;
+                bufferS[13] = 70;
+                bufferS[14] = 70;
+                bufferS[15] = 70;
+                bufferS[16] = 70;
+                bufferS[17] = 70;
+                bufferS[18] = 70;
+                bufferS[18] = 70;
+                bufferS[19] = 70;
+                bufferS[20] = 70;
+                bufferS[21] = 70;
+                bufferS[22] = 70;
+                bufferS[23] = 70;
+                bufferS[24] = SERIAL_FRAME_STOP;
+                igSpark->write(bufferS, 25);
+                wxMilliSleep(1000);
+               
+                
+                wxYield();
+                //wxSleep(1);
+               // wxMilliSleep(500);
+            
+        }
+    }
+} 
 
-    Leonardo = new SerialDevice;
-    ss = Leonardo->ListDevicesString();
-    writeLog(ss);
+
+    catch (const exception& e)
+    {
+        s = e.what();
+        writeLog(s);
+   }
+}
+
+/*
+void USBLoader2Frame::TestConnect()
+{
+    HANDLE hComm;
+    std::string szPortName;
+
+    hComm = CreateFile(gszPort,
+        GENERIC_READ | GENERIC_WRITE,
+        0,
+        NULL,
+        OPEN_EXISTING,
+        FILE_FLAG_OVERLAPPED,
+        NULL);
+
+    if (hComm == INVALID_HANDLE_VALUE)
+        return;
+
+    DCB dcbSerialParams = { 0 };
+
+    if (!GetCommState(io_handler_, &dcbSerialParams)) 
+    {
+
+            //printf("Warning: Failed to get current serial params");
+    }
+    else 
+    {
+            dcbSerialParams.BaudRate = COM_BAUD_RATE;
+            dcbSerialParams.ByteSize = 8;
+            dcbSerialParams.StopBits = ONESTOPBIT;
+            dcbSerialParams.Parity = NOPARITY;
+            dcbSerialParams.fDtrControl = DTR_CONTROL_ENABLE;
+
+            if (!SetCommState(io_handler_, &dcbSerialParams))
+                printf("Warning: could not set serial port params\n");
+            else {
+                connected_ = true;
+                PurgeComm(io_handler_, PURGE_RXCLEAR | PURGE_TXCLEAR);
+            }
+        }
+    }
+
+}
+*/
+void USBLoader2Frame::connectIgSpark()
+{
+    wxString ss;
+    size_t bytes_wrote;
+    const string  test = "Hello World";
+
+    igSpark = new SerialDevice();
+    igSpark->connect_device();
+
+    if (isIgSparkConnected())
+    {
+        this->SetStatusText(STR_CONNECTION_STATUS_CONNECTED, 1);
+        connected = true;
+    }
+    else
+    {
+        writeLog(STR_USB_NOT_FOUND + '\n');
+        writeLog(igSpark->print_deviceList());
+        //writeLog(digiSpark->getLog());
+        disconnectIgSpark();
+    }
+}
+
+void USBLoader2Frame::disconnectIgSpark()
+{
+    this->SetStatusText(STR_CONNECTION_STATUS_NOT_CONNECTED, 1);
+    connected = false;
+    if (igSpark != NULL) delete igSpark;
+    igSpark = NULL;
 }

@@ -218,4 +218,9 @@ volatile static const ignition_point_t* ignition_point_tbls[3] = {
 #define DATA_STRING_SIZE_IN_BYTE			15						// size in Byte of one transfered String = 15 Byte
 #define DATA_TABLE_SIZE_IN_BYTE				(sizeof(ignition_point_t)*ignition_point_tbl_SIZE)  // size in Byte of one transfered table
 
+#define SERIAL_PROTOKOLL_BYTE				6
+#define SERIAL_FRAME_START					'{' // serial paket = {Command:Datasize:DataX}  = Standard
+#define SERIAL_FRAME_STOP					'}' //                   1Byte   1Byte  XByte
+#define SERIAL_FRAME_DELIM					':'
+
 #endif /* PROTOCOL_H_ */
